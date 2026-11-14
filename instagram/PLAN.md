@@ -1,116 +1,93 @@
 # @adsbymayur: Instagram plan, 6 → 10k
 
-Written 14 Nov 2026. Instagram first, LinkedIn later.
+Rewritten 14 Nov 2026. Instagram first, LinkedIn later.
 
-## Who the account is for and what it sells
+## Who it's for
 
-- **Mayur, Creative Strategist, Studio Head at Glimsera Studio.**
-- **Watcher we want:** founders and marketers at beauty, skincare and wellness brands, plus media buyers and agencies who need better creative. Not other creators.
-- **What they should think after 3 reels:** "This guy knows why ads sell, and he can make them."
-- **The one thing to ask for:** the free brand audit (link in bio, glimsera.com/studio).
-- **The job, in one line for the audience:** the ads team runs the ads; the creative strategist decides what goes in them (angle, hook, visual, page).
+**Beauty and wellness brand founders**, not marketers and not AI fans. Every reel answers one founder question: *"Why isn't my ad selling, and what should it say instead?"*
 
-## What the data says (last 7 days, Nov 2026)
+- **Bio promise:** turn market demand into creative that sells (ad creatives, product photography, high-converting pages).
+- **The ask on every reel:** a comment keyword, then a DM, then the free brand audit.
+- **Rules** (from the Glimsera Studio plan):
+  - Never mock a brand by name: blur the logo, or describe "a hair-loss brand".
+  - Never lead a headline with "AI". Founders buy results, not tools.
+  - Never promise ROAS or sales.
+  - Every number on screen must be real and dated.
 
-1. **Instagram ranks on watch time, DM shares ("sends") and likes per reach.** Short reels watched twice beat long reels watched once. Aim for 15–35 seconds.
-2. **One clear topic wins.** Viewers can now tune "Your Algorithm" by topic, so a single-niche account gets recommended more reliably. Stay on "beauty ads + AI creative". Nothing off-topic.
-3. **Originality is enforced.** Accounts that mostly repost others' content are pulled from recommendations. Never post a brand's ad raw. Show it small, then add our own breakdown or our AI remake.
-4. **Max 5 hashtags.** Use 3: `#creativestrategy #adcreative #beautymarketing`.
-5. **Trial Reels** go to non-followers first. Use them to test 2 hooks for the same video.
-6. **Black Friday is 27 Nov.** About 40% of BFCM 2026 ads are skincare and beauty, 41% of those add a free gift, and the top format is creator-style talking-to-camera. Beauty BF ads are the most timely thing we can break down for the next 2 weeks.
-7. **AI ad tools are the hot creator topic right now** (Higgsfield Marketing Studio, Nano Banana, Seedream 5.5, Veo, Kling). "I made this ad with AI" plus a real before/after is the most shareable faceless format in our space.
-8. Real reel numbers are below, pulled with our own scraper (`joyful_expression/instagram-scraper`).
+## The data these reels are built on
 
-## Real data: reels from 7–14 Nov 2026 (our scraper, pulled 14 Nov)
-
-"x" = views compared with that account's normal (median) reel. Over 2x = it broke out.
-
-| Reel | Views | x | Comments | What made it work |
-|---|---|---|---|---|
-| Higgsfield: "One static camera. That's all I filmed." + **Comment ANGLE** (14 days old) | 490k | 5.1x | **16,153** | Before/after reveal + comment keyword. A 3.3% comment rate, about 6x normal |
-| Huda Beauty: "should we do a giveaway? 👀" | 858k | 4.3x | 3,995 | A question as the whole hook, which pulls comments |
-| Claude: Diwali decor, "but you're an engineer" (9 days) | 873k | 5.6x | 1,419 | A cultural moment + a clever AI twist |
-| Higgsfield: "We asked Claude Fable 5.2 to finish da Vinci's flying machine" | 241k | 2.5x | 6,087 | **"We asked AI to…"** + the week's biggest news |
-| Claude: Fable 5.2 launch | 274k | 1.8x | 565 | News of the week |
-| Huda Beauty: Cyber Fest sale early access | 273k | 1.4x | 1,412 | Sale teaser, 22 s |
-| Higgsfield: "The most viral ads format for any product" + Comment DRAMA | 101k | 1.1x | 566 | Promises an ad format; our exact audience |
-| Arcads (all-time best): "Not sure if I should be sharing this…" + Comment ARCADS | 705k | n/a | 11,190 | Forbidden-secret hook + comment keyword |
-| Marketing Harry: "I gave ChatGPT, Gemini and Claude the same brief" | n/a | n/a | 77 (his best this week) | AI tool comparison sparks debate |
-
-**What this means for us:**
-1. **The comment keyword is the growth engine.** Every big reel in our niche ends with "Comment WORD and I'll send it." Use it on every reel.
-2. **The week's news is Claude Fable 5.2** (launched about 10 Nov) and Higgsfield's 60%-off sale. Content that rides this news must go out in the next 7 days.
-3. **"We asked AI to…" and before/after reveals are the formats breaking out.** Pure tips don't appear in the top list.
-4. **A question hook works for beauty brands** ("should we do a giveaway?"). Borrow it for A/B reels: "which ad would you click?"
-5. **Big-brand sale reels sit at only 1.0–1.4x.** Black Friday content works as a teardown of their ads, not as a sale post.
-
-**Gaps:** several creative-strategist accounts hit Instagram's login wall in our scraper: dara.denney, thesocialsavannah, alyshafrommotion, motionapp, codyplofker. The scraper reads profiles, not hashtags, so pulling hashtag data still needs an Apify plan that allows public Actors.
-
-## Format: faceless, same look as Glimsera Studio
-
-- **9:16, 15–35 s.** Bold on-screen hook in the first 1–2 s. Calm voice-over (an AI voice now, your own voice later).
-- **Look:** Plus Jakarta Sans, ink `#131A12` background or a dark overlay on B-roll, green `#A3E635` highlights, amber `#FFC24D` for "the leak" or the mistake.
-- **Visual sources (no face needed):**
-  - screen recordings of Meta Ad Library, Claude, Higgsfield, Canva
-  - before/after product visuals made by the studio
-  - product B-roll from the creative-studio pipeline
-  - hands and a desk with the product (your hands only)
-- **Every reel ends with a DM keyword CTA:** "Comment AUDIT / PROMPT / HOOKS and I'll send it." Comments and DMs feed reach and bring leads.
-
-## Content mix (5 reels a week)
-
-| Pillar | Share | Why |
+| Source | What it gives us | Date |
 |---|---|---|
-| **AI remake / before-after:** "brand's ad → my version" | 35% | Most visual and most shared; shows the service |
-| **Ad teardown:** why a long-running beauty ad works | 30% | Authority; the free audit in miniature |
-| **Workflow and prompts:** how I make it with Claude + Higgsfield | 20% | Saves, DM keywords, follows from marketers |
-| **Strategist takes:** short opinions on text over B-roll | 15% | Cheap to make, sparks comments |
+| Meta Ad Library, 30 beauty brands (`ad-intelligence/artifact-exports/glimsera/30-beauty-brands.html`) | 23 of 30 leak sales. 9 run 6 ads or fewer. 8 repeat one angle. 7 lead with discounts only. 5 have generic hooks | 9 Oct 2026, re-pull before posting |
+| @glimsera feed (100k beauty audience, our scraper) | What beauty buyers engage with this week: brown lip combos, candy-cane Christmas nails, pimple patch under makeup, curtain bangs, wolf vs butterfly cut | 10–14 Nov 2026 |
+| BFCM 2026 ad analysis (GoMarble, 367 ads) | ~40% of BF ads are beauty, 41% of those add a free gift, creator talking-to-camera leads | Nov 2026 |
+| UAE clinic ad, live 138+ days | Price-first, Tabby/Tamara, one buyer | Adsnora reel-drop |
+| Instagram top reels in creative/ads niche (our scraper) | Keyword-CTA reels get 5–6x normal comments (16k on one reel) | 1–14 Nov 2026 |
 
-## The 20 faceless videos
+## Format: faceless, Glimsera Studio look
 
-Each line gives the hook (the first 2 seconds on screen), what's on screen, and the CTA.
-**BF** = post before 27 Nov.
+- **9:16, 15–35 s.** The hook appears as big text in the first frame. Calm voice-over (AI voice now, your voice later).
+- **Look:** Plus Jakarta Sans, ink `#131A12`, green `#A3E635` for the fix, amber `#FFC24D` for the leak.
+- **Visuals:** Ad Library screen recordings (logos blurred), review screenshots, before/after product photos made by the studio, product page split screens, your hands with products.
+- **End frame:** "Comment WORD and I'll send it."
 
-### Before/after: AI remakes
-1. **"This brand pays for photos. I made a better one with AI in 10 minutes."** Their flat product shot, then our Higgsfield version, with 3 callouts on what changed (light, hero angle, a hand). CTA: comment PROMPT.
-2. **"Same serum. Same price. Which ad stops your scroll?"** A/B split: discount-only ad vs angle-led ad. Ask viewers to comment A or B, then explain. Drives comments.
-3. **"I turned one product photo into 5 ads."** One photo fans out into 5 angles: problem, ingredient, routine, gift, before/after-style texture. CTA: comment 5.
-4. **"Recreating a viral ad structure with a brand that's never had one."** Show the beats of a viral ad as a diagram (no footage copied), then our version with the same beats. Glimsera sunscreen is a good fit.
-5. **BF: "Your Black Friday ad, but it doesn't look like everyone else's."** A generic "40% OFF" banner, then a gift-set hero shot. 41% of beauty BF ads add a free gift; show it properly.
-6. **"Product photo vs product photo that sells."** Three fixes, one per beat: angle, context, scale. Amber "leak" tag on the before.
+## 5 series, 25 reels
 
-### Ad teardowns: proof you understand buying
-7. **BF: "This skincare brand put the price in the first second. Here's why."** Huda-style hook-first saving. Explain why saving-first works on BF and fails the rest of the year.
-8. **BF: "'I thought the price was a mistake.' Best Black Friday hook I've seen this year."** Bundle maths shown item by item (£19.50 vs £84). The structure: shock line, then proof, then the offer.
-9. **BF: "A skincare giant shuts its store on Black Friday. It still wins."** Deciem's "moment of nothingness": an anti-discount angle as a creative strategy.
-10. **"This ad has run for 4+ months. That means it's making money."** Meta Ad Library scroll and run days, then 3 things it does. Reuse the reel-drop format from the studio.
-11. **"I checked the longest-running ads of 10 beauty brands. They all do these 3 things."** Listicle; highest save potential. CTA: comment LIST.
-12. **"Why your ad gets 3 seconds and no sale."** Hook OK, then the product page breaks the promise. This is Leak 3 from the studio page.
+The series names repeat so people recognise them and follow for the next one.
 
-### Workflow and prompts: how it's made
-13. **"My full ad process in 30 seconds: Research → Message → Create → Convert."** Four fast screens: Ad Library, review mining, Higgsfield, the page.
-14. **"I steal hooks from 1-star reviews."** Screen-record review mining with Claude: complaint → hook. CTA: comment HOOKS.
-15. **"The prompt I use for product photos that keeps the label right."** The 6-pillar prompt on screen. CTA: comment PROMPT.
-16. **NEW, post this week: "I asked Claude Fable 5.2 to build a beauty brand's full ad campaign."** Screen-record it: research, 5 angles, hooks, then Higgsfield visuals. Rides the biggest news of the week; same format as Higgsfield's 2.5x reel. CTA: comment FABLE.
+### Series 1: "The Leak": data from 30 brands' live ads
+1. **"I checked the Meta ads of 30 beauty brands. 23 are leaking sales in the same 4 places."** 4 bars: too few ads (9), one angle (8), discount-only (7), no hook (5). CTA: **LEAK**, and I'll check yours.
+2. **"This hair brand runs 206 ads. 23 of the 25 I read say the same sentence."** Blurred ad grid; the same line highlighted 23 times. "That's not 206 ads. That's 1 ad, 206 times." Then 5 angles it isn't testing. CTA: **ANGLE**.
+3. **"85 ads. Not one says what the product does."** Blurred skincare brand; generic headlines scroll. Rewrite 3 of them live into benefit/problem hooks. CTA: **HOOK**.
+4. **"This sunscreen brand gets ~14,000 Google visits a month. It runs 1 Meta ad."** "The demand is there. The creative isn't." Show the 3 ads it should run. CTA: **AUDIT**.
+5. **"9 of 14 ads from this serum brand say: 'One Serum. 7 Peptides. $59.97.'"** Ingredients and price aren't a reason to buy. Show it rebuilt as a problem, a result and a routine. CTA: **ANGLE**.
 
-### Strategist takes: text over B-roll
-17. **"Creative strategist vs media buyer. Most brands hire the wrong one first."** Who decides what goes in the ad vs who runs it.
-18. **"Your ad isn't failing. Your discount is doing all the work."** Leak 1. The cost of training buyers to wait for sales.
-19. **"I gave ChatGPT, Gemini and Claude the same skincare ad brief."** Three results side by side, then you pick the winner and say why. Comparison posts get the most comments in this niche. CTA: comment BRIEF.
-20. **"I'll audit your brand's ads for free. Here's exactly what you get."** The 5 audit items on screen, delivered in 48 h. CTA: comment AUDIT. Pin this to the profile.
+### Series 2: "Still Running": ads that keep spending, decoded
+6. **"This ad has run 138 days straight. Brands don't pay 138 days for an ad that doesn't sell."** UAE price-first ad: price on the image, Tabby/Tamara, one buyer. 3 things to copy, 1 to fix (the hook). CTA: **138**.
+7. **"The ugliest beauty ad in the Ad Library is also one of the longest-running. Here's why."** Plain price-list or text ad versus polished competitors. Clarity beats pretty. CTA: **UGLY**.
+8. **"Best Black Friday beauty hook this year: 'I thought the price was a mistake.'"** Bundle maths item by item (£19.50 vs £84 worth). The structure: shock line, proof, offer. CTA: **BF**.
+9. **"41% of beauty Black Friday ads add a free gift. Most bury it."** Show the gift as the hero shot vs "+ free gift" in small text. Make the before/after with our product photos. CTA: **GIFT**.
+10. **"The Ordinary's parent company shuts its store on Black Friday. That's a creative strategy too."** Deciem's anti-discount angle; when "no sale" works as the message. CTA: **BF**.
 
-## Posting plan
+### Series 3: "Demand → Ad": what buyers want this week, turned into the ad (this is your bio promise)
+11. **"Our 100k beauty audience is obsessed with brown lip combos this week. Here's the ad a lip brand should run tomorrow."** Trend screenshot, then the hook, hero shot and offer we'd build. CTA: **DEMAND**.
+12. **"Everyone's asking: can you put makeup over a pimple patch? A skincare brand should answer it in an ad."** Real question, then a 3-beat ad: question, demo, product. CTA: **DEMAND**.
+13. **"Christmas nails: 'book 1–2 weeks before the 25th.' That's not a tip, it's a deadline hook."** How nail and salon brands turn timing into urgency without a discount. CTA: **XMAS**.
+14. **"One 3-star review: 'smells amazing but my hands feel sticky.' That's our best hook."** Review, then "Clean hands. Never sticky.", then ad, then a page that matches. (The studio's own example.) CTA: **REVIEW**.
+15. **"Your competitor's 1-star reviews are your next ad."** Screen: 5 complaint reviews become 3 hooks your product answers. CTA: **REVIEW**.
+16. **"Ramadan starts in about 12 weeks. UAE beauty brands should be shooting these ads now."** Suhoor/iftar routines, gifting, Eid glam: 3 angles with timings. CTA: **RAMADAN**.
 
-- **Week 1 (14–20 Nov):** 16 (Fable 5.2, post first), 1, 7, 8, 20 (pin 20). Run 7 and 8 as Trial Reels with 2 hooks each.
-- **Week 2 (21–27 Nov, BF):** 5, 9, 2, 14, 18.
-- **Weeks 3–4:** the rest. Then double down on whichever pillar got the most sends per reach.
-- **Every reel:** first frame = the hook as text, no logo intro. Caption = the hook plus one useful line plus the keyword CTA. 3 hashtags. Collab-post the best one each week with @glimsera.
-- **Every Friday:** check sends, saves, watch time and profile visits per reel. Keep the hook styles that win; kill the pillar that loses twice.
+### Series 4: "Same Product, New Angle": before/after of the work itself
+17. **"Same serum. 3 photos. Which one sells?"** 1 = recycled white background, 2 = hero shot, 3 = in hand, in context. Comment 1/2/3; reveal in a follow-up. Our own product photos.
+18. **"Your product next to 5 competitors. Can you find it?"** A grid where it blends in; then our photo makes it pop. That's Leak 2. CTA: **PHOTO**.
+19. **"This ad promised 'glass skin in 7 days.' The page said 'Shop our serum.'"** Split screen ad vs page; then the page rebuilt to say the same thing. That's Leak 3. CTA: **PAGE**.
+20. **"I rebuilt one product page around one ad. Before / after."** Scroll both versions: headline, proof, objection, button. CTA: **PAGE**.
+21. **"One product photo, 5 ads, 5 different buyers."** Problem, ingredient, routine, gift and result angles from the same shot. CTA: **5**.
 
-## When you add your face (after video 20)
+### Series 5: "Founder Notes": short opinions as text over product B-roll
+22. **"Your discount isn't a strategy. It's what you run when you don't know what to say."** 7 of 30 brands were discount-only. CTA: **ANGLE**.
+23. **"Every beauty brand says 'glow.' Here are 7 words your customers actually use."** Real review phrases versus brand words. CTA: **WORDS**.
+24. **"Your agency runs your ads. Who decides what goes in them?"** Media buyer vs creative strategist, in one sentence each. CTA: **AUDIT**.
+25. **"I'll find 5 angles your competitors run that you don't. Free, in 48 hours."** The 5 audit items on screen. **Pin this one.** CTA: **AUDIT**.
 
-Start with voice only, then hands, then a 2-second face cut-in at the end ("I'm Mayur, I do this for beauty brands"). No talking-head monologues needed. The reels stay the same; you're the narrator.
+## Posting order (5 a week)
+
+- **Week 1 (14–20 Nov):** 1, 8, 11, 17, 25 (pin 25). Data, BF timing, trend, a comment-bait A/B and the offer.
+- **Week 2 (21–27 Nov, Black Friday):** 9, 2, 12, 19, 22.
+- **Week 3:** 6, 3, 13, 18, 14.
+- **Week 4:** 4, 10, 16, 20, 23.
+- **Spare:** 5, 7, 15, 21, 24.
+- **Trial Reels:** test 2 hooks for #1 and #2.
+- **Every Friday:** compare sends, saves and comments per reach by series. Double the winning series; cut a series that loses twice.
+
+## Before each Series 1 or 2 reel
+
+Re-pull that brand's ads (our `facebook-ads-library-scraper` actor). Numbers from 9 Oct may have changed, and every number on screen must be true on the day it's posted.
+
+## When you add your face
+
+After about 25 reels: voice first, then hands, then a 2-second face cut-in at the end ("I'm Mayur. I do this for beauty brands.").
 
 ## Honest maths
 
-6 → 10k won't come from 20 reels alone. With 5 reels a week, the realistic first milestone is **1k in 6–8 weeks**, if 1 or 2 reels break out to non-followers. Breakouts come from remakes and BF teardowns, not tips. Track sends per reach; that's the number that predicts growth.
+At 5 a week, a realistic first target is about 1k followers in 6–8 weeks, if Series 1 or 3 breaks out to non-followers. Followers alone aren't the goal: 10 founders commenting AUDIT is worth more than 1,000 marketers.
