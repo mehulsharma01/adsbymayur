@@ -24,7 +24,7 @@ for k, (f, t, g) in enumerate(ev):
 fil.append(f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo,atrim=0:{TOT:.3f},loudnorm=I=-30:TP=-3,afade=t=in:d=0.6,afade=t=out:st={TOT-2.2:.3f}:d=2.2[mus]")
 fil.append("[0:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-16:TP=-2,asplit=2[vo][vok]")
 fil.append("[mus][vok]sidechaincompress=threshold=0.02:ratio=5:attack=15:release=400[duck]")
-fil.append(f"[vo][duck]{''.join(lab)}amix=inputs={2+len(lab)}:normalize=0:duration=first[mx]")
+fil.append(f"[vo][duck]{''.join(lab)}amix=inputs={2+len(lab)}:normalize=0:duration=longest,apad,atrim=0:{TOT:.3f}[mx]")
 fil.append("[mx]loudnorm=I=-14:TP=-1.0:LRA=9[out]")
 subprocess.run(["ffmpeg", "-v", "error", *inp, "-filter_complex", ";".join(fil), "-map", "[out]", "-ar", "48000", "-c:a", "pcm_s16le", "-y", a.out or "mix.wav"], check=True)
 print("mixed", round(TOT, 2), "s with", len(ev), "sfx")
