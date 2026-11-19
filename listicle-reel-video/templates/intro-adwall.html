@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Instrument+Serif:ital@1&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:"Plus Jakarta Sans",sans-serif;color:#0E120D;background:#fff;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(70% 30% at 12% 2%,#EAFBD9 0%,rgba(255,255,255,0) 70%),radial-gradient(60% 25% at 100% 30%,#F1EEFE,rgba(255,255,255,0) 70%),#fff}
+.a{position:absolute}
+.w{display:inline-block;will-change:transform,opacity}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.chip{background:#0E120D;color:#fff;border-radius:14px;padding:0 14px}
+#wall{position:absolute;left:24px;top:930px;width:1032px;height:990px;overflow:hidden}
+.col{position:absolute;top:0;width:96px}
+.t{width:96px;height:139px;border-radius:9px;overflow:hidden;margin-bottom:8px;position:relative;box-shadow:0 6px 14px -10px rgba(0,0,0,.4)}
+.t img{width:100%;height:100%;object-fit:cover;display:block}
+.t i{position:absolute;inset:0;border-radius:9px;box-shadow:inset 0 0 0 4px #7BE35A;opacity:0}
+.fade{position:absolute;left:0;right:0;bottom:0;height:380px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 72%)}
+#mark{position:absolute;left:70px;height:150px;background:#B6F07A;border-radius:14px;transform-origin:left;z-index:0}
+</style></head><body><div class="bg"></div>
+<div class="a" id="l1" style="left:76px;top:150px;font-weight:700;font-size:64px;letter-spacing:-.03em">I analysed</div>
+<div class="a" id="markwrap" style="left:0;top:0"><div id="mark" style="top:400px;width:560px;height:100px"></div></div>
+<div class="a" id="num" style="left:58px;top:215px;font-weight:800;font-size:330px;letter-spacing:-.07em;line-height:1;z-index:2"><span id="cnt">0</span><span style="color:#2E8B1E">+</span></div>
+<div class="a" id="l3" style="left:76px;top:560px;font-weight:800;font-size:84px;letter-spacing:-.045em">e&#8209;commerce ads.</div>
+<div class="a" id="l4" style="left:76px;top:690px;font-weight:700;font-size:56px;letter-spacing:-.03em;line-height:1.12"><span class="w">These</span> <span class="w chip">10</span> <span class="w">offers</span> <span class="w">are</span> <span class="w serif" style="font-size:78px">winning</span><br><span class="w">right</span> <span class="w">now.</span></div>
+<div id="wall"></div><div class="fade" style="top:auto"></div>
+<div class="a" id="more" style="left:0;right:0;top:1795px;text-align:center;font-weight:800;font-size:46px;letter-spacing:-.02em">+ 500 more ads ↓</div>
+<script>
+const COLS=10,ROWS=14;const wall=document.getElementById('wall');const cols=[];const tiles=[];
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+for(let c=0;c<COLS;c++){const col=document.createElement('div');col.className='col';col.style.left=(c*104)+'px';
+ let h='';for(let r=0;r<ROWS;r++){const k=Math.floor(rnd()*60);h+=`<div class="t"><img src="arts/${String(k).padStart(3,'0')}.jpg"><i></i></div>`}
+ col.innerHTML=h;wall.appendChild(col);cols.push(col);[...col.children].forEach((t,r)=>tiles.push({t,c,r}))}
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),r=(t,a,b)=>cl((t-a)/(b-a)),eo=x=>1-Math.pow(1-x,3),eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,eb=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)},ei=x=>x*x*x;
+const OUT=5.7,TOTAL=6.3;
+const S=(el,o,tf)=>{el.style.opacity=o;el.style.transform=tf};
+// scan schedule
+const scan=tiles.map(()=>rnd()*4.2+1.4);
+function seek(t){
+ const out=eio(r(t,OUT,TOTAL));
+ // text
+ const a1=eo(r(t,0,.35));S(document.getElementById('l1'),a1*(1-out),`translateY(${(1-a1)*30-out*200}px)`);
+ const an=eb(r(t,.1,.7));S(document.getElementById('num'),cl(an)*(1-out),`translateY(${-out*260}px) scale(${.6+.4*an})`);
+ document.getElementById('num').style.transformOrigin='left center';
+ document.getElementById('cnt').textContent=Math.round(500*eo(r(t,.15,1.6)));
+ const mk=eio(r(t,1.55,1.95));S(document.getElementById('mark'),1-out,`scaleX(${mk}) translateY(${-out*260}px)`);
+ // pulse on 500 when reaching
+ const p=r(t,1.6,1.9);document.getElementById('num').style.transform+=` scale(${1+Math.sin(p*Math.PI)*.06})`;
+ const a3=eo(r(t,.6,1.0));S(document.getElementById('l3'),a3*(1-out),`translateY(${(1-a3)*40-out*260}px)`);
+ [...document.querySelectorAll('#l4 .w')].forEach((w,j)=>{const a=eb(r(t,1.9+j*.08,2.35+j*.08));w.style.opacity=cl(a)*(1-out);w.style.transform=`translateY(${(1-a)*36-out*260}px)`});
+ // wall: cascade in by diagonal, columns marquee alternate
+ tiles.forEach(({t:el,c,r:rr},i)=>{const d=(c*.05+rr*.06);const a=eb(r(t,.25+d,.75+d));
+  const fly=ei(r(t,OUT-.1+c*.02,TOTAL));
+  el.style.opacity=cl(a)*(1-fly);el.style.transform=`translateY(${(1-cl(a))*80-fly*700}px) scale(${.7+.3*cl(a)}) rotate(${(1-cl(a))*(c%2?6:-6)}deg)`;
+  const s=scan[i];const sa=cl(1-Math.abs(t-s)/0.35);el.querySelector('i').style.opacity=sa});
+ cols.forEach((col,c)=>{const dir=c%2?1:-1;col.style.transform=`translateY(${dir*t*38-(dir>0?120:0)}px)`});
+ const m=document.getElementById('more');const am=eo(r(t,2.4,2.9));m.style.opacity=am*(1-out);m.style.transform=`translateY(${(1-am)*30+Math.sin(t*4)*4}px)`;
+ document.querySelector('.fade').style.opacity=1;
+}
+const _seek=seek;function seek2(t){const tt=t<1.6?t*2:5.55+(t-1.6)/0.4*0.75;_seek(Math.min(tt,6.3));}
+window.seek=seek2;window.TOTAL=2.1;seek2(0);
+</script></body></html>
