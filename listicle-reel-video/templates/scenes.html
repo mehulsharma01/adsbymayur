@@ -1,0 +1,124 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">
+<style>
+:root{--ink:#0E120D;--accent:#2E8B1E;--lime:#B6F07A;--green:#7BE35A;--muted:#6B7368;--line:#E4ECDD;--mint:#E6FBD2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:"Plus Jakarta Sans",sans-serif;color:var(--ink);background:#fff;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(70% 38% at 15% 4%,#EAFBD9 0%,rgba(255,255,255,0) 70%),radial-gradient(60% 35% at 95% 30%,#EFEAFE 0%,rgba(255,255,255,0) 70%),radial-gradient(80% 40% at 50% 105%,#F1FBE8 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,#FFFFFF,#FBFDF8)}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55}
+.abs{position:absolute;will-change:transform,opacity}
+.eyebrow{font-weight:700;font-size:30px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.pill{display:inline-flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:99px;padding:14px 26px;box-shadow:0 18px 40px -22px rgba(14,18,13,.35)}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(123,227,90,.25)}
+h1{font-weight:800;letter-spacing:-.045em;line-height:.98}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.w{display:inline-block;will-change:transform,opacity}
+.mark{position:relative;display:inline-block}
+.mark i{position:absolute;left:-8px;right:-8px;bottom:6px;height:38%;background:var(--lime);border-radius:10px;z-index:-1;transform-origin:left}
+.card{width:230px;height:470px;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -28px rgba(14,18,13,.45);border:6px solid #111}
+.card img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone{width:600px;height:1230px;background:#101210;border-radius:96px;padding:18px;box-shadow:0 0 0 3px #2c302b inset,0 80px 120px -50px rgba(14,18,13,.55),0 30px 60px -30px rgba(14,18,13,.35)}
+.phone .scr{width:100%;height:100%;border-radius:80px;overflow:hidden;background:#fff;position:relative}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.phone .isl{position:absolute;top:22px;left:50%;margin-left:-62px;width:124px;height:36px;border-radius:99px;background:#101210;z-index:2;opacity:0}
+.pastel{width:860px;height:1120px;border-radius:64px}
+.chip{background:#fff;border-radius:28px;padding:22px 28px;box-shadow:0 30px 60px -24px rgba(14,18,13,.4);border:2px solid var(--line);font-weight:800;font-size:34px;line-height:1.15;max-width:470px}
+.chip small{display:block;font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.bignum{font-weight:800;font-size:420px;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:3px #E4ECDD;line-height:1}
+.prog{position:absolute;top:56px;left:60px;right:60px;display:flex;gap:10px}
+.prog i{flex:1;height:8px;border-radius:9px;background:#E9EEE5;overflow:hidden;position:relative}
+.prog i b{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+</style></head><body>
+<div class="bg"></div>
+<div class="blob abs" id="b1" style="width:520px;height:520px;background:#D9F7BE;left:-160px;top:120px"></div>
+<div class="blob abs" id="b2" style="width:480px;height:480px;background:#E3DCFD;right:-160px;top:760px"></div>
+<div class="prog abs" id="prog"></div>
+<div id="stage"></div>
+<script>
+const O=[
+ {n:'Discount',sub:'A clear price cut, shown <span class="serif">right next</span> to the old one.',chip:['On the page','$148 <s style="color:#9aa196;font-weight:600">$248</s> · 40% off'],c:'#EFEAFE'},
+ {n:'Welcome Offer',sub:'A free gift for the <span class="serif">first</span> order, not just a code.',chip:['On the page','Free hat + D3K2 + 5 travel packs'],c:'#FFF4D6'},
+ {n:'Bundle / Kit',sub:'Sell the <span class="serif">whole routine</span> in one box.',chip:['On the page','The Signature Package · 856 reviews'],c:'#E6FBD2'},
+ {n:'Tiered Pricing',sub:'Buy more, pay <span class="serif">less each</span>.',chip:['On the page','$19.95 → $13.97 per stick'],c:'#FFE9E0'},
+ {n:'Spend Thresholds',sub:'“Spend a little more” <span class="serif">unlocks</span> a reward.',chip:['On the page','Spend £5 more → free delivery'],c:'#E4F1FF'},
+ {n:'Mystery Offer',sub:'Curiosity <span class="serif">plus</span> a timer.',chip:['On the page','Mystery item · 25% off'],c:'#EFEAFE'},
+ {n:'Free Gifts',sub:'Gifts feel <span class="serif">bigger</span> than a % off.',chip:['On the page','Save up to 58% + 5 free gifts'],c:'#FFF4D6'},
+ {n:'Subscribe & Save',sub:'One sale becomes <span class="serif">every month</span>.',chip:['On the page','Save 20% · ships every 30 days'],c:'#E6FBD2'},
+ {n:'Risk-Free Returns',sub:'Take the risk <span class="serif">off</span> the buyer.',chip:['On the page','100-day hassle-free returns'],c:'#FFE9E0'},
+ {n:'Time-Limited Sale',sub:'A deadline makes people <span class="serif">act now</span>.',chip:['On the page','Anniversary Sale · up to 50% off'],c:'#E4F1FF'}];
+const st=document.getElementById('stage');
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), r=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3), eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2, ei=x=>x*x*x;
+const eb=x=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const S=(el,o)=>{el.style.transform=o.tf||'';if(o.op!==undefined)el.style.opacity=o.op;if(o.f!==undefined)el.style.filter=o.f};
+const H=s=>{const d=document.createElement('div');d.innerHTML=s;return d.firstElementChild};
+// progress
+const prog=document.getElementById('prog');prog.innerHTML=O.map(()=>'<i><b></b></i>').join('');
+// INTRO (A: giant number)
+const TM=window.TM||{intro:4.2,seg:Array(10).fill(3.4),outro:3.6};
+const ST=[];{let c=TM.intro;for(const d of TM.seg){ST.push(c);c+=d}}
+const T0=TM.intro, END=ST[9]+TM.seg[9], TOTAL=END+TM.outro;
+const I={};
+const HK=window.HOOK||{eb:'Ecom ad research',pre:'',post:'ecom ads analysed.<br>These <b>10</b> are <i>going viral</i> right now.'};
+const wrapW=h=>h.split(/(<br>|<b>.*?<\/b>|<i>.*?<\/i>)/).filter(Boolean).map(p=>p==='<br>'?'<br>':p.startsWith('<b>')?`<span class="w" style="background:var(--ink);color:#fff;border-radius:16px;padding:0 16px">${p.slice(3,-4)}</span>`:p.startsWith('<i>')?`<span class="w serif" style="font-size:1.3em;font-weight:400">${p.slice(3,-4)}</span>`:p.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ')).join(' ');
+I.pill=H(`<div class="abs pill" style="left:80px;top:180px"><span class="dot"></span><span class="eyebrow">${HK.eb}</span></div>`);
+I.pre=H(`<div class="abs" style="left:84px;top:270px;font-weight:700;font-size:56px;letter-spacing:-.03em;color:var(--muted)">${HK.pre}</div>`);
+I.num=H(`<div class="abs" style="left:60px;top:${HK.pre?320:250}px;font-weight:800;font-size:340px;letter-spacing:-.07em;line-height:1"><span id="cnt">0</span><span style="color:var(--green)">+</span></div>`);
+I.l2=H(`<h1 class="abs" style="left:80px;top:${HK.pre?680:640}px;font-size:${HK.fs||76}px;width:930px;line-height:1.05">${wrapW(HK.post)}</h1>`);
+st.appendChild(I.pre);
+[I.pill,I.num,I.l2].forEach(e=>st.appendChild(e));
+I.ph=[[120,1180,-9,1],[630,1180,9,10],[375,1110,0,7]].map(([x,y,r,k])=>{const p=H(`<div class="abs phone" style="left:${x}px;top:${y}px;width:330px;height:680px;border-radius:60px;padding:12px;z-index:${k==7?2:1}"><div class="scr" style="border-radius:50px"><img src="shots/${k}_t.png"></div></div>`);p.dataset.r=r;st.appendChild(p);return p});
+// OFFERS
+const G=O.map((o,i)=>{
+ const g={};const k=String(i+1).padStart(2,'0');
+ g.num=H(`<div class="abs bignum" style="right:40px;top:150px">${k}</div>`);
+ g.eb=H(`<div class="abs pill" style="left:80px;top:150px"><span class="dot"></span><span class="eyebrow">Offer ${k} / 10</span></div>`);
+ g.h=H(`<h1 class="abs" style="left:80px;top:260px;font-size:${o.n.length>14?104:122}px;width:940px">${o.n}</h1>`);
+ g.s=H(`<div class="abs" style="left:82px;top:${o.n.length>14?390:410}px;width:900px;font-size:40px;font-weight:600;color:var(--muted);letter-spacing:-.01em">${o.sub.replace('class="serif"','class="serif" style="color:var(--ink);font-size:48px"')}</div>`);
+ g.p=H(`<div class="abs pastel" style="left:110px;top:620px;background:${o.c}"></div>`);
+ g.ph=H(`<div class="abs phone" style="left:240px;top:560px"><div class="scr"><img src="shots/${i+1}_t.png"></div></div>`);
+ g.c=H(`<div class="abs chip" style="${i%2?'left:46px':'right:46px'};top:1120px"><small>${o.chip[0]}</small>${o.chip[1]}</div>`);
+ ['p','num','eb','h','s','ph','c'].forEach(x=>{g[x].style.opacity=0;st.appendChild(g[x])});return g});
+// OUTRO (1: numbered grid)
+const E={};
+E.p=H(`<div class="abs pill" style="left:80px;top:170px"><span class="dot"></span><span class="eyebrow">All 10, in one place</span></div>`);
+E.h=H(`<h1 class="abs" style="left:80px;top:270px;font-size:112px;width:940px">Which one are you <span class="serif" style="font-weight:400">testing</span> first?</h1>`);
+E.c=H(`<div class="abs" style="left:0;right:0;bottom:90px;text-align:center"><span class="pill" style="font-weight:700;font-size:36px">Tell me the number in the comments</span></div>`);
+E.g=O.map((o,i)=>{const c=H(`<div class="abs" style="left:${56+(i%5)*197}px;top:${620+Math.floor(i/5)*520}px;width:181px;text-align:center"><div class="card" style="width:181px;height:400px;border-width:6px;border-radius:26px;position:relative;overflow:visible"><img src="shots/${i+1}_t.png" style="border-radius:20px"><span style="position:absolute;top:-16px;left:-12px;background:#B6F07A;font-weight:800;font-size:28px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;border:4px solid #fff">${i+1}</span></div><div style="font-weight:700;font-size:23px;margin-top:14px;line-height:1.15">${o.n}</div></div>`);st.appendChild(c);return c});
+[E.p,E.h,E.c].forEach(e=>{e.style.opacity=0;st.appendChild(e)});
+function seek(t){
+ S(document.getElementById('b1'),{tf:`translate(${Math.sin(t*.6)*60}px,${Math.cos(t*.5)*50}px)`});
+ S(document.getElementById('b2'),{tf:`translate(${Math.cos(t*.5)*70}px,${Math.sin(t*.7)*60}px)`});
+ // progress
+ prog.style.opacity=cl((t-T0+.3)/.4)*(1-r(t,END-.2,END+.3));
+ [...prog.querySelectorAll('b')].forEach((b,i)=>b.style.transform=`scaleX(${r(t,ST[i],ST[i]+TM.seg[i])})`);
+ // intro
+ const out=eio(r(t,T0-.5,T0+.1));
+ S(I.pre,{op:eo(r(t,.0,.35))*(1-out),tf:`translateY(${(1-eo(r(t,0,.35)))*30-out*120}px)`});
+ S(I.pill,{op:eo(r(t,.05,.4))*(1-out),tf:`translateY(${(1-eo(r(t,.05,.4)))*30-out*120}px)`});
+ const ni=eb(r(t,.1,.6));S(I.num,{op:cl(ni)*(1-out),tf:`translateY(${(1-ni)*120-out*200}px) scale(${.85+.15*ni})`});
+ document.getElementById('cnt').textContent=Math.round(500*eo(r(t,.2,1.4)));
+ [...I.l2.querySelectorAll('.w')].forEach((w,j)=>{const a=eb(r(t,.9+j*.09,1.4+j*.09));S(w,{op:cl(a),tf:`translateY(${(1-a)*60}px)`})});
+ S(I.l2,{op:1-out,tf:`translateY(${-out*160}px)`});
+ I.ph.forEach((p,i)=>{const a=eb(r(t,1.3+i*.15,2.0+i*.15)),fly=ei(r(t,T0-.6+i*.05,T0+.1+i*.05));S(p,{op:cl(a)*(1-fly),tf:`translateY(${(1-a)*800+Math.sin(t*2+i)*8+fly*-900}px) rotate(${p.dataset.r*(.6+.4*a)}deg)`})});
+ // offers
+ G.forEach((g,i)=>{const D=TM.seg[i];const u=t-ST[i];if(u<-.1||u>D+.6){['p','num','eb','h','s','ph','c'].forEach(x=>g[x].style.opacity=0);return}
+  const o=eio(r(u,D-.35,D+.15));
+  const hi=eo(r(u,.05,.55)), si=eo(r(u,.25,.75));
+  S(g.eb,{op:eo(r(u,0,.35))*(1-o),tf:`translateX(${(1-eo(r(u,0,.35)))*-60-o*80}px)`});
+  S(g.num,{op:eo(r(u,0,.6))*(1-o),tf:`translateX(${(1-eo(r(u,0,.6)))*200-o*200}px)`});
+  S(g.h,{op:hi*(1-o),tf:`translateY(${(1-hi)*90-o*70}px)`,f:`blur(${(1-hi)*10+o*8}px)`});
+  S(g.s,{op:si*(1-o),tf:`translateY(${(1-si)*50-o*70}px)`});
+  const pa=eb(r(u,.05,.6));S(g.p,{op:cl(pa)*(1-o),tf:`rotate(${4-pa*2+Math.sin(u)*.6}deg) scale(${.7+.3*pa})`});
+  const pi=eb(r(u,.15,.85)), drift=eio(r(u,.85,D-.35));
+  S(g.ph,{op:cl(r(u,.15,.35))*(1-ei(r(u,D-.1,D+.2))),tf:`translate(${-o*1100}px,${(1-pi)*1300-drift*40}px) rotate(${(1-pi)*-10-3+drift*2-o*14}deg) scale(${1+drift*.05})`});
+  const ci=eb(r(u,.75,1.15));S(g.c,{op:cl(ci*1.5)*(1-o),tf:`translateY(${(1-ci)*40+Math.sin(u*2)*6}px) scale(${.6+.4*ci}) rotate(${i%2?-3:3}deg)`});
+ });
+ // outro
+ const v=t-END;
+ [E.p,E.h].forEach((e,j)=>{const a=eo(r(v,.05+j*.15,.55+j*.15));S(e,{op:a,tf:`translateY(${(1-a)*80}px)`})});
+ const ca=eb(r(v,1.4,1.9));S(E.c,{op:cl(ca),tf:`translateY(${(1-ca)*40}px) scale(${.8+.2*ca})`});
+ E.g.forEach((c,i)=>{const a=eb(r(v,.35+i*.06,.9+i*.06));S(c,{op:cl(a),tf:`translateY(${(1-a)*200+Math.sin(t*2+i)*5}px) scale(${.7+.3*a})`})});
+}
+document.querySelectorAll(".phone img").forEach(im=>{const f=()=>{if(im.naturalWidth/im.naturalHeight>0.5){im.style.objectFit="contain";im.style.objectPosition="center top"}};im.complete?f():im.onload=f});window.seek=seek;window.TOTAL=TOTAL;seek(0);
+</script></body></html>

@@ -1,0 +1,371 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
+<style>
+:root{--ink:#0E120D;--lime:#B6F07A;--green:#2E8B1E;--g2:#7BE35A;--muted:#6B7368;--line:#E4ECDD}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:"Plus Jakarta Sans",sans-serif;color:var(--ink);background:#fff;position:relative}
+.sc{position:absolute;inset:0;overflow:hidden;will-change:transform,opacity}
+.a{position:absolute;will-change:transform,opacity}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.mono{font-family:"JetBrains Mono",monospace;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.m{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .02em .08em}
+.i{display:inline-block;will-change:transform}
+h1{font-weight:800;letter-spacing:-.03em;line-height:1.02;word-spacing:.04em}
+.pill{display:inline-flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:99px;padding:12px 24px;font-size:26px;color:var(--green);box-shadow:0 18px 40px -22px rgba(14,18,13,.35)}
+.pill.dk{background:#1A2019;border-color:#2B3329;color:var(--lime)}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--g2);box-shadow:0 0 0 6px rgba(123,227,90,.25)}
+.phone{width:600px;height:1230px;background:#101210;border-radius:96px;padding:18px;box-shadow:0 0 0 3px #2c302b inset,0 80px 120px -50px rgba(14,18,13,.55),0 30px 60px -30px rgba(14,18,13,.35);transform-origin:50% 50%}
+.phone .scr{width:100%;height:100%;border-radius:80px;overflow:hidden;background:#000;position:relative}
+.phone .scr img{width:100%;height:100%;object-fit:cover;display:block}
+.data{background:var(--ink);color:#fff;border-radius:18px;padding:16px 22px;font-size:26px;display:flex;gap:14px;align-items:center}
+.data b{color:var(--lime);font-size:40px;letter-spacing:0}
+.chip{background:#fff;border-radius:26px;padding:20px 26px;box-shadow:0 30px 60px -24px rgba(14,18,13,.45);border:2px solid var(--line);font-weight:800;font-size:34px;line-height:1.15;max-width:470px}
+.chip small{display:block;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.t{width:110px;height:160px;border-radius:10px;overflow:hidden;position:absolute;box-shadow:0 10px 20px -12px rgba(0,0,0,.45);background:#ddd}
+.t img{width:100%;height:100%;object-fit:cover;display:block}
+.t i{position:absolute;inset:0;border-radius:10px;box-shadow:inset 0 0 0 5px var(--g2);opacity:0}
+.od{display:inline-block;height:1em;overflow:hidden;vertical-align:top;line-height:1;position:relative;clip-path:inset(0)}
+.od span{display:block;will-change:transform}
+.prog{position:absolute;top:54px;left:60px;right:60px;display:flex;gap:10px;z-index:50}
+.prog i{flex:1;height:8px;border-radius:9px;background:rgba(14,18,13,.12);overflow:hidden;position:relative}
+.prog i b{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.big0{font-weight:800;font-size:560px;letter-spacing:-.07em;line-height:.8;color:transparent;-webkit-text-stroke:3px rgba(14,18,13,.10)}
+#grain{position:absolute;inset:-200px;z-index:90;pointer-events:none;opacity:.07;mix-blend-mode:multiply}
+#vig{position:absolute;inset:0;z-index:89;pointer-events:none;background:radial-gradient(120% 80% at 50% 45%,rgba(0,0,0,0) 60%,rgba(0,0,0,.16) 100%)}
+#flash{position:absolute;inset:0;z-index:88;background:#fff;opacity:0;pointer-events:none}
+</style></head><body>
+
+<!-- ============ S0 WALL ============ -->
+<div class="sc" id="s0" style="background:radial-gradient(70% 30% at 12% 2%,#EAFBD9 0%,rgba(255,255,255,0) 70%),radial-gradient(60% 25% at 100% 30%,#F1EEFE,rgba(255,255,255,0) 70%),#fff">
+ <div class="a" id="s0cam" style="inset:0">
+  <div class="a" style="left:-180px;top:860px;width:1440px;height:1300px;perspective:1500px"><div id="wall" class="a" style="inset:0;transform:rotateX(24deg) rotateZ(-7deg);transform-style:preserve-3d"></div></div>
+  <div class="a" style="left:0;right:0;top:820px;height:300px;background:linear-gradient(#fff 10%,rgba(255,255,255,0))"></div>
+  <div class="a" id="s0l1" style="left:78px;top:150px;font-weight:700;font-size:66px;letter-spacing:-.03em"><span class="m"><span class="i">I went through</span></span></div>
+  <div class="a" id="s0mk" style="left:66px;top:418px;width:640px;height:110px;background:var(--lime);border-radius:16px;transform-origin:left"></div>
+  <div class="a" id="s0num" style="left:56px;top:205px;font-weight:800;font-size:330px;letter-spacing:-.07em;line-height:1;transform-origin:left center"><span class="od" id="d0"></span><span class="od" id="d1"></span><span class="od" id="d2"></span><span id="s0plus" style="display:inline-block;color:var(--green)">+</span></div>
+  <div class="a" id="s0l3" style="left:78px;top:560px;font-weight:800;font-size:96px;letter-spacing:-.045em"></div>
+  <div class="a mono" id="s0tk" style="left:0;right:0;top:1812px;text-align:center;font-size:26px;color:var(--ink)"></div>
+ </div>
+</div>
+
+<!-- ============ S1 TITLE ============ -->
+<div class="sc" id="s1" style="background:radial-gradient(80% 40% at 10% 0%,#EAFBD9,rgba(255,255,255,0) 70%),radial-gradient(70% 35% at 100% 60%,#F1EEFE,rgba(255,255,255,0) 70%),#fff">
+ <div class="a" id="s1rows" style="left:0;right:0;top:250px;height:420px"></div>
+ <div class="a" id="s1n" style="left:0;right:0;top:700px;text-align:center"><span style="font-weight:800;font-size:300px;letter-spacing:-.07em;line-height:1" id="s1n19">19</span><div class="serif" id="s1nb" style="font-size:90px;margin-top:-10px">big brands</div></div>
+ <div class="a pill mono" id="s1p" style="left:80px;top:170px"><span class="dot"></span>813 ads · 19 brands · last 30 days</div>
+ <h1 class="a" id="s1h" style="left:80px;top:290px;width:1000px;font-size:118px;line-height:1.04"></h1>
+ <svg class="a" id="s1u" style="left:300px;top:575px" width="420" height="40" viewBox="0 0 420 40" preserveAspectRatio="none"><path d="M6 26 C 90 6, 200 38, 300 18 S 400 14, 414 20" fill="none" stroke="#7BE35A" stroke-width="12" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+ <div class="a mono" id="s1cal" style="left:82px;top:905px;font-size:28px;background:var(--ink);color:#fff;border-radius:14px;padding:14px 20px">Black Friday · Fri Nov 27</div>
+ <div class="a" id="s1fan" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>
+
+<!-- ============ S2 EARLY ACCESS ============ -->
+<div class="sc" id="s2" style="background:radial-gradient(90% 50% at 90% 10%,#E3DCFD,rgba(255,255,255,0) 70%),radial-gradient(80% 40% at 0% 100%,#EAFBD9,rgba(255,255,255,0) 70%),#F7F5FF">
+ <div class="a big0" id="s2big" style="right:-30px;top:110px">01</div>
+ <div class="a pill mono" id="s2p" style="left:80px;top:150px"><span class="dot"></span>Offer 01 / 05</div>
+ <h1 class="a" id="s2h" style="left:76px;top:240px;font-size:150px"></h1>
+ <div class="a" id="s2s" style="left:82px;top:410px;font-size:44px;font-weight:600;color:var(--muted)"></div>
+ <div class="a phone" id="s2ph" style="left:40px;top:560px;transform-origin:0 0"><div class="scr"><img src="shots/1_t.png"><svg style="position:absolute;inset:0" width="564" height="1194"><rect id="s2box" x="10" y="208" width="470" height="150" rx="18" fill="none" stroke="#B6F07A" stroke-width="8" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div></div>
+ <div class="a" id="s2pass" style="left:560px;top:640px;width:460px;height:250px;border-radius:28px;background:var(--ink);color:#fff;padding:30px 34px;box-shadow:0 40px 80px -30px rgba(14,18,13,.6);transform-origin:50% 50%">
+  <div class="mono" style="font-size:20px;color:var(--lime)">Mejuri+ members</div>
+  <div style="font-weight:800;font-size:58px;letter-spacing:-.03em;margin-top:18px;line-height:1">Early<br>access</div>
+  <div style="position:absolute;right:30px;top:30px;width:70px;height:70px;border-radius:50%;background:var(--lime)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:62px;border-top:3px dashed rgba(255,255,255,.25)"></div>
+ </div>
+ <div class="a" id="s2tl" style="left:600px;top:980px;width:420px;height:560px">
+  <div class="a" style="left:22px;top:30px;width:6px;height:420px;background:rgba(14,18,13,.12);border-radius:6px"></div>
+  <div class="a" id="s2line" style="left:22px;top:30px;width:6px;height:420px;background:var(--ink);border-radius:6px;transform-origin:top"></div>
+  <div class="a" id="s2d1" style="left:0;top:0;display:flex;gap:22px;align-items:center"><span style="width:50px;height:50px;border-radius:50%;background:var(--lime);border:6px solid var(--ink)"></span><div><div class="mono" style="font-size:24px;color:var(--green)">Nov 19</div><div style="font-weight:800;font-size:40px;letter-spacing:-.02em">Early access</div></div></div>
+  <div class="a serif" id="s2mid" style="left:70px;top:200px;font-size:54px">8 days early</div>
+  <div class="a" id="s2d2" style="left:0;top:420px;display:flex;gap:22px;align-items:center"><span style="width:50px;height:50px;border-radius:50%;background:#fff;border:6px solid var(--ink)"></span><div><div class="mono" style="font-size:24px;color:var(--muted)">Nov 27</div><div style="font-weight:800;font-size:40px;letter-spacing:-.02em">Black Friday</div></div></div>
+ </div>
+ <div class="a data mono" id="s2data" style="left:600px;top:1660px">Seen in <b id="s2c">0</b> ads</div>
+</div>
+
+<!-- ============ S3 EVERYTHING ============ -->
+<div class="sc" id="s3" style="background:#FBEDE4">
+ <div class="a" id="s3bands" style="left:-300px;top:-200px;width:1700px;height:2400px;transform:rotate(-10deg)"></div>
+ <div class="a pill mono" id="s3p" style="left:80px;top:150px"><span class="dot"></span>Offer 02 / 05</div>
+ <h1 class="a" id="s3h" style="left:76px;top:240px;font-size:132px;width:960px"></h1>
+ <div class="a phone" id="s3ph" style="left:380px;top:560px;transform-origin:50% 50%"><div class="scr"><img src="shots/2_t.png"></div></div>
+ <div class="a" id="s3k" style="left:56px;top:1180px;color:#C4522F;font-weight:800;letter-spacing:-.06em;line-height:.85;text-shadow:0 6px 0 #fff">
+  <div id="s3upto" style="font-size:80px;letter-spacing:-.02em;color:var(--ink)">UP TO</div>
+  <div style="font-size:300px"><span id="s3pc">0</span>%</div>
+  <div id="s3off" style="font-size:150px">OFF</div>
+ </div>
+ <div class="a" id="s3stamp" style="left:110px;top:1640px;background:var(--ink);color:var(--lime);font-weight:800;font-size:128px;letter-spacing:-.04em;padding:6px 36px 16px;border-radius:20px;transform-origin:50% 50%">EVERYTHING.</div>
+ <div class="a" id="s3dust" style="left:0;top:0"></div>
+ <div class="a data mono" id="s3data" style="left:640px;top:440px">Seen in <b id="s3c">0</b> ads</div>
+</div>
+
+<!-- ============ S4 DOLLARS ============ -->
+<div class="sc" id="s4" style="background:#0E120D;color:#fff">
+ <div class="a" id="s4grid" style="inset:-100px;background-image:linear-gradient(rgba(182,240,122,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(182,240,122,.07) 2px,transparent 2px);background-size:90px 90px"></div>
+ <div class="a" style="inset:0;background:radial-gradient(60% 40% at 70% 40%,rgba(182,240,122,.16),rgba(0,0,0,0) 70%)"></div>
+ <div class="a pill mono dk" id="s4p" style="left:80px;top:150px"><span class="dot"></span>Offer 03 / 05</div>
+ <h1 class="a" id="s4h" style="left:76px;top:240px;font-size:150px;white-space:nowrap">Dollars, not <span id="s4pct" style="display:inline-block;position:relative">%<i id="s4x" style="position:absolute;left:-10px;right:-10px;top:52%;height:16px;background:var(--lime);border-radius:8px;transform-origin:left;transform:scaleX(0) rotate(-12deg)"></i></span></h1>
+ <div class="a" id="s4ca" style="left:70px;top:620px;width:450px;height:470px;border-radius:40px;background:#1B201A;border:2px solid #2B3329;padding:40px;transform-origin:50% 50%">
+  <div class="mono" style="font-size:22px;color:#8A9387">Percent</div>
+  <div style="font-weight:800;font-size:170px;letter-spacing:-.06em;margin-top:60px;color:#C9CFC6">47%</div><div style="font-weight:700;font-size:48px;color:#8A9387">off</div></div>
+ <div class="a" id="s4cb" style="left:560px;top:620px;width:450px;height:470px;border-radius:40px;background:var(--lime);color:var(--ink);padding:40px;transform-origin:50% 50%;box-shadow:0 0 0 0 rgba(182,240,122,.4)">
+  <div class="mono" style="font-size:22px;color:var(--green)">Dollars</div>
+  <div style="font-weight:800;font-size:170px;letter-spacing:-.06em;margin-top:60px">$319</div><div style="font-weight:700;font-size:48px">off</div></div>
+ <div class="a mono" id="s4same" style="left:0;right:0;top:1150px;text-align:center;font-size:26px;color:#8A9387">Same Caraway deal · $675 → $356</div>
+ <div class="a phone" id="s4ph" style="left:500px;top:560px;transform-origin:0 0"><div class="scr"><img src="shots/3_t.png"></div></div>
+ <div class="a" id="s4col" style="left:76px;top:640px;width:460px">
+  <div id="s4old" style="position:relative;display:inline-block;font-weight:800;font-size:120px;letter-spacing:-.05em;color:#8A9387">$675<i id="s4st" style="position:absolute;left:-8px;right:-8px;top:50%;height:12px;background:var(--lime);border-radius:6px;transform-origin:left;transform:scaleX(0) rotate(-8deg)"></i></div>
+  <div id="s4new" style="font-weight:800;font-size:150px;letter-spacing:-.05em;line-height:1">$<span id="s4nv">675</span></div>
+  <div id="s4off" style="display:inline-block;margin-top:26px;background:var(--lime);color:var(--ink);font-weight:800;font-size:96px;letter-spacing:-.04em;padding:4px 26px 12px;border-radius:18px">$319 off</div>
+ </div>
+ <div class="a" id="s4lens" style="left:120px;top:1200px;width:360px;height:360px;border-radius:50%;border:10px solid var(--lime);overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);background:#000 url(shots/3_t.png) no-repeat"></div>
+ <div class="a data mono" id="s4data" style="left:76px;top:1660px;background:#1B201A;border:2px solid #2B3329">Seen in <b id="s4c">0</b> ads</div>
+</div>
+
+<!-- ============ S5 FREE GIFT ============ -->
+<div class="sc" id="s5" style="background:radial-gradient(80% 50% at 50% 75%,#FFE2B8,rgba(255,255,255,0) 70%),#FFF7E6">
+ <div class="a pill mono" id="s5p" style="left:80px;top:150px"><span class="dot"></span>Offer 04 / 05</div>
+ <h1 class="a" id="s5h" style="left:76px;top:240px;font-size:140px;width:960px"></h1>
+ <div class="a" id="s5rays" style="left:-460px;top:180px;width:2000px;height:2000px;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(242,106,46,.07) 0 8deg,rgba(255,255,255,0) 8deg 20deg);border-radius:50%"></div>
+ <div class="a phone" id="s5ph" style="left:240px;top:520px;transform-origin:50% 100%"><div class="scr"><img src="shots/4_t.png"></div></div>
+ <div class="a" id="s5box" style="left:220px;top:1380px;width:640px;height:540px">
+  <div class="a" id="s5lid" style="left:-24px;top:0;width:688px;height:130px;background:#E85D24;border-radius:22px;box-shadow:inset 0 -10px 0 rgba(0,0,0,.12);transform-origin:20% 100%;z-index:3">
+   <div class="a" style="left:304px;top:0;width:80px;height:130px;background:#1F5130"></div>
+   <div class="a" style="left:214px;top:-92px;width:130px;height:100px;border:26px solid #1F5130;border-radius:60% 40% 50% 50%;transform:rotate(-18deg)"></div>
+   <div class="a" style="left:344px;top:-92px;width:130px;height:100px;border:26px solid #1F5130;border-radius:40% 60% 50% 50%;transform:rotate(18deg)"></div>
+  </div>
+  <div class="a" id="s5body" style="left:0;top:120px;width:640px;height:420px;background:#F26A2E;border-radius:0 0 26px 26px;z-index:2;box-shadow:0 50px 80px -40px rgba(120,40,0,.6)"><div class="a" style="left:280px;top:0;width:80px;height:420px;background:#1F5130"></div><div class="a" style="left:0;top:0;right:0;height:26px;background:rgba(0,0,0,.12)"></div></div>
+ </div>
+ <div class="a" id="s5conf" style="left:0;top:0;z-index:4"></div>
+ <div class="a chip" id="s5chip" style="left:600px;top:930px;z-index:5"><small>Dr. Squatch · on the ad</small>Free travel bag with any 9‑Pack</div>
+ <div class="a data mono" id="s5data" style="left:80px;top:1220px;z-index:5">Seen in <b id="s5c">0</b> ads</div>
+</div>
+
+<!-- ============ S6 GIFT ============ -->
+<div class="sc" id="s6" style="background:radial-gradient(80% 40% at 100% 0%,#FBE3DF,rgba(255,255,255,0) 70%),#F7F2EA">
+ <div class="a pill mono" id="s6p" style="left:80px;top:150px"><span class="dot"></span>Offer 05 / 05</div>
+ <h1 class="a" id="s6h" style="left:76px;top:240px;font-size:140px;width:960px"></h1>
+ <div class="a phone" id="s6l" style="left:-30px;top:760px"><div class="scr"><img src="shots/skims.png"></div></div>
+ <div class="a phone" id="s6r" style="left:510px;top:760px"><div class="scr"><img src="shots/cozy.png"></div></div>
+ <div class="a phone" id="s6c" style="left:240px;top:620px"><div class="scr"><img src="shots/5_t.png"></div></div>
+ <div class="a mono" id="s6ll" style="left:90px;top:1790px;font-size:24px;color:var(--muted)">SKIMS</div>
+ <div class="a mono" id="s6lc" style="left:470px;top:1810px;font-size:24px;color:var(--ink)">Vuori</div>
+ <div class="a mono" id="s6lr" style="left:820px;top:1790px;font-size:24px;color:var(--muted)">Cozy Earth</div>
+ <div class="a" id="s6tag" style="left:640px;top:330px;width:380px;height:420px;transform-origin:190px 0">
+  <svg width="380" height="420" style="position:absolute;left:0;top:0;overflow:visible"><path d="M190 -400 L190 70" stroke="#B3261E" stroke-width="5"/><path d="M70 90 L190 40 L310 90 L310 400 Q310 410 300 410 L80 410 Q70 410 70 400 Z" fill="#fff" stroke="#E8DCCD" stroke-width="3"/><circle cx="190" cy="80" r="14" fill="#F7F2EA" stroke="#B3261E" stroke-width="5"/></svg>
+  <div class="a" style="left:70px;top:130px;width:240px;text-align:center"><div class="mono" style="font-size:18px;color:#B3261E">Vuori · on the ad</div><div class="serif" style="font-size:66px;line-height:.95;margin-top:16px">Gifts under</div><div style="font-weight:800;font-size:90px;letter-spacing:-.05em">$100</div></div>
+ </div>
+ <div class="a data mono" id="s6data" style="left:80px;top:470px;z-index:5">Seen in <b id="s6n">0</b> ads · <b id="s6b">0</b> brands</div>
+</div>
+
+<!-- ============ S7 OUTRO ============ -->
+<div class="sc" id="s7" style="background:radial-gradient(80% 35% at 15% 0%,#EAFBD9,rgba(255,255,255,0) 70%),radial-gradient(70% 35% at 100% 50%,#F1EEFE,rgba(255,255,255,0) 70%),#fff">
+ <div class="a pill mono" id="s7p" style="left:80px;top:150px"><span class="dot"></span>All 5 in one place</div>
+ <h1 class="a" id="s7h" style="left:76px;top:236px;font-size:88px;width:960px"></h1>
+ <div class="a" id="s7g" style="left:0;top:0"></div>
+ <div class="a mono" id="s7lab" style="left:0;right:0;top:1665px;text-align:center;font-size:26px;color:var(--green)">Comment the number ↓</div>
+ <div class="a" id="s7bar" style="left:70px;top:1722px;width:940px;height:120px;border-radius:60px;background:#fff;border:2px solid var(--line);box-shadow:0 30px 60px -30px rgba(14,18,13,.4);display:flex;align-items:center;padding:0 22px;gap:22px">
+  <span style="width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#B6F07A,#E3DCFD)"></span>
+  <span id="s7txt" style="flex:1;font-size:40px;font-weight:600;color:#9AA196">Add a comment…</span>
+  <span id="s7send" style="width:84px;height:84px;border-radius:50%;background:#E9EEE5;display:grid;place-items:center;font-size:40px;font-weight:800">↑</span>
+ </div>
+ <div class="a" id="s7bub" style="left:820px;top:1590px;background:var(--ink);color:#fff;font-weight:800;font-size:60px;border-radius:40px 40px 8px 40px;padding:14px 40px">3</div>
+</div>
+
+<div class="prog" id="prog"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+<div id="rib" style="position:absolute;left:0;top:-400px;width:420px;height:2800px;z-index:60;background:linear-gradient(90deg,#8E1B15,#C8322A 35%,#E04A3C 50%,#C8322A 65%,#8E1B15);box-shadow:0 0 60px rgba(0,0,0,.25);opacity:0"><div style="position:absolute;left:180px;top:0;width:60px;height:100%;background:rgba(255,255,255,.18)"></div></div><div id="flash"></div><div id="vig"></div><div id="grain"></div>
+
+<script>
+// ---------- helpers ----------
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), r=(t,a,b)=>cl((t-a)/(b-a)), L=(a,b,p)=>a+(b-a)*p;
+const o3=x=>1-Math.pow(1-x,3), o5=x=>1-Math.pow(1-x,5), i3=x=>x*x*x, io3=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x), bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const el=x=>x<=0?0:x>=1?1:Math.pow(2,-10*x)*Math.sin((x*10-.75)*(2*Math.PI)/3)+1;
+const $=id=>document.getElementById(id);
+function S(e,o){ if(typeof e==='string')e=$(e); const tf=`translate3d(${o.x||0}px,${o.y||0}px,0) rotate(${o.r||0}deg) rotateX(${o.rx||0}deg) rotateY(${o.ry||0}deg) scale(${o.s===undefined?1:o.s},${o.sy===undefined?(o.s===undefined?1:o.s):o.sy})`;
+ e.style.transform=tf+(o.post||''); if(o.o!==undefined)e.style.opacity=o.o; if(o.b!==undefined)e.style.filter=o.b>0.05?`blur(${o.b}px)`:'none'; }
+let seed=11;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+// kinetic text: parts = [[text,style],...]  -> words in masks
+function K(h,parts){h.innerHTML=parts.map(([t,st])=>t==='<br>'?'<br>':t.split(' ').filter(Boolean).map(w=>`<span class="m"><span class="i" style="${st||''}">${w}</span></span>`).join(' ')).join(' ');return [...h.querySelectorAll('.i')]}
+function rev(arr,t,t0,st,d,ease=o5,dir=1){arr.forEach((w,j)=>{const p=ease(r(t,t0+j*st,t0+j*st+d));w.style.transform=`translateY(${(1-p)*115*dir}%) rotate(${(1-p)*6}deg)`;w.style.opacity=p>0.001?1:0})}
+function charsOf(h,text,st){h.innerHTML=[...text].map(c=>c===' '?'<span style="display:inline-block;width:.25em"></span>':`<span class="m" style="padding:0"><span class="i" style="${st||''}">${c}</span></span>`).join('');return [...h.querySelectorAll('.i')]}
+
+// ---------- timing (from voiceover) ----------
+const TM=window.TM||{intro:7.235,seg:[6.588,5.811,7.107,5.563,4.509],outro:5.194};
+const ST=[];{let c=TM.intro;for(const d of TM.seg){ST.push(c);c+=d}}
+const END=ST[4]+TM.seg[4], TOTAL=END+TM.outro;
+const T={s1:2.0,s2:ST[0],s3:ST[1],s4:ST[2],s5:ST[3],s6:ST[4],s7:END};
+
+// ---------- S0 build ----------
+const wall=$('wall'),tiles=[];
+for(let c=0;c<12;c++)for(let rr=0;rr<9;rr++){const k=c*9+rr;const d=document.createElement('div');d.className='t';d.style.left=(c*120)+'px';d.style.top=(rr*172)+'px';d.innerHTML=`<img src="arts/${String(k).padStart(3,'0')}.jpg"><i></i>`;wall.appendChild(d);tiles.push({d,c,rr,dist:Math.hypot(c-5.5,rr-1)})}
+const scan=tiles.map(()=>.5+rnd()*1.5);
+function od(id,n){$(id).innerHTML='<span>'+Array.from({length:40},(_,i)=>i%10).join('<br>')+'</span>'}
+['d0','d1','d2'].forEach(od);
+const s0l3=K($('s0l3'),[['live brand ads.','']]);
+const tk='813 ads · 19 brands · Meta Ad Library · last 30 days';
+// ---------- S1 build ----------
+const BR=['The Ridge','True Classic','Caraway','Dr. Squatch','Our Place','HexClad','Bombas','Jones Road','Quince','SKIMS','Glossier','Cuts','Vuori','Cozy Earth','Mejuri','Ruggable','SNOW','LANEIGE','TULA'];
+const rows=[0,1,2].map(i=>{const d=document.createElement('div');d.className='a';d.style.top=(i*130)+'px';d.style.whiteSpace='nowrap';const list=[...BR.slice(i*6),...BR,...BR].slice(0,22);d.innerHTML=list.map(b=>`<span style="display:inline-block;margin-right:18px;background:${i==1?'#0E120D':'#fff'};color:${i==1?'#fff':'#0E120D'};border:2px solid ${i==1?'#0E120D':'#E4ECDD'};border-radius:99px;padding:18px 34px;font-weight:800;font-size:46px;letter-spacing:-.02em">${b}</span>`).join('');$('s1rows').appendChild(d);return d});
+const s1h=K($('s1h'),[['These',''],['5','background:#0E120D;color:#B6F07A;border-radius:18px;padding:0 20px'],['offers',''],['<br>',''],['are',''],['booming','font-family:Instrument Serif;font-style:italic;font-weight:400;font-size:1.22em'],['<br>',''],['before',''],['<br>',''],['Black\u00a0Friday.','background:#B6F07A;padding:0 18px;border-radius:16px']]);
+const fanImgs=['shots/1_t.png','shots/2_t.png','shots/3_t.png','shots/4_t.png','shots/5_t.png'];
+const fan=fanImgs.map((s,i)=>{const p=document.createElement('div');p.className='a phone';p.style.left='240px';p.style.top='1060px';p.innerHTML=`<div class="scr"><img src="${s}"></div>`;$('s1fan').appendChild(p);return p});
+// ---------- S2..S7 build ----------
+const s2h=charsOf($('s2h'),'Early Access'); $('s2s').innerHTML='Members shop the sale <span class="serif" style="color:#0E120D;font-size:54px">first</span>.';
+const s3h=K($('s3h'),[['Everything on Sale','']]);
+for(let i=0;i<9;i++){const d=document.createElement('div');d.className='a';d.style.top=(i*260)+'px';d.style.whiteSpace='nowrap';d.style.font='800 170px "Plus Jakarta Sans"';d.style.letterSpacing='-.05em';d.style.color=i%2?'rgba(196,82,47,.09)':'rgba(14,18,13,.05)';d.textContent='EVERYTHING · '.repeat(10);$('s3bands').appendChild(d)}
+const dust=Array.from({length:26},(_,i)=>{const d=document.createElement('div');d.className='a';const s=8+rnd()*16;d.style.width=d.style.height=s+'px';d.style.borderRadius='50%';d.style.background=i%3?'#C4522F':'#0E120D';$('s3dust').appendChild(d);return {d,a:rnd()*Math.PI*2,v:300+rnd()*500}});
+const s5h=K($('s5h'),[['Free','background:#F26A2E;color:#fff;border-radius:18px;padding:0 18px'],['Gift on Top','']]);
+const conf=Array.from({length:46},(_,i)=>{const d=document.createElement('div');d.className='a';d.style.width=(12+rnd()*14)+'px';d.style.height=(20+rnd()*16)+'px';d.style.borderRadius='4px';d.style.background=['#F26A2E','#1F5130','#B6F07A','#0E120D','#FFC94D'][i%5];$('s5conf').appendChild(d);return {d,vx:(rnd()-.5)*1500,vy:-900-rnd()*1100,rot:(rnd()-.5)*900}});
+const s6h=K($('s6h'),[['Sell It as a',''],['Gift','font-family:Instrument Serif;font-style:italic;font-weight:400;color:#B3261E;font-size:1.2em']]);
+const s7h=K($('s7h'),[['Which one are you',''],['running','font-family:Instrument Serif;font-style:italic;font-weight:400;font-size:1.22em'],['this Black Friday?','']]);
+const NM=['Early Access','Everything on Sale','Dollars, Not %','Free Gift on Top','Sell It as a Gift'];
+const grid=NM.map((n,i)=>{const c=document.createElement('div');c.className='a';c.style.width='270px';c.style.left=(i<3?95+i*310:250+(i-3)*310)+'px';c.style.top=(i<3?590:1150)+'px';c.style.textAlign='center';
+ c.innerHTML=`<div style="width:270px;height:440px;border-radius:30px;overflow:visible;position:relative;border:7px solid #111;background:#111;box-shadow:0 30px 60px -28px rgba(14,18,13,.5)"><img src="shots/${i+1}_t.png" style="width:100%;height:100%;object-fit:cover;border-radius:22px;display:block"><span class="nb" style="position:absolute;top:-22px;left:-18px;background:#B6F07A;font-weight:800;font-size:36px;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;border:5px solid #fff">${i+1}</span></div><div style="font-weight:800;font-size:28px;margin-top:14px;letter-spacing:-.01em">${n}</div>`;$('s7g').appendChild(c);return c});
+// grain
+const gc=document.createElement('canvas');gc.width=gc.height=256;const gx=gc.getContext('2d'),gi=gx.createImageData(256,256);for(let i=0;i<gi.data.length;i+=4){const v=Math.random()*255;gi.data[i]=gi.data[i+1]=gi.data[i+2]=v;gi.data[i+3]=255}gx.putImageData(gi,0,0);$('grain').style.backgroundImage=`url(${gc.toDataURL()})`;
+const count=(id,t,t0,t1,n)=>{$(id).textContent=Math.round(n*o3(r(t,t0,t1)))};
+const vis=(id,a,b,t)=>{$(id).style.display=(t>=a&&t<=b)?'block':'none'};
+
+function seek(t){
+ const F=Math.round(t*60);$('grain').style.transform=`translate(${(F*37)%200-100}px,${(F*53)%200-100}px)`;
+ vis('s0',0,2.45,t);vis('s1',1.8,7.7,t);vis('s2',6.95,14.2,t);vis('s3',13.5,20.0,t);vis('s4',19.3,27.0,t);vis('s5',26.6,32.7,t);vis('s6',31.9,37.3,t);vis('s7',36.4,TOTAL+1,t);
+ $('flash').style.opacity=0;$('rib').style.opacity=0;
+
+ // ===== S0 WALL (0-2) =====
+ if(t<2.5){
+  const zo=i3(r(t,1.72,2.3));
+  S('s0cam',{s:1+zo*2.6,b:zo*18,o:1-r(t,2.0,2.3),post:''});$('s0cam').style.transformOrigin='540px 700px';
+  S('wall',{x:0,y:-t*60,post:''});$('wall').style.transform=`rotateX(${24-t*4}deg) rotateZ(${-7+t*1.5}deg) translateY(${-t*60}px)`;
+  tiles.forEach(({d,c,rr,dist},i)=>{const a=bk(r(t,.05+dist*.045,.5+dist*.045));d.style.opacity=cl(a*1.4);d.style.transform=`translateZ(${(1-cl(a))*-500}px) scale(${.5+.5*a})`;d.querySelector('i').style.opacity=cl(1-Math.abs(t-scan[i])/.18)});
+  rev([$('s0l1').querySelector('.i')],t,0,0,.35);
+  const ni=bk(r(t,.05,.5));S('s0num',{y:(1-ni)*60,s:.8+.2*ni,o:cl(ni*2)});
+  const p=o3(r(t,.1,1.35));
+  [['d0',18],['d1',20],['d2',30]].forEach(([id,n],j)=>{const pj=o3(r(t,.1+j*.05,1.2+j*.08));$(id).firstChild.style.transform=`translateY(${-pj*n}em)`});
+  const pl=bk(r(t,1.25,1.5));S('s0plus',{s:pl,r:(1-pl)*-90,o:cl(pl*3)});
+  const mk=o5(r(t,1.3,1.6));$('s0mk').style.transform=`scaleX(${mk})`;
+  const sh=r(t,1.3,1.5);S('s0num',{y:(1-ni)*60+Math.sin(sh*40)*10*(1-sh)*(sh>0?1:0),s:(.8+.2*ni)*(1+Math.sin(sh*Math.PI)*.05),o:cl(ni*2)});
+  rev(s0l3,t,.55,.06,.4);
+  const n=Math.floor(tk.length*r(t,.6,1.6));$('s0tk').textContent=tk.slice(0,n)+(n<tk.length&&F%20<10?'▍':'');
+ }
+ // ===== S1 TITLE (2.0-7.24) =====
+ if(t>1.8&&t<7.7){const u=t-T.s1;
+  const pin=o5(r(t,1.85,2.35));S('s1',{s:1.25-.25*pin,b:(1-pin)*14,o:cl(pin*1.5)});
+  rows.forEach((row,i)=>{const a=o5(r(u,-.15+i*.08,.35+i*.08)),out=io3(r(u,1.75,2.1));S(row,{x:(i%2?-300:-40)+(i%2?1:-1)*u*120+(1-a)*(i%2?-600:600),o:a*(1-out),y:-out*80})});
+  const n1=bk(r(u,.55,1.0)),nout=io3(r(u,1.75,2.1));S('s1n',{s:(.6+.4*n1)*(1-nout*.3),o:cl(n1*2)*(1-nout),y:-nout*120});
+  rev([$('s1nb')],u,.8,0,.4); S('s1nb',{y:(1-o5(r(u,.8,1.2)))*40,o:o3(r(u,.8,1.1))*(1-nout)});
+  const pp=o5(r(u,1.9,2.3));S('s1p',{y:(1-pp)*-40,o:pp});
+  rev(s1h,u,1.95,.075,.5);
+  {const bm=s1h[4].parentNode.getBoundingClientRect(),hr=$('s1').getBoundingClientRect();$('s1u').style.left=(bm.left-hr.left)+'px';$('s1u').style.top=(bm.bottom-hr.top-22)+'px';$('s1u').setAttribute('width',bm.width);}{const up=io3(r(u,3.1,3.5));const pa=$('s1u').querySelector('path');pa.style.strokeDashoffset=1-up;$('s1u').style.opacity=up>0.01?1:0;}
+  const cp=bk(r(u,4.0,4.4));S('s1cal',{s:.6+.4*cp,o:cl(cp*2)});
+  // fan of 5 phones
+  const tr=io3(r(t,6.95,7.45));
+  fan.forEach((p,i)=>{const a=bk(r(u,2.4+i*.1,3.1+i*.1)),k=i-2;const sway=Math.sin(u*1.6+i)*1.5;
+   let x=k*170*(.4+.6*cl(a)),y=(1-a)*900+Math.abs(k)*40,rot=k*9*(.3+.7*cl(a))+sway,s=.62;
+   if(i===0){x=L(x,0,tr);y=L(y,-560,tr);rot=L(rot,0,tr);s=L(s,1.9,tr)}else{y+=tr*1200;}
+   p.style.zIndex=i===0?9:5-Math.abs(k);S(p,{x,y,r:rot,s,o:cl(a*2)*(i===0?1-r(t,7.35,7.5):1)})});
+ }
+ // ===== S2 EARLY ACCESS =====
+ if(t>6.9&&t<14.2){const u=t-T.s2;
+  const ir=io3(r(t,7.0,7.5));$('s2').style.clipPath=`circle(${ir*1500}px at 540px 960px)`;
+  const wp=i3(r(t,T.s3-.2,T.s3+.18));S('s2',{x:-wp*1080,b:wp*10});
+  S('s2big',{x:(1-o5(r(u,0,.8)))*500,o:1});
+  const pp=o5(r(u,.05,.45));S('s2p',{x:(1-pp)*-80,o:pp});
+  rev(s2h,u,.85,.03,.5,o5);
+  const ss=o5(r(u,2.1,2.6));S('s2s',{y:(1-ss)*30,o:ss});
+  const ph=bk(r(u,2.0,2.8)),dr=io3(r(u,2.8,6.5));S('s2ph',{x:0,y:(1-ph)*1300-dr*20,r:(1-ph)*-14-3+dr*1.5,s:.72+dr*.02});
+  $('s2box').style.strokeDashoffset=1-io3(r(u,3.0,3.6));
+  const pa=o5(r(u,2.5,3.2));S('s2pass',{ry:(1-pa)*90,x:(1-pa)*200,r:3*pa+Math.sin(u*1.5)*1.2,o:cl(pa*2)});
+  const d1=bk(r(u,3.6,4.1));S('s2d1',{s:cl(d1,0,2),o:cl(d1*2)});
+  $('s2line').style.transform=`scaleY(${io3(r(u,4.35,5.5))})`;
+  const md=o5(r(u,4.6,5.1));S('s2mid',{x:(1-md)*40,o:md});
+  const d2=bk(r(u,5.3,5.8));S('s2d2',{s:cl(d2,0,2),o:cl(d2*2)});
+  const dd=bk(r(u,4.6,5.1));S('s2data',{y:(1-dd)*80,o:cl(dd*2)});count('s2c',u,4.6,5.6,52);
+ }
+ // ===== S3 EVERYTHING =====
+ if(t>13.5&&t<20.0){const u=t-T.s3;
+  const wi=o3(r(t,T.s3-.2,T.s3+.25));let x=(1-wi)*1080;
+  const up=io3(r(t,T.s4-.25,T.s4+.2));
+  const sh=r(u,4.9,5.4),shk=sh>0&&sh<1?(1-sh):0;
+  S('s3',{x:x+Math.sin(u*90)*22*shk,y:Math.cos(u*77)*16*shk-up*300,b:(1-wi)*10,s:1-up*.08});
+  [...$('s3bands').children].forEach((b,i)=>{b.style.transform=`translateX(${(i%2?-1:1)*u*90-(i%2?0:400)}px)`});
+  const pp=o5(r(u,.05,.45));S('s3p',{x:(1-pp)*-80,o:pp});
+  s3h.forEach((w,j)=>{const a=o5(r(u,.7+j*.13,1.05+j*.13));w.style.transform=`scale(${2.2-1.2*a})`;w.style.opacity=a;w.style.filter=`blur(${(1-a)*12}px)`});
+  const ph=o5(r(u,2.05,2.6));S('s3ph',{x:(1-ph)*900,r:(1-ph)*25+4-Math.sin(u)*1,s:.78,b:(1-ph)*14});
+  const k1=bk(r(u,2.7,3.1));S('s3upto',{x:(1-k1)*-200,o:cl(k1*2)});
+  const kp=o3(r(u,3.0,4.3));$('s3pc').textContent=Math.round(40*kp);
+  const k0=bk(r(u,3.0,3.4));S('s3k',{s:.7+.3*k0,o:cl(k0*2)});$('s3k').style.transformOrigin='0 50%';
+  const k2=bk(r(u,4.1,4.5));S('s3off',{x:(1-k2)*200,o:cl(k2*2)});
+  const st=o5(r(u,4.9,5.15));S('s3stamp',{s:2.6-1.6*st,r:-6,o:st,b:(1-st)*10});
+  dust.forEach(({d,a,v})=>{const q=r(u,4.95,5.7);const dd=v*o3(q);d.style.transform=`translate(${540+Math.cos(a)*dd}px,${1720+Math.sin(a)*dd*.6+q*q*200}px) scale(${1-q})`;d.style.opacity=q>0&&q<1?1:0});
+  const da=bk(r(u,2.4,2.9));S('s3data',{s:cl(da,0,2),o:cl(da*2)});count('s3c',u,2.4,3.4,66);
+ }
+ // ===== S4 DOLLARS =====
+ if(t>19.3&&t<27.0){const u=t-T.s4;
+  const wi=io3(r(t,T.s4-.25,T.s4+.2));$('s4').style.clipPath=`polygon(0 ${L(130,0,wi)}%,100% ${L(110,-20,wi)}%,100% 100%,0 100%)`;
+  const pz=i3(r(t,T.s5-.3,T.s5+.05));S('s4',{s:1+pz*.6,b:pz*12});$('s4').style.transformOrigin='290px 900px';
+  $('flash').style.opacity=Math.max(0,1-Math.abs(t-T.s5)/.18)*.95;
+  $('s4grid').style.transform=`translate(${(u*30)%90}px,${(u*45)%90}px)`;
+  const pp=o5(r(u,.05,.45));S('s4p',{x:(1-pp)*-80,o:pp});
+  const hh=o5(r(u,.6,1.1));S('s4h',{y:(1-hh)*120,o:hh,b:(1-hh)*10});
+  $('s4x').style.transform=`scaleX(${o5(r(u,1.5,1.8))}) rotate(-12deg)`;S('s4pct',{y:i3(r(u,2.0,2.6))*30,r:i3(r(u,2.0,2.6))*12,o:1-r(u,2.2,2.6)*.6});
+  const cout=io3(r(u,2.75,3.2));
+  const ca=bk(r(u,.75,1.25)),cb=bk(r(u,.95,1.45)),foc=io3(r(u,1.7,2.1));
+  S('s4ca',{y:(1-ca)*500+cout*900,s:1-foc*.08,r:cout*-14,o:cl(ca*2)*(1-foc*.55)*(1-cout)});
+  S('s4cb',{y:(1-cb)*500,x:-cout*300,s:(1+foc*.06)*(1-cout*.5),o:cl(cb*2)*(1-cout)});
+  $('s4cb').style.boxShadow=`0 0 0 ${foc*26}px rgba(182,240,122,${.25*foc}),0 0 120px ${foc*20}px rgba(182,240,122,${.25*foc})`;
+  S('s4same',{o:o3(r(u,1.5,1.9))*(1-cout)});
+  const ph=bk(r(u,2.9,3.6)),dr=io3(r(u,3.6,7));S('s4ph',{y:(1-ph)*1300-dr*20,r:(1-ph)*12+2-dr,s:.86});
+  const c1=o5(r(u,3.0,3.4));S('s4old',{x:(1-c1)*-120,o:c1});
+  const c2=o5(r(u,3.3,3.7));S('s4new',{x:(1-c2)*-120,o:c2});$('s4nv').textContent=Math.round(L(675,356,io3(r(u,3.7,4.6))));
+  const c3=bk(r(u,4.6,5.0));S('s4off',{s:cl(c3,0,2),r:-4*c3,o:cl(c3*2)});$('s4off').style.transformOrigin='0 50%';
+  $('s4st').style.transform=`scaleX(${o5(r(u,5.55,5.85))}) rotate(-8deg)`;$('s4old').style.color=u>5.6?'#5A6358':'#8A9387';
+  const ln=bk(r(u,4.0,4.6));S('s4lens',{s:cl(ln,0,2),o:cl(ln*2)});
+  // lens shows the price area of the screen, magnified 2.2x of a 564px-wide screen
+  const pan=io3(r(u,4.4,6.0));$('s4lens').style.backgroundSize='720px auto';$('s4lens').style.backgroundPosition=`${-120+pan*-30}px ${-305+pan*-10}px`;
+  const dd=bk(r(u,3.6,4.1));S('s4data',{y:(1-dd)*80,o:cl(dd*2)});count('s4c',u,3.6,4.6,20);
+ }
+ // ===== S5 FREE GIFT =====
+ if(t>26.6&&t<32.7){const u=t-T.s5;
+  const pin=o5(r(t,T.s5-.12,T.s5+.35));S('s5',{s:1.3-.3*pin,b:(1-pin)*10});
+  $('s5rays').style.transform=`rotate(${u*14}deg)`;$('s5rays').style.opacity=o3(r(u,2.3,3));
+  const pp=o5(r(u,.05,.45));S('s5p',{x:(1-pp)*-80,o:pp});
+  s5h.forEach((w,j)=>{const a=bk(r(u,.65+j*.1,1.15+j*.1));w.style.transform=`translateY(${(1-a)*110}%) rotate(${j===0?-4*a:0}deg)`;w.style.opacity=a>0.001?1:0});
+  const bx=el(r(u,.8,2.0));const land=r(u,1.2,1.45);S('s5box',{y:(1-bx)*-1500,sy:1-Math.sin(land*Math.PI)*.08,s:1});$('s5box').style.transformOrigin='50% 100%';
+  const lid=o3(r(u,2.35,3.0));S('s5lid',{y:-lid*700,x:lid*260,r:lid*38,o:1-r(u,2.8,3.1)});
+  const ph=bk(r(u,2.4,3.3)),dr=io3(r(u,3.3,5.6));S('s5ph',{y:(1-ph)*900-dr*20,s:.74,r:Math.sin(u*1.4)*1.2});
+  conf.forEach(({d,vx,vy,rot})=>{const q=u-2.35;if(q<0||q>2.2){d.style.opacity=0;return}d.style.opacity=1-cl((q-1.6)/.6);d.style.transform=`translate(${540+vx*q}px,${1420+vy*q+1500*q*q}px) rotate(${rot*q}deg)`});
+  const cp=bk(r(u,4.35,4.8));S('s5chip',{s:cl(cp,0,2),r:4*cp,o:cl(cp*2)});
+  const dd=bk(r(u,3.3,3.8));S('s5data',{y:(1-dd)*80,o:cl(dd*2)});count('s5c',u,3.3,4.3,22);
+ }
+ // ===== S6 GIFT =====
+ if(t>31.9&&t<37.3){const u=t-T.s6;
+  const rb=io3(r(t,T.s6-.3,T.s6+.3));$('s6').style.clipPath=`polygon(-300% 0,${-40+rb*200}% 0,${-80+rb*200}% 100%,-300% 100%)`;
+  if(rb>=1)$('s6').style.clipPath='none';{$('rib').style.opacity=rb>0&&rb<1?1:0;$('rib').style.transform=`translateX(${(-60+rb*200)/100*1080-210}px) rotate(12.7deg)`;}
+  const pp=o5(r(u,.05,.45));S('s6p',{x:(1-pp)*-80,o:pp});
+  rev(s6h,u,.75,.08,.5);
+  const c=bk(r(u,.9,1.6)),l=bk(r(u,1.95,2.6)),rr=bk(r(u,2.05,2.7)),out=io3(r(t,T.s7-.25,T.s7+.2));
+  S('s6c',{y:(1-c)*1300+out*1400,s:.66,r:Math.sin(u*1.3)*1,o:1});
+  S('s6l',{x:(1-l)*-500-out*500,y:out*600,s:.5,r:-12*l,o:cl(l*2)});S('s6r',{x:(1-rr)*500+out*500,y:out*600,s:.5,r:12*rr,o:cl(rr*2)});
+  [['s6ll',1.95],['s6lc',1.0],['s6lr',2.05]].forEach(([id,a])=>S(id,{o:o3(r(u,a+.5,a+.8))*(1-out)}));
+  const tg=r(u,1.85,6),sw=18*Math.exp(-tg*1.6)*Math.cos(tg*7);S('s6tag',{y:(1-o5(r(u,1.85,2.3)))*-900-out*900,r:sw});
+  const dd=bk(r(u,2.6,3.1));S('s6data',{s:cl(dd,0,2),o:cl(dd*2)*(1-out)});count('s6n',u,2.6,3.6,58);count('s6b',u,2.6,3.6,10);
+ }
+ // ===== S7 OUTRO =====
+ if(t>36.4){const u=t-T.s7;
+  const fi=o5(r(t,T.s7-.2,T.s7+.3));S('s7',{o:fi,s:1.08-.08*fi});
+  const pp=o5(r(u,.05,.45));S('s7p',{x:(1-pp)*-80,o:pp});
+  rev(s7h,u,.5,.09,.5);
+  grid.forEach((g,i)=>{const a=bk(r(u,.4+i*.12,1.1+i*.12));S(g,{y:(1-a)*700+Math.sin(t*2+i)*5,r:(1-a)*(i%2?14:-14),s:.6+.4*a,o:cl(a*2)});const nb=g.querySelector('.nb');const q=bk(r(u,1.0+i*.13,1.35+i*.13));nb.style.transform=`scale(${cl(q,0,2)})`});
+  const lb=o5(r(u,2.2,2.6));S('s7lab',{o:lb,y:(1-lb)*20});
+  const bb=bk(r(u,2.2,2.7));S('s7bar',{y:(1-bb)*300,o:cl(bb*2)});
+  const ty=u>3.3;$('s7txt').textContent=ty?'3':'Add a comment…';$('s7txt').style.color=ty?'#0E120D':'#9AA196';
+  const sd=r(u,3.6,3.8);$('s7send').style.background=sd>0?'#B6F07A':'#E9EEE5';S('s7send',{s:1+Math.sin(sd*Math.PI)*.25});
+  const bu=bk(r(u,3.8,4.3));S('s7bub',{y:(1-bu)*140,s:cl(bu,0,2),o:cl(bu*2)});
+ }
+ // progress
+ const pv=t>T.s2-.1&&t<T.s7-.1;$('prog').style.opacity=pv?1:0;
+ [...$('prog').querySelectorAll('b')].forEach((b,i)=>{b.style.transform=`scaleX(${r(t,ST[i],ST[i]+TM.seg[i])})`;b.style.background=(t>T.s4&&t<T.s5)?'#B6F07A':'#0E120D'});
+ [...$('prog').querySelectorAll('i')].forEach(i=>i.style.background=(t>T.s4&&t<T.s5)?'rgba(255,255,255,.15)':'rgba(14,18,13,.12)');
+}
+window.seek=seek;window.TOTAL=TOTAL;seek(0);
+</script></body></html>

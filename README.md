@@ -6,7 +6,7 @@ Install once, then talk to your AI agent like normal. The skills will enable you
 
 ## What's Inside
 
-This repo currently includes **eight creative strategy skills**:
+This repo currently includes **nine creative strategy skills**:
 
 | Skill | What it does | When to use it |
 | --- | --- | --- |
@@ -18,6 +18,7 @@ This repo currently includes **eight creative strategy skills**:
 | **hook-voice-patterns** | Swipe file of native hook templates curated by Alysha from real viral social media content | You want hooks that feel native to the feed — like something a real person would post, not an ad |
 | **creative-mechanics** | Library of structural ad concepts curated by Alysha from real viral social media content | You have an idea, a pain point, or a hook and you want to develop it into a full ad concept with a visual structure |
 | **visual-formats** | Reference library of 45+ visual ad formats for Meta and paid social (video/static, funnel fit, mechanic pairing) | You're choosing how an ad should look and feel, what format to execute, or which production structure best serves the concept |
+| **listicle-reel-video** | Research pipeline (Motion / Meta Ad Library), After-Effects-style scene recipes, SFX and audio mix, and render templates for a vertical "I went through 800+ ads → top 5/10" reel | You want to turn ad research or a listicle into a 9:16 reel with real ad screens, voiceover, quiet music and moment-synced sound effects |
 
 ## Getting Started
 
