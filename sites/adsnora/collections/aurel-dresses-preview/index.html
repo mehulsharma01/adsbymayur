@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AUREL Dresses</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="AUREL women's dresses: mini, midi and maxi styles in denim, satin, knit and linen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky header + sticky toolbar, 2-col mobile grid -> 4-col desktop, editorial video tile spans 2 cols, bottom-sheet filters on mobile */
+:root{
+  --bg:#ffffff;          /* page */
+  --surface:#f2f1f6;     /* media wells, chips (cool lilac grey) */
+  --line:#e3e1ea;
+  --ink:#17151c;         /* text */
+  --muted:#6d6878;
+  --accent:#5b2a86;      /* deep violet - brand */
+  --accent-ink:#ffffff;
+  --sale:#c2185b;
+  --ok:#1f7a55;
+  --display:"Bodoni Moda", "Didot", "Times New Roman", serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gutr:max(16px, env(safe-area-inset-right, 0px));
+  --hdr:56px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.5 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{padding-left:var(--gut);padding-right:var(--gutr);max-width:1440px;margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* announcement */
+.announce{background:var(--ink);color:#fff;font-size:12px;letter-spacing:.04em;text-align:center;height:34px;overflow:hidden;position:relative}
+.announce p{margin:0;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 var(--gutr) 0 var(--gut);transition:transform .5s ease,opacity .5s ease}
+.announce p[aria-hidden="true"]{opacity:0;transform:translateY(100%)}
+.announce b{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.hdr{height:var(--hdr);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.hdr-l,.hdr-r{display:flex;align-items:center;gap:4px}
+.hdr-r{justify-content:flex-end}
+.ibtn{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;position:relative}
+.ibtn:hover{background:var(--surface)}
+.logo{font-family:var(--display);font-weight:600;font-size:26px;letter-spacing:.22em;padding-left:.22em}
+.nav-d{display:none;gap:22px;font-size:13px;font-weight:500;letter-spacing:.02em}
+.nav-d a{padding:6px 0;border-bottom:1.5px solid transparent}
+.nav-d a.on,.nav-d a:hover{border-color:var(--ink)}
+.bag-n{position:absolute;top:4px;right:3px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-size:10px;font-weight:700;display:grid;place-items:center;transition:transform .25s}
+.bag-n.pop{transform:scale(1.35)}
+
+/* page head */
+.crumbs{font-size:12px;color:var(--muted);padding-block:14px 0;display:flex;gap:6px;flex-wrap:wrap}
+.crumbs span[aria-current]{color:var(--ink)}
+.phead{padding-block:10px 18px}
+.phead h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,8vw,60px);line-height:1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.phead h1 em{font-style:italic;color:var(--accent)}
+.phead .meta{display:flex;align-items:baseline;gap:10px;margin-top:8px;color:var(--muted);font-size:13px}
+.intro{max-width:62ch;margin:10px 0 0;color:var(--muted);font-size:14px}
+.intro.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.more{font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;margin-top:4px}
+
+/* category rail */
+.rail{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding-block:4px 18px;scroll-snap-type:x proximity}
+.rail::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:7px;width:72px;scroll-snap-align:start;font-size:12px;font-weight:500;text-align:center}
+.cat .ring{width:66px;height:66px;border-radius:50%;padding:3px;border:1.5px solid transparent;transition:border-color .2s}
+.cat .ring>div{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--surface)}
+.cat .ring svg{width:100%;height:100%}
+.cat[aria-pressed="true"] .ring{border-color:var(--accent)}
+.cat[aria-pressed="true"]{color:var(--accent);font-weight:700}
+
+/* toolbar */
+.tools{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr) + 1px);z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;align-items:center;gap:8px;height:52px}
+.tbtn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+.tbtn:hover{border-color:var(--ink)}
+.tbtn .cnt{background:var(--ink);color:#fff;border-radius:9px;font-size:10px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 5px}
+.sortwrap{position:relative}
+.sortwrap select{appearance:none;-webkit-appearance:none;height:36px;border:1px solid var(--line);border-radius:999px;padding:0 32px 0 14px;font:600 13px var(--body);color:var(--ink);background:var(--bg);cursor:pointer;max-width:46vw}
+.sortwrap svg{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;pointer-events:none}
+.tools .sp{flex:1}
+.view{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.view button{width:30px;height:28px;border-radius:999px;display:grid;place-items:center;color:var(--muted)}
+.view button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.view svg{width:15px;height:15px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding-block:10px 0}
+.chips:empty{display:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 12px;background:var(--surface);border-radius:999px;font-size:12px;font-weight:600}
+.chip svg{width:12px;height:12px}
+.chip.clear{background:none;text-decoration:underline;text-underline-offset:3px}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 10px;padding-block:16px 8px}
+.grid.one{grid-template-columns:minmax(0,1fr)}
+.mwrap{position:relative;overflow:hidden;border-radius:4px}
+.card{position:relative;min-width:0;animation:rise .5s ease both}
+@keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+.media{display:block;position:relative;aspect-ratio:3/4;max-width:100%;background:var(--surface);overflow:hidden;border-radius:4px}
+.media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease,transform .8s ease}
+.media .alt{opacity:0}
+@media (hover:hover){
+  .card:hover .media .alt{opacity:1}
+  .card:hover .media .main{transform:scale(1.03)}
+  .card:hover .qadd{opacity:1;transform:none}
+}
+.media video{opacity:0}
+.media.has-video.playing video{opacity:1}
+.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;z-index:2;align-items:flex-start}
+.badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;background:var(--bg);color:var(--ink);border-radius:2px}
+.badge.sale{background:var(--sale);color:#fff}
+.badge.new{background:var(--accent);color:#fff}
+.vtag{position:absolute;bottom:8px;left:8px;z-index:2;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(23,21,28,.72);color:#fff;padding:4px 8px 4px 6px;border-radius:999px}
+.vtag svg{width:12px;height:12px;fill:#fff}
+.wish{position:absolute;top:6px;right:6px;z-index:2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.85)}
+.wish svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.7;transition:fill .2s,stroke .2s,transform .2s}
+.wish[aria-pressed="true"] svg{fill:var(--sale);stroke:var(--sale);transform:scale(1.1)}
+.qadd{position:absolute;right:8px;bottom:8px;z-index:3;width:36px;height:36px;border-radius:50%;background:var(--bg);display:grid;place-items:center;box-shadow:0 2px 10px rgba(23,21,28,.12)}
+@media (hover:hover){.qadd{opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s}}
+.qadd svg{width:18px;height:18px}
+.sizes{position:absolute;inset:auto 0 0 0;z-index:4;background:var(--bg);padding:10px;border-top:1px solid var(--line);transform:translateY(101%);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.sizes.open{transform:none}
+.sizes p{margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between}
+.sizes .row{display:flex;flex-wrap:wrap;gap:5px}
+.sz{min-width:36px;height:32px;padding:0 6px;border:1px solid var(--line);border-radius:3px;font-size:12px;font-weight:600}
+.sz:hover{border-color:var(--ink)}
+.sz:disabled{color:#b9b5c2;text-decoration:line-through;cursor:not-allowed}
+.info{padding-top:10px;display:flex;flex-direction:column;gap:3px}
+.info h3{margin:0;font-size:13px;font-weight:500;line-height:1.35;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.price{display:flex;gap:7px;align-items:baseline;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.price s{color:var(--muted);font-weight:500}
+.price .now.red{color:var(--sale)}
+.sw{display:flex;gap:5px;align-items:center;margin-top:4px}
+.sw button{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);outline-offset:2px}
+.sw button[aria-pressed="true"]{outline:1px solid var(--ink)}
+.sw span{font-size:11px;color:var(--muted);margin-left:2px}
+.low{font-size:11px;color:var(--sale);font-weight:600}
+
+/* editorial tile */
+.edit{grid-column:1/-1;position:relative;min-height:420px;border-radius:4px;overflow:hidden;background:var(--ink);color:#fff;display:flex;align-items:flex-end}
+.edit .bgm{position:absolute;inset:0}
+.edit .bgm>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.edit::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,28,0) 35%,rgba(23,21,28,.75))}
+.edit .txt{position:relative;z-index:1;padding:22px;display:flex;flex-direction:column;gap:10px;max-width:520px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.edit h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,6vw,48px);line-height:1;margin:0;text-wrap:balance}
+.edit h2 em{font-style:italic}
+.cta{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;background:#fff;color:var(--ink);border-radius:999px;font-weight:700;font-size:13px}
+.cta.dark{background:var(--ink);color:#fff}
+.cta.acc{background:var(--accent);color:#fff}
+
+/* load more */
+.loadm{display:flex;flex-direction:column;align-items:center;gap:12px;padding-block:24px 40px}
+.loadm p{margin:0;font-size:13px;color:var(--muted)}
+.bar{width:200px;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width .4s}
+.btn-o{height:46px;padding:0 34px;border:1.5px solid var(--ink);border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.02em}
+.btn-o:hover{background:var(--ink);color:#fff}
+.empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted)}
+
+/* usp */
+.usp{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.usp .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;padding-block:24px}
+.usp div{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted)}
+.usp b{display:block;color:var(--ink);font-size:13px}
+.usp svg{flex:0 0 auto;margin-top:1px}
+
+/* seo / faq */
+.seo{padding-block:36px}
+.seo h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 10px}
+.seo p{max-width:68ch;color:var(--muted);margin:0 0 12px}
+details{border-bottom:1px solid var(--line);max-width:760px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:20px;font-weight:400;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 16px;color:var(--muted)}
+
+/* newsletter */
+.news{background:var(--accent);color:#fff}
+.news .wrap{padding-block:40px;display:grid;gap:16px}
+.news h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,6vw,40px);margin:0;line-height:1.05}
+.news p{margin:0;opacity:.85;max-width:46ch}
+.news form{display:flex;gap:8px;max-width:460px;width:100%}
+.news input{flex:1;min-width:0;height:48px;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:999px;padding:0 18px;font:500 14px var(--body)}
+.news input::placeholder{color:rgba(255,255,255,.7)}
+.news button{height:48px;padding:0 22px;border-radius:999px;background:#fff;color:var(--accent);font-weight:700}
+.news small{opacity:.75;font-size:12px}
+
+/* footer */
+footer{background:#0f0d13;color:#cfcbd8;font-size:13px}
+footer .wrap{padding-block:32px 28px}
+.fcols{display:grid;gap:0}
+.fcol h4{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.fcol details{border-color:#2a2631;max-width:none}
+.fcol summary{color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.fcol ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}
+.fbot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-top:28px;font-size:12px;color:#8e889b}
+.flogo{font-family:var(--display);font-size:22px;letter-spacing:.22em;color:#fff}
+.pay{display:flex;gap:6px}
+.pay span{border:1px solid #2a2631;border-radius:4px;padding:3px 7px;font-size:10px;font-weight:700;letter-spacing:.06em}
+
+/* drawers */
+.scrim{position:fixed;inset:0;background:rgba(15,13,19,.45);z-index:70;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:80;background:var(--bg);display:flex;flex-direction:column;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.sheet.bottom{left:0;right:0;bottom:0;max-height:88vh;border-radius:16px 16px 0 0;transform:translateY(102%);padding-bottom:env(safe-area-inset-bottom,0px)}
+.sheet.left{top:0;bottom:0;left:0;width:min(88vw,380px);transform:translateX(-102%);padding-top:env(safe-area-inset-top,0px);padding-left:env(safe-area-inset-left,0px)}
+.sheet.on{transform:none}
+.sh-h{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sh-h h3{margin:0;font-size:15px;font-weight:700}
+.grab{width:40px;height:4px;border-radius:2px;background:var(--line);margin:8px auto 0}
+.sh-b{overflow-y:auto;padding:0 16px;flex:1;overscroll-behavior:contain}
+.sh-f{display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.sh-f button{flex:1;height:48px;border-radius:999px;font-weight:700}
+.sh-f .ghost{border:1.5px solid var(--ink)}
+.sh-f .solid{background:var(--ink);color:#fff}
+.fgroup{border-bottom:1px solid var(--line);padding:16px 0}
+.fgroup h4{margin:0 0 12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{height:36px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:8px}
+.opt[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.opt i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.menu a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;font-weight:500}
+.menu a.hl{color:var(--sale)}
+.menu .promo{margin:20px 0;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:16/10;background:var(--surface)}
+.menu .promo svg{width:100%;height:100%}
+.menu .promo span{position:absolute;left:14px;bottom:12px;font-family:var(--display);font-size:22px;font-style:italic}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);z-index:90;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;width:min(92vw,380px);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 10px 30px rgba(15,13,19,.3)}
+.toast.on{transform:translate(-50%,0)}
+.toast .th{width:42px;height:56px;border-radius:4px;overflow:hidden;flex:0 0 auto;background:var(--surface)}
+.toast .th>*{width:100%;height:100%;object-fit:cover}
+.toast p{margin:0;font-size:13px;flex:1;min-width:0}
+.toast p small{display:block;opacity:.7}
+.toast a{font-weight:700;font-size:12px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+
+@media (min-width:768px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 16px}
+  .grid.one{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .usp .wrap{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .edit{grid-column:span 2;min-height:auto}
+  .news .wrap{grid-template-columns:1fr 1fr;align-items:center}
+  .fcols{grid-template-columns:repeat(4,1fr);gap:24px}
+  .fcol details{border:0}
+  .fcol details summary{pointer-events:none;padding-top:0}
+  .fcol details summary::after{display:none}
+}
+@media (min-width:1100px){
+  :root{--hdr:68px}
+  .nav-d{display:flex}
+  .hdr{grid-template-columns:auto 1fr auto}
+  .hdr-l .burger{display:none}
+  .hdr-c{display:flex;align-items:center;gap:40px}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid.one{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sheet.bottom{left:auto;top:0;width:420px;max-height:none;border-radius:0;transform:translateX(102%);padding-top:env(safe-area-inset-top,0px)}
+  .sheet.bottom.on{transform:none}
+  .grab{display:none}
+  .phead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!--
+  ============================================================
+  HOW TO SWAP IN REAL MEDIA (edit the PRODUCTS array in the <script> at the bottom)
+  - img:   main product photo URL         e.g. "/media/dress-01.jpg"
+  - img2:  hover / second photo URL       (optional)
+  - video: product video URL (mp4/webm)   e.g. "/media/dress-01.mp4"
+           When "video" is set the card autoplays it (muted, looped, inline)
+           while it is on screen and pauses it when scrolled away.
+           The image is used as the poster until the video is ready.
+  Editorial tile media: EDITORIAL.img / EDITORIAL.video
+  Empty strings show the built-in placeholder artwork.
+  ============================================================
+-->
+
+<div class="announce" role="region" aria-label="Announcements">
+  <p>Free express shipping on orders over $150</p>
+  <p aria-hidden="true">New in: <b>The Indigo Hour</b> denim dresses</p>
+  <p aria-hidden="true">30-day free returns, no questions asked</p>
+</div>
+
+<header class="site">
+  <div class="wrap hdr">
+    <div class="hdr-l">
+      <button class="ibtn burger" id="openMenu" aria-label="Open menu"><svg class="icon" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></button>
+      <button class="ibtn burger" aria-label="Search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    </div>
+    <div class="hdr-c">
+      <a href="#" class="logo" aria-label="AUREL home">AUREL</a>
+      <nav class="nav-d" aria-label="Main">
+        <a href="#">New In</a><a href="#" class="on">Women</a><a href="#">Men</a><a href="#">Denim</a><a href="#">Bags</a><a href="#">Edits</a><a href="#" style="color:var(--sale)">Sale</a>
+      </nav>
+    </div>
+    <div class="hdr-r">
+      <button class="ibtn" aria-label="Account"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button class="ibtn" aria-label="Wishlist" id="wishBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.2 0 5.5 3.1 4.2 6.3C19 15.6 12 20 12 20Z"/></svg></button>
+      <button class="ibtn" aria-label="Bag"><svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="bag-n" id="bagN">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#">Home</a>/<a href="#">Women</a>/<span aria-current="page">Dresses</span></nav>
+    <div class="phead">
+      <div>
+        <h1>Dresses, <em>made to move</em></h1>
+        <div class="meta"><span id="countTop">24 styles</span><span aria-hidden="true">·</span><span>Sizes XXS to XL</span></div>
+      </div>
+      <div>
+        <p class="intro clamp" id="intro">From slip-satin minis to rigid-denim midis and sheer-knit maxis. Every AUREL dress is cut on our own block, fitted on real bodies in three heights, and finished with hand-set hardware. Wear them to dinner, to the studio, or straight from the airport.</p>
+        <button class="more" id="moreBtn" aria-expanded="false" aria-controls="intro">Read more</button>
+      </div>
+    </div>
+    <div class="rail" id="rail" role="group" aria-label="Dress categories"></div>
+  </div>
+
+  <div class="tools">
+    <div class="wrap">
+      <button class="tbtn" id="openFilter"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filter<span class="cnt" id="fCnt" hidden>0</span></button>
+      <label class="sortwrap"><span class="sr">Sort by</span>
+        <select id="sort">
+          <option value="feat">Featured</option>
+          <option value="new">Newest</option>
+          <option value="lo">Price: low to high</option>
+          <option value="hi">Price: high to low</option>
+        </select>
+        <svg viewBox="0 0 24 24" class="icon"><path d="m6 9 6 6 6-6"/></svg>
+      </label>
+      <span class="sp"></span>
+      <div class="view" role="group" aria-label="Grid density">
+        <button aria-pressed="false" data-view="one" aria-label="Larger tiles"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="currentColor"/></svg></button>
+        <button aria-pressed="true" data-view="two" aria-label="Smaller tiles"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <section class="grid" id="grid" aria-label="Products"></section>
+    <div class="loadm" id="loadm">
+      <p id="showing">Showing 12 of 24</p>
+      <div class="bar"><i id="barI" style="width:50%"></i></div>
+      <button class="btn-o" id="loadBtn">Load more</button>
+    </div>
+  </div>
+
+  <section class="usp" aria-label="Why shop with us">
+    <div class="wrap">
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg><span><b>Free express shipping</b>On orders over $150</span></div>
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4"/></svg><span><b>30-day returns</b>Free, with a prepaid label</span></div>
+      <div><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span><b>Secure checkout</b>Cards, Apple Pay, Klarna</span></div>
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5 6.8 15M17.2 9l2.6-1.5"/><circle cx="12" cy="12" r="3"/></svg><span><b>Free alterations</b>Hem and strap fitting in store</span></div>
+    </div>
+  </section>
+
+  <section class="seo wrap" aria-labelledby="seoH">
+    <h2 id="seoH">Finding your dress</h2>
+    <p>Not sure on length? Our minis sit 2 cm above mid-thigh on a 172 cm model, midis land at mid-calf, and maxis brush the ankle. Each product page lists the exact centre-back length in centimetres.</p>
+    <details><summary>How do AUREL dresses fit?</summary><p>True to size with a close fit through the bodice. Denim styles have 2% stretch; if you are between sizes in rigid denim, size up.</p></details>
+    <details><summary>Can I return a sale dress?</summary><p>Yes. Sale items follow the same 30-day free return window as full-price pieces.</p></details>
+    <details><summary>When will my order arrive?</summary><p>Express orders placed before 2 pm ship the same day and arrive in 1 to 3 business days.</p></details>
+  </section>
+
+  <section class="news" aria-labelledby="newsH">
+    <div class="wrap">
+      <div>
+        <h2 id="newsH">First look, <em>first pick.</em></h2>
+        <p>Join the list for early access to drops and 10% off your first order.</p>
+      </div>
+      <div style="display:grid;gap:8px">
+        <form id="newsF" novalidate>
+          <label class="sr" for="email">Email address</label>
+          <input id="email" type="email" placeholder="Your email address" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+        <small id="newsMsg">Unsubscribe anytime. See our privacy policy.</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fcol"><details open><summary>Help</summary><ul><li><a href="#">Track order</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Size guide</a></li></ul></details></div>
+      <div class="fcol"><details><summary>Shop</summary><ul><li><a href="#">Women</a></li><li><a href="#">Men</a></li><li><a href="#">Denim</a></li><li><a href="#">Gift cards</a></li></ul></details></div>
+      <div class="fcol"><details><summary>About</summary><ul><li><a href="#">Our story</a></li><li><a href="#">Responsibility</a></li><li><a href="#">Stores</a></li><li><a href="#">Careers</a></li></ul></details></div>
+      <div class="fcol"><details><summary>Follow</summary><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Pinterest</a></li></ul></details></div>
+    </div>
+    <div class="fbot">
+      <span class="flogo">AUREL</span>
+      <div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span><span>KLARNA</span></div>
+      <span>© 2026 AUREL Studio. Preview build.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="sheet left" id="menu" aria-label="Menu" aria-hidden="true">
+  <div class="sh-h"><span class="logo" style="font-size:20px">AUREL</span><button class="ibtn" data-close aria-label="Close menu"><svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="sh-b menu">
+    <a href="#">New In <span>›</span></a><a href="#">Women <span>›</span></a><a href="#">Men <span>›</span></a><a href="#">Denim <span>›</span></a><a href="#">Bags &amp; Accessories <span>›</span></a><a href="#">The Edits <span>›</span></a><a href="#" class="hl">Sale <span>›</span></a>
+    <div class="promo" id="menuPromo"><span>The Indigo Hour</span></div>
+  </div>
+</aside>
+
+<aside class="sheet bottom" id="filter" aria-label="Filters" aria-hidden="true">
+  <div class="grab"></div>
+  <div class="sh-h"><h3>Filter</h3><button class="ibtn" data-close aria-label="Close filters"><svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="sh-b" id="fBody"></div>
+  <div class="sh-f"><button class="ghost" id="fClear">Clear all</button><button class="solid" id="fApply">Show 24 results</button></div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><div class="th" id="tTh"></div><p id="tMsg"></p><a href="#">View bag</a></div>
+
+<script>
+/* ---------- DATA: replace img / img2 / video with real URLs ---------- */
+const PRODUCTS = [
+  {id:1,name:"Indigo Hour Denim Midi Dress",price:248,was:0,len:"Midi",cat:"Denim",colors:[["#2b3a5c","Indigo"],["#8ea3c4","Bleach"]],sizes:["XXS","XS","S","M","L","XL"],out:["XXS"],badge:"new",tag:"New",low:0,img:"",img2:"",video:""},
+  {id:2,name:"Liquid Satin Slip Mini",price:168,was:0,len:"Mini",cat:"Satin",colors:[["#5b2a86","Violet"],["#111","Black"],["#d8c7a8","Champagne"]],sizes:["XS","S","M","L"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:"",hasVideo:true},
+  {id:3,name:"Sheer Rib-Knit Maxi Dress",price:210,was:0,len:"Maxi",cat:"Knit",colors:[["#c9b9a6","Oat"],["#2b2b2b","Charcoal"]],sizes:["XS","S","M","L","XL"],out:["XL"],badge:"",tag:"Bestseller",low:0,img:"",img2:"",video:""},
+  {id:4,name:"Corset Bustier Denim Mini",price:198,was:278,len:"Mini",cat:"Denim",colors:[["#4a5f86","Mid Blue"]],sizes:["XS","S","M","L"],out:["M"],badge:"sale",tag:"-30%",low:3,img:"",img2:"",video:""},
+  {id:5,name:"Asymmetric Jersey Midi",price:145,was:0,len:"Midi",cat:"Jersey",colors:[["#a3242f","Cherry"],["#111","Black"],["#e9e4dc","Ivory"]],sizes:["XXS","XS","S","M","L","XL"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:"",hasVideo:true},
+  {id:6,name:"Cut-Out Linen Shirt Dress",price:225,was:0,len:"Midi",cat:"Linen",colors:[["#e8e0cf","Sand"],["#6f7b5a","Olive"]],sizes:["XS","S","M","L"],out:[],badge:"new",tag:"New",low:0,img:"",img2:"",video:""},
+  {id:7,name:"Mesh Logo Bodycon Maxi",price:189,was:0,len:"Maxi",cat:"Jersey",colors:[["#111","Black"],["#9a7fc2","Lilac"]],sizes:["XS","S","M","L"],out:["XS"],badge:"",tag:"",low:2,img:"",img2:"",video:""},
+  {id:8,name:"Pleated Satin Halter Midi",price:265,was:0,len:"Midi",cat:"Satin",colors:[["#1f4d45","Emerald"],["#d8c7a8","Champagne"]],sizes:["XS","S","M","L","XL"],out:[],badge:"",tag:"Online only",low:0,img:"",img2:"",video:""},
+  {id:9,name:"Distressed Denim Slip Maxi",price:238,was:0,len:"Maxi",cat:"Denim",colors:[["#5d7298","Stone"]],sizes:["XS","S","M","L"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:"",hasVideo:true},
+  {id:10,name:"Crochet Trim Knit Mini",price:132,was:176,len:"Mini",cat:"Knit",colors:[["#efe8dc","Cream"],["#b5694a","Rust"]],sizes:["XS","S","M","L"],out:["L"],badge:"sale",tag:"-25%",low:0,img:"",img2:"",video:""},
+  {id:11,name:"Draped One-Shoulder Midi",price:220,was:0,len:"Midi",cat:"Jersey",colors:[["#3c2a4d","Plum"],["#111","Black"]],sizes:["XXS","XS","S","M","L"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:12,name:"Belted Utility Denim Dress",price:255,was:0,len:"Midi",cat:"Denim",colors:[["#384b72","Raw Blue"],["#1d1d1d","Black Denim"]],sizes:["XS","S","M","L","XL"],out:[],badge:"new",tag:"New",low:0,img:"",img2:"",video:""},
+  {id:13,name:"Lace-Panel Satin Maxi",price:298,was:0,len:"Maxi",cat:"Satin",colors:[["#111","Black"],["#c8a4b5","Rose"]],sizes:["XS","S","M","L"],out:["S"],badge:"",tag:"Bestseller",low:0,img:"",img2:"",video:""},
+  {id:14,name:"Racer Rib Tank Mini Dress",price:89,was:0,len:"Mini",cat:"Knit",colors:[["#7d8a6a","Sage"],["#111","Black"],["#f2f2f2","White"]],sizes:["XXS","XS","S","M","L","XL"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:15,name:"Wrap Linen Midi",price:175,was:0,len:"Midi",cat:"Linen",colors:[["#d97a4a","Papaya"],["#e8e0cf","Sand"]],sizes:["XS","S","M","L"],out:[],badge:"",tag:"",low:4,img:"",img2:"",video:"",hasVideo:true},
+  {id:16,name:"Studded Denim Mini Skirt Dress",price:158,was:226,len:"Mini",cat:"Denim",colors:[["#6c80a5","Light Wash"]],sizes:["XS","S","M"],out:[],badge:"sale",tag:"-30%",low:0,img:"",img2:"",video:""},
+  {id:17,name:"Ruched Jersey Maxi",price:160,was:0,len:"Maxi",cat:"Jersey",colors:[["#245a7a","Ocean"],["#111","Black"]],sizes:["XS","S","M","L","XL"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:18,name:"Square-Neck Satin Mini",price:155,was:0,len:"Mini",cat:"Satin",colors:[["#c0392b","Scarlet"],["#5b2a86","Violet"]],sizes:["XS","S","M","L"],out:[],badge:"new",tag:"New",low:0,img:"",img2:"",video:""},
+  {id:19,name:"Open-Back Knit Midi",price:195,was:0,len:"Midi",cat:"Knit",colors:[["#8a6f5a","Mocha"]],sizes:["XS","S","M","L"],out:["XS"],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:20,name:"Patchwork Denim Maxi",price:310,was:0,len:"Maxi",cat:"Denim",colors:[["#41547a","Multi Blue"]],sizes:["S","M","L"],out:[],badge:"",tag:"Limited",low:2,img:"",img2:"",video:""},
+  {id:21,name:"Tiered Linen Sundress",price:138,was:184,len:"Maxi",cat:"Linen",colors:[["#f2f2f2","White"],["#9db4c7","Sky"]],sizes:["XS","S","M","L","XL"],out:[],badge:"sale",tag:"-25%",low:0,img:"",img2:"",video:""},
+  {id:22,name:"Cowl-Neck Satin Midi",price:235,was:0,len:"Midi",cat:"Satin",colors:[["#2f3e2f","Forest"],["#d8c7a8","Champagne"]],sizes:["XS","S","M","L"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:23,name:"Logo Tape Jersey Mini",price:98,was:0,len:"Mini",cat:"Jersey",colors:[["#111","Black"],["#e9e4dc","Ivory"]],sizes:["XXS","XS","S","M","L","XL"],out:[],badge:"",tag:"",low:0,img:"",img2:"",video:""},
+  {id:24,name:"Corset Knit Maxi Dress",price:240,was:0,len:"Maxi",cat:"Knit",colors:[["#5b2a86","Violet"],["#2b2b2b","Charcoal"]],sizes:["XS","S","M","L"],out:[],badge:"new",tag:"New",low:0,img:"",img2:"",video:""}
+];
+const EDITORIAL = {eyebrow:"The Indigo Hour",title:"Denim, <em>after dark</em>",text:"Rigid denim, cut close and finished with hand-set studs.",cta:"Shop the edit",img:"",video:""};
+const CATS = ["All","Mini","Midi","Maxi","Denim","Satin","Knit","Linen","Jersey"];
+const PAGE = 12;
+
+/* ---------- placeholder artwork ---------- */
+function tint(hex,a){hex=hex.replace("#","");if(hex.length===3)hex=hex.split("").map(c=>c+c).join("");const n=parseInt(hex,16),r=n>>16,g=n>>8&255,b=n&255;const m=x=>Math.round(x+(255-x)*a);return `rgb(${m(r)},${m(g)},${m(b)})`}
+function dressSVG(color,len,alt,bgo){
+  const hem=len==="Mini"?238:len==="Midi"?300:352, sw=len==="Maxi"?62:len==="Midi"?54:42;
+  const bg=bgo||tint(color,alt?.78:.86), bg2=bgo?"#1c2236":tint(color,alt?.7:.8);
+  const body=`M128 92 L136 92 L140 112 Q150 118 160 112 L164 92 L172 92 L176 140 Q176 156 170 166 L${150+sw} ${hem} Q150 ${hem+10} ${150-sw} ${hem} L130 166 Q124 156 124 140 Z`;
+  return `<svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect width="300" height="400" fill="${bg}"/><rect y="${alt?0:330}" width="300" height="${alt?400:70}" fill="${bg2}" opacity="${alt?.35:1}"/>
+  <path d="M150 50 q0 -12 9 -12 q8 0 8 8 q0 6 -8 10 L150 62 M150 62 L112 84 L188 84 Z" fill="none" stroke="${tint(color,.35)}" stroke-width="2.2" stroke-linejoin="round"/>
+  <g transform="${alt?'translate(150 220) rotate(-4) translate(-150 -220)':''}"><path d="${body}" fill="${color}"/>
+  <path d="M130 166 Q150 172 170 166" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+  <path d="M150 172 L150 ${hem}" stroke="rgba(0,0,0,.08)" stroke-width="1.5"/></g></svg>`;
+}
+function mediaHTML(p,ci){
+  const c=p.colors[ci][0];
+  const main=p.img?`<img class="main" src="${p.img}" alt="${p.name}" loading="lazy">`:`<div class="main">${dressSVG(c,p.len)}</div>`;
+  const alt=p.img2?`<img class="alt" src="${p.img2}" alt="" loading="lazy">`:(p.img?"":`<div class="alt">${dressSVG(c,p.len,true)}</div>`);
+  const vid=p.video?`<video muted loop playsinline preload="none" ${p.img?`poster="${p.img}"`:""}><source src="${p.video}"></video>`:"";
+  return main+alt+vid;
+}
+
+/* ---------- state ---------- */
+const state={cat:"All",sizes:new Set(),colors:new Set(),lens:new Set(),price:null,sort:"feat",shown:PAGE,view:"two"};
+let bag=0;const wish=new Set();
+try{const v=localStorage.getItem("aurel_view");if(v)state.view=v}catch(e){}
+
+const $=s=>document.querySelector(s);
+const grid=$("#grid");
+
+/* rail */
+const railColors={All:"#5b2a86",Mini:"#c0392b",Midi:"#2b3a5c",Maxi:"#c9b9a6",Denim:"#4a5f86",Satin:"#d8c7a8",Knit:"#8a6f5a",Linen:"#e8e0cf",Jersey:"#111"};
+$("#rail").innerHTML=CATS.map(c=>`<button class="cat" data-cat="${c}" aria-pressed="${c===state.cat}"><span class="ring"><div>${dressSVG(railColors[c],["Mini","Midi","Maxi"].includes(c)?c:"Midi")}</div></span>${c==="All"?"All dresses":c}</button>`).join("");
+$("#rail").addEventListener("click",e=>{const b=e.target.closest(".cat");if(!b)return;state.cat=b.dataset.cat;state.shown=PAGE;document.querySelectorAll(".cat").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+$("#menuPromo").insertAdjacentHTML("afterbegin",dressSVG("#2b3a5c","Midi"));
+
+function filtered(){
+  let list=PRODUCTS.filter(p=>{
+    if(state.cat!=="All"&&p.len!==state.cat&&p.cat!==state.cat)return false;
+    if(state.lens.size&&!state.lens.has(p.len))return false;
+    if(state.sizes.size&&!p.sizes.some(s=>state.sizes.has(s)&&!p.out.includes(s)))return false;
+    if(state.colors.size&&!p.colors.some(c=>state.colors.has(colorFamily(c[1]))))return false;
+    if(state.price){const[a,b]=state.price;if(p.price<a||p.price>b)return false}
+    return true});
+  if(state.sort==="lo")list.sort((a,b)=>a.price-b.price);
+  if(state.sort==="hi")list.sort((a,b)=>b.price-a.price);
+  if(state.sort==="new")list.sort((a,b)=>(b.badge==="new")-(a.badge==="new")||b.id-a.id);
+  return list;
+}
+const FAMILIES={Black:["Black","Charcoal","Black Denim"],Blue:["Indigo","Bleach","Mid Blue","Stone","Raw Blue","Light Wash","Multi Blue","Ocean","Sky"],Neutral:["Oat","Champagne","Ivory","Sand","Cream","White","Mocha"],Red:["Cherry","Scarlet","Rust","Papaya","Rose"],Purple:["Violet","Lilac","Plum"],Green:["Olive","Emerald","Sage","Forest"]};
+const FAM_HEX={Black:"#111",Blue:"#3d5a8a",Neutral:"#e3d8c4",Red:"#b3262f",Purple:"#5b2a86",Green:"#2f5a45"};
+function colorFamily(n){for(const f in FAMILIES)if(FAMILIES[f].includes(n))return f;return"Other"}
+
+function card(p,i){
+  const tag=p.tag?`<span class="badge ${p.badge}">${p.tag}</span>`:"";
+  const vt=(p.video||p.hasVideo)?`<span class="vtag"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Video</span>`:"";
+  return `<article class="card" data-id="${p.id}" style="animation-delay:${(i%PAGE)*40}ms">
+    <div class="mwrap"><a href="#" class="media${p.video?" has-video":""}" aria-label="${p.name}">${mediaHTML(p,0)}</a>
+    <div class="badges">${tag}</div>${vt}
+    <button class="wish" aria-label="Save ${p.name}" aria-pressed="${wish.has(p.id)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.2 0 5.5 3.1 4.2 6.3C19 15.6 12 20 12 20Z"/></svg></button>
+    <button class="qadd" aria-label="Quick add ${p.name}"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    <div class="sizes" aria-hidden="true"><p><span>Select size</span><button class="szx" aria-label="Close sizes">✕</button></p><div class="row">${p.sizes.map(s=>`<button class="sz" ${p.out.includes(s)?"disabled":""}>${s}</button>`).join("")}</div></div></div>
+    <div class="info">
+      <h3><a href="#">${p.name}</a></h3>
+      <div class="price">${p.was?`<span class="now red">$${p.price}</span><s>$${p.was}</s>`:`<span class="now">$${p.price}</span>`}</div>
+      <div class="sw">${p.colors.map((c,ci)=>`<button style="background:${c[0]}" aria-label="${c[1]}" aria-pressed="${ci===0}" data-ci="${ci}"></button>`).join("")}${p.colors.length>1?`<span>${p.colors.length} colours</span>`:`<span>${p.colors[0][1]}</span>`}</div>
+      ${p.low?`<span class="low">Only ${p.low} left</span>`:""}
+    </div></article>`;
+}
+function editorial(){
+  const m=EDITORIAL.video?`<video muted loop playsinline autoplay ${EDITORIAL.img?`poster="${EDITORIAL.img}"`:""}><source src="${EDITORIAL.video}"></video>`:EDITORIAL.img?`<img src="${EDITORIAL.img}" alt="">`:dressSVG("#4a64a0","Maxi",false,"#2a3352");
+  return `<article class="edit"><div class="bgm">${m}</div><div class="txt"><span class="eyebrow">${EDITORIAL.eyebrow}</span><h2>${EDITORIAL.title}</h2><p style="margin:0;opacity:.85">${EDITORIAL.text}</p><a href="#" class="cta">${EDITORIAL.cta} →</a></div></article>`;
+}
+
+function render(){
+  const list=filtered(), n=list.length, show=list.slice(0,state.shown);
+  let html="";
+  show.forEach((p,i)=>{html+=card(p,i);if(i===5&&state.cat==="All")html+=editorial()});
+  grid.innerHTML=n?html:`<div class="empty"><p>No dresses match these filters.</p><button class="btn-o" onclick="clearAll()">Clear filters</button></div>`;
+  grid.className="grid"+(state.view==="one"?" one":"");
+  document.querySelectorAll(".view button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.view===state.view));
+  $("#countTop").textContent=`${n} style${n===1?"":"s"}`;
+  $("#showing").textContent=`Showing ${Math.min(state.shown,n)} of ${n}`;
+  $("#barI").style.width=n?Math.min(100,state.shown/n*100)+"%":"0";
+  $("#loadBtn").hidden=state.shown>=n;$("#loadm").hidden=!n;
+  renderChips();observeVideos();
+}
+
+/* chips */
+function activeFilters(){const a=[];state.lens.forEach(v=>a.push(["lens",v,v]));state.sizes.forEach(v=>a.push(["sizes",v,"Size "+v]));state.colors.forEach(v=>a.push(["colors",v,v]));if(state.price)a.push(["price",null,state.price[2]]);return a}
+function renderChips(){
+  const a=activeFilters();
+  $("#chips").innerHTML=a.map(([k,v,l])=>`<button class="chip" data-k="${k}" data-v="${v}">${l}<svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6 6 18"/></svg></button>`).join("")+(a.length?`<button class="chip clear" onclick="clearAll()">Clear all</button>`:"");
+  $("#fCnt").hidden=!a.length;$("#fCnt").textContent=a.length;
+}
+$("#chips").addEventListener("click",e=>{const c=e.target.closest(".chip[data-k]");if(!c)return;const k=c.dataset.k;if(k==="price")state.price=null;else state[k].delete(c.dataset.v);state.shown=PAGE;render();buildFilters()});
+function clearAll(){state.sizes.clear();state.colors.clear();state.lens.clear();state.price=null;state.shown=PAGE;render();buildFilters()}
+
+/* filter sheet */
+const PRICES=[[0,150,"Under $150"],[150,200,"$150 – $200"],[200,250,"$200 – $250"],[250,9999,"$250+"]];
+function buildFilters(){
+  const sizes=["XXS","XS","S","M","L","XL"];
+  $("#fBody").innerHTML=`
+  <div class="fgroup"><h4>Length</h4><div class="opts">${["Mini","Midi","Maxi"].map(v=>`<button class="opt" data-k="lens" data-v="${v}" aria-pressed="${state.lens.has(v)}">${v}</button>`).join("")}</div></div>
+  <div class="fgroup"><h4>Size</h4><div class="opts">${sizes.map(v=>`<button class="opt" data-k="sizes" data-v="${v}" aria-pressed="${state.sizes.has(v)}">${v}</button>`).join("")}</div></div>
+  <div class="fgroup"><h4>Colour</h4><div class="opts">${Object.keys(FAMILIES).map(v=>`<button class="opt" data-k="colors" data-v="${v}" aria-pressed="${state.colors.has(v)}"><i style="background:${FAM_HEX[v]}"></i>${v}</button>`).join("")}</div></div>
+  <div class="fgroup" style="border:0"><h4>Price</h4><div class="opts">${PRICES.map((p,i)=>`<button class="opt" data-k="price" data-v="${i}" aria-pressed="${!!state.price&&state.price[2]===p[2]}">${p[2]}</button>`).join("")}</div></div>`;
+  $("#fApply").textContent=`Show ${filtered().length} results`;
+}
+$("#fBody").addEventListener("click",e=>{const o=e.target.closest(".opt");if(!o)return;const k=o.dataset.k,v=o.dataset.v;
+  if(k==="price"){const p=PRICES[+v];state.price=state.price&&state.price[2]===p[2]?null:p}
+  else state[k].has(v)?state[k].delete(v):state[k].add(v);
+  state.shown=PAGE;buildFilters();render()});
+$("#fClear").onclick=clearAll;$("#fApply").onclick=closeAll;
+
+/* drawers */
+let lastFocus=null;
+function open(id){lastFocus=document.activeElement;const s=$(id);s.classList.add("on");s.setAttribute("aria-hidden","false");$("#scrim").classList.add("on");document.body.style.overflow="hidden";setTimeout(()=>s.querySelector("[data-close]")?.focus(),50)}
+function closeAll(){document.querySelectorAll(".sheet.on").forEach(s=>{s.classList.remove("on");s.setAttribute("aria-hidden","true")});$("#scrim").classList.remove("on");document.body.style.overflow="";lastFocus?.focus?.()}
+$("#openFilter").onclick=()=>{buildFilters();open("#filter")};
+$("#openMenu").onclick=()=>open("#menu");
+$("#scrim").onclick=closeAll;
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeAll);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeAll();document.querySelectorAll(".sizes.open").forEach(s=>s.classList.remove("open"))}});
+
+/* toolbar */
+$("#sort").onchange=e=>{state.sort=e.target.value;render()};
+document.querySelectorAll(".view button").forEach(b=>b.onclick=()=>{state.view=b.dataset.view;try{localStorage.setItem("aurel_view",state.view)}catch(e){}render()});
+$("#loadBtn").onclick=()=>{state.shown+=PAGE;render()};
+$("#moreBtn").onclick=e=>{const i=$("#intro"),ex=i.classList.toggle("clamp");e.target.textContent=ex?"Read more":"Read less";e.target.setAttribute("aria-expanded",!ex)};
+
+/* card interactions */
+grid.addEventListener("click",e=>{
+  const c=e.target.closest(".card");if(!c)return;const p=PRODUCTS.find(x=>x.id==c.dataset.id);
+  if(e.target.closest(".wish")){e.preventDefault();const b=e.target.closest(".wish");wish.has(p.id)?wish.delete(p.id):wish.add(p.id);b.setAttribute("aria-pressed",wish.has(p.id));return}
+  if(e.target.closest(".qadd")){e.preventDefault();document.querySelectorAll(".sizes.open").forEach(s=>s.classList.remove("open"));const s=c.querySelector(".sizes");s.classList.add("open");s.setAttribute("aria-hidden","false");s.querySelector(".sz:not(:disabled)")?.focus();return}
+  if(e.target.closest(".szx")){const s=c.querySelector(".sizes");s.classList.remove("open");s.setAttribute("aria-hidden","true");return}
+  const sz=e.target.closest(".sz");if(sz&&!sz.disabled){const s=c.querySelector(".sizes");s.classList.remove("open");addToBag(p,sz.textContent,c);return}
+  const sw=e.target.closest(".sw button");if(sw){const ci=+sw.dataset.ci;c.querySelectorAll(".sw button").forEach(b=>b.setAttribute("aria-pressed",b===sw));const m=c.querySelector(".media");m.innerHTML=mediaHTML(p,ci);if(p.video)observeVideos();return}
+  if(e.target.closest("a"))e.preventDefault();
+});
+let tT;
+function addToBag(p,size,c){
+  bag++;const n=$("#bagN");n.textContent=bag;n.classList.add("pop");setTimeout(()=>n.classList.remove("pop"),250);
+  $("#tTh").innerHTML=c.querySelector(".media .main").outerHTML;
+  $("#tMsg").innerHTML=`Added to bag<small>${p.name} · ${size}</small>`;
+  $("#toast").classList.add("on");clearTimeout(tT);tT=setTimeout(()=>$("#toast").classList.remove("on"),2800);
+}
+
+/* video autoplay in view */
+const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(en=>{const v=en.target.querySelector("video");if(!v)return;
+  if(en.isIntersecting){v.preload="auto";v.play().then(()=>en.target.classList.add("playing")).catch(()=>{})}else{v.pause()}}),{threshold:.5}):null;
+function observeVideos(){if(!io)return;document.querySelectorAll(".media.has-video,.edit .bgm").forEach(m=>{if(m.querySelector("video"))io.observe(m)})}
+
+/* announcement rotate */
+(()=>{const ps=[...document.querySelectorAll(".announce p")];let i=0;setInterval(()=>{ps[i].setAttribute("aria-hidden","true");i=(i+1)%ps.length;ps[i].removeAttribute("aria-hidden")},4000)})();
+
+/* newsletter */
+$("#newsF").addEventListener("submit",e=>{e.preventDefault();const em=$("#email");if(!/^\S+@\S+\.\S+$/.test(em.value)){$("#newsMsg").textContent="Enter a valid email, like name@example.com.";em.focus();return}$("#newsMsg").textContent="You're on the list. Check your inbox for your 10% code.";em.value=""});
+
+render();
+</script>
+
+</body>
+</html>
