@@ -55,10 +55,11 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgrou
 .hdr-l,.hdr-r{display:flex;align-items:center;gap:2px}
 .hdr-r{justify-content:flex-end}
 .ibtn{width:40px;height:40px;display:grid;place-items:center;position:relative}
-.logo{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:24px;letter-spacing:.06em;line-height:1}
+.acct{display:none}
+.logo{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px;letter-spacing:.06em;line-height:1}
 .bag-n{position:absolute;top:6px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--rose);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;transition:transform .25s}
 .bag-n.pop{transform:scale(1.4)}
-.gnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;height:40px;align-items:center;border-top:1px solid var(--line)}
+.gnav{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;height:42px;align-items:center;border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
 .gnav::-webkit-scrollbar{display:none}
 .gnav a{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding:11px 0;border-bottom:2px solid transparent}
 .gnav a.on{border-color:var(--ink)}
@@ -138,7 +139,8 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgrou
 .wish[aria-pressed="true"] svg{fill:var(--rose);stroke:var(--rose);transform:scale(1.15)}
 .qadd{position:absolute;right:0;bottom:0;z-index:3;height:38px;padding:0 12px;background:#fff;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .qadd svg{width:14px;height:14px}
-@media (hover:hover){.qadd{opacity:0;transform:translateY(100%);transition:opacity .2s,transform .25s}}
+@media (hover:none),(max-width:699px){.qadd{right:8px;bottom:8px;width:34px;height:34px;padding:0;border-radius:50%;justify-content:center;font-size:0;gap:0;box-shadow:0 2px 8px rgba(0,0,0,.15)}.qadd svg{width:16px;height:16px}}
+@media (hover:hover) and (min-width:700px){.qadd{opacity:0;transform:translateY(100%);transition:opacity .2s,transform .25s}}
 .sizes{position:absolute;inset:auto 0 0 0;z-index:4;background:#fff;padding:12px;transform:translateY(101%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .sizes.open{transform:none}
 .sizes p{margin:0 0 10px;display:flex;justify-content:space-between;align-items:center}
@@ -216,7 +218,7 @@ footer{background:var(--ink);color:#d9d4d3;font-size:13px}
 .fcol summary{color:#fff}
 .fcol ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}
 .fbot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-block:26px;font-size:11px;color:#8c8686;letter-spacing:.06em}
-.flogo{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(64px,22vw,260px);line-height:.8;color:#fff;letter-spacing:.02em;padding-block:20px 0;overflow:hidden;white-space:nowrap}
+.flogo{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(52px,19.5vw,250px);line-height:.8;color:#fff;letter-spacing:0;padding-block:20px 0;overflow:hidden;white-space:nowrap;text-align:center}
 
 /* drawers */
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:70;opacity:0;pointer-events:none;transition:opacity .25s}
@@ -253,6 +255,7 @@ footer{background:var(--ink);color:#d9d4d3;font-size:13px}
 .toast p b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ff8fb0}
 .toast a{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 
+@media (max-width:399px){.info{padding:8px 10px 0}.info h3{font-size:12px}.sw span{font-size:10px}.tbtn{letter-spacing:.08em}.count{display:none}}
 @media (min-width:700px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .grid.big{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -274,6 +277,8 @@ footer{background:var(--ink);color:#d9d4d3;font-size:13px}
   .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .grid.big{grid-template-columns:repeat(3,minmax(0,1fr))}
   .logo{font-size:30px}
+  .acct{display:grid}
+  .gnav{-webkit-mask-image:none;mask-image:none}
   .gnav{justify-content:center;gap:34px}
   .hero .pic{aspect-ratio:auto;height:min(78vh,760px)}
   .hero .txt{padding-block:40px 44px}
@@ -309,13 +314,13 @@ footer{background:var(--ink);color:#d9d4d3;font-size:13px}
     </div>
     <a href="#" class="logo" aria-label="AUREL home" id="mlogo">AUREL</a>
     <div class="hdr-r">
-      <button class="ibtn" aria-label="Account"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button class="ibtn acct" aria-label="Account"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
       <button class="ibtn" aria-label="Wishlist"><svg class="icon" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.2 0 5.5 3.1 4.2 6.3C19 15.6 12 20 12 20Z"/></svg><span class="bag-n" id="wishN" hidden>0</span></button>
       <button class="ibtn" aria-label="Bag"><svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="bag-n" id="bagN">0</span></button>
     </div>
   </div>
-  <nav class="wrap gnav" aria-label="Departments"><a href="#">New In</a><a href="#" class="on">Woman</a><a href="#">Man</a><a href="#">Denim</a><a href="#">Bags</a><a href="#">Shoes</a><a href="#" class="sale">Sale</a></nav>
 </header>
+<nav class="wrap gnav" aria-label="Departments"><a href="#">New In</a><a href="#" class="on">Woman</a><a href="#">Man</a><a href="#">Denim</a><a href="#">Bags</a><a href="#">Shoes</a><a href="#" class="sale">Sale</a></nav>
 
 <main>
   <section class="hero" aria-label="Dresses">
@@ -510,9 +515,8 @@ const heart=`<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5
 function media(p){return `<img class="main" src="${p.img}" alt="${p.name}" loading="lazy">`+(p.img2?`<img class="alt" src="${p.img2}" alt="" loading="lazy">`:`<img class="alt" src="${p.img}" alt="" loading="lazy">`)+(p.video?vid(p.video,p.img,false):"")}
 function card(p,i){
   const fl=p.flag&&p.flag!=="New"?`<span class="flag${p.sale?" sale":""}">${p.flag}</span>`:"";
-  const vt=(p.video||p.hasVideo)?`<span class="vtag"><i><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></i>360° view</span>`:"";
   return `<article class="card" data-id="${p.id}" style="animation-delay:${(i%PAGE)*45}ms">
-  <div class="mwrap"><a href="#" class="media${p.video?" has-video":""}" aria-label="${p.name}">${media(p)}</a>${fl}${vt}
+  <div class="mwrap"><a href="#" class="media${p.video?" has-video":""}" aria-label="${p.name}">${media(p)}</a>${fl}
     <button class="wish" aria-label="Save ${p.name}" aria-pressed="${wish.has(p.id)}">${heart}</button>
     <button class="qadd" aria-label="Quick add ${p.name}"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>
     <div class="sizes" aria-hidden="true"><p><span class="lbl">Select size</span><button class="szx ibtn" style="width:28px;height:28px" aria-label="Close sizes">✕</button></p><div class="row">${p.sizes.map(s=>`<button class="sz" ${p.out.includes(s)?"disabled":""}>${s}</button>`).join("")}</div></div>
@@ -520,7 +524,7 @@ function card(p,i){
   <div class="info">${p.flag==="New"?`<span class="nw">New</span>`:""}
     <h3><a href="#">${p.name}</a></h3>
     <div class="price">${p.was?`<span class="red">$${p.price}</span><s>$${p.was}</s>`:`<span>$${p.price}</span>`}</div>
-    <div class="sw">${p.colors.map((c,ci)=>`<button style="background:${c[0]}" aria-label="${c[1]}" aria-pressed="${ci===0}"></button>`).join("")}<span>${p.colors.length>1?`+${p.colors.length} colours`:p.colors[0][1]}</span></div>
+    <div class="sw">${p.colors.map((c,ci)=>`<button style="background:${c[0]}" aria-label="${c[1]}" aria-pressed="${ci===0}"></button>`).join("")}<span>${p.colors.length>1?`${p.colors.length} colours`:p.colors[0][1]}</span></div>
   </div></article>`;
 }
 function editorial(e){
@@ -596,8 +600,10 @@ function addToBag(p,size){bag++;const n=$("#bagN");n.textContent=bag;n.classList
   $("#toast").classList.add("on");clearTimeout(tT);tT=setTimeout(()=>$("#toast").classList.remove("on"),2800)}
 
 /* product videos: play while on screen */
-const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(en=>{const v=en.target.querySelector("video");if(!v)return;
-  if(en.isIntersecting){v.preload="auto";v.play().then(()=>en.target.classList.add("playing")).catch(()=>{})}else v.pause()}),{threshold:.35}):null;
+const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(en=>{const m=en.target,v=m.querySelector("video");if(!v)return;
+  if(en.intersectionRatio>=.6){if(v.preload!=="auto"){v.preload="auto";v.load()}v.play().then(()=>m.classList.add("playing")).catch(()=>{})}
+  else if(!v.paused||m.classList.contains("playing")){v.pause();v.currentTime=0;m.classList.remove("playing")}
+}),{threshold:[0,.6]}):null;
 function observe(){if(io)document.querySelectorAll(".media.has-video").forEach(m=>io.observe(m))}
 
 /* newsletter */
