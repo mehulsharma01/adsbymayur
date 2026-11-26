@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"ISerif";src:url(fonts/is-italic.woff2) format("woff2");font-style:italic;font-weight:400}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B}
+body{font-family:"Inter Display","Inter",sans-serif;-webkit-font-smoothing:antialiased;color:#fff}
+#stage{position:absolute;inset:0;overflow:hidden}
+.bg{position:absolute;inset:0}
+#bgDark{background:radial-gradient(120% 70% at 50% 45%,#19191C 0%,#0E0E10 45%,#080809 100%)}
+#bgCream{background:radial-gradient(110% 70% at 50% 45%,#F7F5F0 0%,#EEEBE4 55%,#E4E0D7 100%);opacity:0}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.6px,transparent 1.7px);background-size:36px 36px;
+ -webkit-mask-image:radial-gradient(70% 55% at 50% 50%,#000 30%,transparent 80%)}
+#bgCream .dots{background-image:radial-gradient(rgba(0,0,0,.07) 1.6px,transparent 1.7px)}
+.scene{position:absolute;inset:0;display:none}
+.cam{position:absolute;inset:0;perspective:1800px;perspective-origin:50% 45%}
+.p3{transform-style:preserve-3d}
+.gl{position:absolute;border-radius:50%;pointer-events:none}
+.abs{position:absolute}
+/* captions */
+#cap{position:absolute;left:60px;right:60px;top:250px;height:200px;display:flex;align-items:center;justify-content:center;text-align:center;z-index:50}
+#cap .line{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:16px;row-gap:4px;max-width:960px}
+#cap .w{display:inline-block;font-weight:600;font-size:66px;letter-spacing:-1.6px;line-height:1.12;color:#fff;white-space:nowrap}
+#cap.light .w{color:#141414}
+#cap .w.dim{color:rgba(255,255,255,.42)}
+#cap.light .w.dim{color:rgba(20,20,20,.38)}
+#cap .em{position:relative;display:inline-block;padding:0 12px 2px;margin:0 2px}
+#cap .em .w{font-family:"ISerif",serif;font-style:italic;font-weight:400;font-size:86px;letter-spacing:-.5px;color:#fff}
+#cap.light .em .w{color:#141414}
+#cap .em .box{position:absolute;inset:6px 0 0 0;border:2.5px solid #4C7DFF;background:rgba(76,125,255,.20);transform-origin:left center}
+#cap .em .h{position:absolute;width:12px;height:12px;background:#fff;border:2.5px solid #4C7DFF}
+#cap.big{top:700px;height:420px}
+#cap.big .w{font-size:96px;letter-spacing:-2.6px}
+#cap.big .em .w{font-size:124px}
+/* handle */
+#handle{position:absolute;left:0;right:0;top:1640px;display:flex;justify-content:center;align-items:center;gap:12px;font-weight:500;font-size:30px;color:rgba(255,255,255,.5);z-index:40;letter-spacing:-.3px}
+#handle.light{color:rgba(20,20,20,.45)}
+/* cards */
+.card{position:absolute;border-radius:28px;background:#FBFBF9;color:#141414;box-shadow:0 30px 80px rgba(0,0,0,.45),0 2px 0 rgba(255,255,255,.6) inset}
+.dcard{position:absolute;border-radius:28px;background:#141416;border:1.5px solid #2A2A2E;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.light-shadow{box-shadow:0 24px 60px rgba(60,40,20,.16),0 2px 6px rgba(60,40,20,.08)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-weight:600;font-size:24px}
+.muted{color:#8A8A90}
+.mono{font-family:"JetBrains Mono",monospace}
+.line-ph{height:10px;border-radius:6px;background:#2E2E33}
+</style></head>
+<body>
+<div id="stage">
+  <div class="bg" id="bgDark"><div class="dots"></div></div>
+  <div class="bg" id="bgCream"><div class="dots"></div></div>
+  <div id="ghost" class="abs" style="inset:0"></div><div id="dust" class="abs" style="inset:0"></div><div id="scenes"></div>
+  <div id="cap"></div>
+  <div id="handle"></div>
+  <div id="flash" class="abs" style="inset:0;background:#fff;opacity:0;z-index:60;pointer-events:none"></div>
+</div>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="scenes.js"></script>
+<script src="scenes2.js"></script>
+</body></html>
