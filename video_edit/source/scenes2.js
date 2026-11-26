@@ -42,7 +42,7 @@ update(s,lt,t){const cyc=['what is seo','seo tips','how to do seo','seo for begi
   typed(s.box.querySelector('.q'),cyc[kk],t<T(140)?0:ph*1.6);
   s.box.querySelector('.dd').innerHTML=[0,1,2].map(j=>`<div style="padding:16px 40px;font-size:25px;color:#555;display:flex;gap:16px;align-items:center"><span style="color:#AAA">↗</span>${cyc[(kk+j+1)%cyc.length]} <b style="color:#141414">${['guide','2026','for beginners'][j]}</b></div>`).join('');
   s.box.style.transform=`rotateX(${10}deg) scale(${back(P(t,s.t0,.5),1.4)})`;
-  let shown=0;s.chips.forEach(c=>{const t0=T(146)+c.i*(T(155)-T(146))/QS.length;const p=P(t,t0,.5);if(p>0)shown++;
+  let shown=0;s.chips.forEach(c=>{const t0=s.t0+.25+c.i*(T(155)-s.t0-.25)/QS.length;const p=P(t,t0,.5);if(p>0)shown++;
     const dep=.55+c.z*.6;const x=540+Math.cos(c.a+t*.12)*c.rad*1.15,y=980+Math.sin(c.a+t*.12)*c.rad*.95;
     c.e.style.opacity=clamp(p*2)*(.35+.65*c.z);c.e.style.filter=`blur(${(1-c.z)*5}px)`;
     c.e.style.transform=`translate(${x-200}px,${y-30}px) scale(${dep*back(p,1.6)})`;c.e.style.zIndex=c.z>.6?6:2});
@@ -53,17 +53,17 @@ update(s,lt,t){const cyc=['what is seo','seo tips','how to do seo','seo for begi
 scene({t0:T(156)-.12,bg:'dark',zoom:.05,
 sfx:[[T(160)-.1,'ticks',.8],[T(163)-.05,'sweepdown',.8],[T(163)+.1,'error',.6],[T(166),'ticks',.6]],
 build(r){const st={};
-  const Pn=el('div','dcard','left:70px;top:500px;width:940px;height:900px;padding:30px;background:#111113',null,r);st.Pn=Pn;
-  Pn.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.G(44)}<div style="font-weight:800;font-size:30px">Search demand in your niche</div><div class="pill" style="margin-left:auto;background:#1E1E22;color:#AAA;font-size:20px">48 topics</div></div><div class="gr" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px"></div>`;
+  const Pn=el('div','dcard','left:70px;top:500px;width:940px;height:900px;padding:30px;background:#1F1F25',null,r);st.Pn=Pn;
+  Pn.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.G(44)}<div style="font-weight:800;font-size:30px">Search demand in your niche</div><div class="pill" style="margin-left:auto;background:#30303A;color:#AAA;font-size:20px">48 topics</div></div><div class="gr" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px"></div>`;
   const gr=Pn.querySelector('.gr');st.cells=[];const cov=[0,5,9,14,18,22,27,33,38,44];
-  for(let i=0;i<48;i++){st.cells.push({e:el('div','',`height:58px;border-radius:14px;border:1.5px solid #2C2C31;background:#18181B;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:16px;color:#A0A0A8;white-space:nowrap;overflow:hidden`,`<span class="ic" style="flex:none;width:22px;display:inline-flex"></span><span style="overflow:hidden;text-overflow:ellipsis">${QS[i%QS.length]}</span>`,gr),c:cov.includes(i),i})}
+  for(let i=0;i<48;i++){st.cells.push({e:el('div','',`height:58px;border-radius:14px;border:1.5px solid #44444E;background:#2A2A32;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:16px;color:#A0A0A8;white-space:nowrap;overflow:hidden`,`<span class="ic" style="flex:none;width:22px;display:inline-flex"></span><span style="overflow:hidden;text-overflow:ellipsis">${QS[i%QS.length]}</span>`,gr),c:cov.includes(i),i})}
   st.a=toast(r,'left:70px;top:1420px;width:440px;z-index:4',`${IC.check(GREEN,34)}<span>Covered</span><b class="cv" style="margin-left:auto;color:${GREEN};font-size:36px">0</b>`);
   st.b=toast(r,'left:570px;top:1420px;width:440px;z-index:4',`${IC.x(RED,34)}<span>Missed</span><b class="ms" style="margin-left:auto;color:${RED};font-size:36px">0</b>`);
   return st},
 update(s,lt,t){let cv=0,ms=0;s.Pn.style.transform=`rotateX(${12-4*P(t,s.t0,4)}deg)`;popIn(s.Pn,t,s.t0,{dy:100,s0:.92,post:`rotateX(${12-4*P(t,s.t0,4)}deg)`});
   s.cells.forEach((c,k)=>{const ap=P(t,s.t0+.05+k*.012,.25);c.e.style.opacity=ap;
-    if(c.c){const on=t>T(160)-.1+k*.02;if(on)cv++;c.e.style.borderColor=on?GREEN:'#2C2C31';c.e.style.background=on?'rgba(31,203,107,.14)':'#18181B';c.e.style.color=on?'#fff':'';c.e.querySelector('.ic').innerHTML=on?IC.check(GREEN,22):''}
-    else{const w=T(163)-.05+((k%4)+Math.floor(k/4))*.03;const on=t>w;if(on)ms++;c.e.style.borderColor=on?'rgba(255,77,61,.55)':'#2C2C31';c.e.style.background=on?'rgba(255,77,61,.10)':'#18181B';c.e.style.color=on?'#FF8A80':'';c.e.querySelector('.ic').innerHTML=on?IC.x(RED,22):'';c.e.style.transform=`scale(${1-.06*Math.sin(Math.PI*P(t,w,.25))})`}});
+    if(c.c){const on=t>T(160)-.1+k*.02;if(on)cv++;c.e.style.borderColor=on?GREEN:'#44444E';c.e.style.background=on?'rgba(31,203,107,.14)':'#2A2A32';c.e.style.color=on?'#fff':'';c.e.querySelector('.ic').innerHTML=on?IC.check(GREEN,22):''}
+    else{const w=T(163)-.05+((k%4)+Math.floor(k/4))*.03;const on=t>w;if(on)ms++;c.e.style.borderColor=on?'rgba(255,77,61,.55)':'#44444E';c.e.style.background=on?'rgba(255,77,61,.10)':'#2A2A32';c.e.style.color=on?'#FF8A80':'';c.e.querySelector('.ic').innerHTML=on?IC.x(RED,22):'';c.e.style.transform=`scale(${1-.06*Math.sin(Math.PI*P(t,w,.25))})`}});
   s.a.querySelector('.cv').textContent=cv;s.b.querySelector('.ms').textContent=ms;
   popIn(s.a,t,T(160)-.2,{dy:40,s0:.9});popIn(s.b,t,T(163)-.1,{dy:40,s0:.9});
 }});
@@ -77,7 +77,7 @@ build(r){const st={};
   B.body.innerHTML=`<div style="position:absolute;left:0;right:0;top:0;height:70px;border-bottom:1.5px solid #ECEAE4;display:flex;align-items:center;gap:18px;padding:0 30px;color:#666;font-size:20px;font-weight:600;background:#FAFAF7;z-index:2"><b style="font-family:serif;font-size:26px">B</b><i style="font-family:serif;font-size:26px">I</i><u style="font-size:22px">U</u><span>H1</span><span>H2</span><span style="margin-left:auto" class="pill wc">0 words</span></div>
    <div class="pg" style="position:absolute;left:90px;right:90px;top:110px"><div style="font-weight:900;font-size:44px;letter-spacing:-1.5px;line-height:1.1;color:#141414;margin-bottom:20px">The Ultimate Guide to SEO (2026 Edition)</div>${lines}</div>
    <div style="position:absolute;right:16px;top:90px;bottom:20px;width:10px;border-radius:5px;background:#EEE;z-index:2"><div class="sb" style="width:10px;height:120px;border-radius:5px;background:#BBB"></div></div>`;
-  st.big=el('div','abs',`left:600px;top:1340px;padding:24px 32px;border-radius:28px;background:#141416;border:1.5px solid #34343A;box-shadow:0 30px 80px rgba(0,0,0,.6);z-index:5`,`<div class="n" style="font-weight:900;font-size:76px;letter-spacing:-3px;color:${CORAL};line-height:1">0</div><div style="font-size:24px;color:#AAA;font-weight:600">words · 14 min read</div>`,r);
+  st.big=el('div','abs',`left:600px;top:1340px;padding:24px 32px;border-radius:28px;background:#202027;border:1.5px solid #4E4E58;box-shadow:0 30px 80px rgba(0,0,0,.6);z-index:5`,`<div class="n" style="font-weight:900;font-size:76px;letter-spacing:-3px;color:${CORAL};line-height:1">0</div><div style="font-size:24px;color:#AAA;font-weight:600">words · 14 min read</div>`,r);
   return st},
 update(s,lt,t){const B=s.B.body;const g=eIO(P(t,T(170),T(177)+.2-T(170)));const n=Math.round(3000*g);
   B.querySelector('.wc').textContent=fmt(n)+' words';s.big.querySelector('.n').textContent=fmt(n);
@@ -95,12 +95,12 @@ build(r){const st={};
    <div class="ans" style="font-size:25px;line-height:1.4;margin-top:10px;color:#333;min-height:70px"></div>
    <div style="display:flex;gap:10px;margin-top:14px"><span class="pill b1" style="background:#E6F8EE;color:#13994F;font-size:20px">${IC.check(GREEN,22)} 40 words</span><span class="pill b2" style="background:#EEF2FF;color:${BLUE};font-size:20px">${IC.spark(BLUE,20)} Cited by AI</span><span class="pill b3" style="background:#FBF0DA;color:${CORAL};font-size:20px">★ Saved 2.3K</span></div>`;
   st.g=glow(r,540,650,420,'rgba(31,203,107,.35)',0);
-  const L=el('div','dcard','left:90px;top:930px;width:900px;height:560px;padding:28px 34px;background:#121214',null,r);st.L=L;
-  L.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.doc('#6B6B73',40)}<div style="font-weight:700;font-size:28px">The Ultimate Guide to SEO</div><div class="pill" style="margin-left:auto;background:#1E1E22;color:#AAA;font-size:19px">3,000 words</div></div>
-   <div style="margin-top:24px;color:#8A8A90;font-size:21px;font-weight:600">READERS STILL SCROLLING</div><div class="av" style="display:flex;gap:10px;margin-top:14px"></div>
-   <div style="margin-top:28px;display:flex;gap:16px;align-items:flex-end;height:180px" class="fun"></div><div style="display:flex;justify-content:space-between;color:#77777F;font-size:18px;margin-top:8px"><span>Intro</span><span>25%</span><span>50%</span><span>75%</span><span>End</span></div>
+  const L=el('div','dcard','left:90px;top:930px;width:900px;height:560px;padding:28px 34px;background:#1F1F25',null,r);st.L=L;
+  L.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.doc('#A3A3AE',40)}<div style="font-weight:700;font-size:28px">The Ultimate Guide to SEO</div><div class="pill" style="margin-left:auto;background:#30303A;color:#AAA;font-size:19px">3,000 words</div></div>
+   <div style="margin-top:24px;color:#A8A8B2;font-size:21px;font-weight:600">READERS STILL SCROLLING</div><div class="av" style="display:flex;gap:10px;margin-top:14px"></div>
+   <div style="margin-top:28px;display:flex;gap:16px;align-items:flex-end;height:180px" class="fun"></div><div style="display:flex;justify-content:space-between;color:#A6A6B0;font-size:18px;margin-top:8px"><span>Intro</span><span>25%</span><span>50%</span><span>75%</span><span>End</span></div>
    <div class="fin" style="position:absolute;right:34px;top:150px;font-size:24px;font-weight:700"></div>`;
-  const av=L.querySelector('.av');st.avs=[...Array(10)].map((_,i)=>el('div','',`width:56px;height:56px;border-radius:50%;background:hsl(${i*36},55%,60%);border:3px solid #121214;display:flex;align-items:center;justify-content:center;font-weight:800;color:#141414`,String.fromCharCode(65+i),av));
+  const av=L.querySelector('.av');st.avs=[...Array(10)].map((_,i)=>el('div','',`width:56px;height:56px;border-radius:50%;background:hsl(${i*36},55%,60%);border:3px solid #1F1F25;display:flex;align-items:center;justify-content:center;font-weight:800;color:#141414`,String.fromCharCode(65+i),av));
   const fn=L.querySelector('.fun');st.bars=[100,62,31,12,0].map(v=>({v,e:el('div','',`flex:1;border-radius:12px 12px 4px 4px;background:linear-gradient(${RED},rgba(255,77,61,.3));height:0`,null,fn)}));
   return st},
 update(s,lt,t){typed(s.A.querySelector('.ans'),'Long enough to fully answer the question — and not a word longer. For most topics, that’s far shorter than you think.',P(t,T(181),1.4),false);
@@ -185,8 +185,8 @@ scene({t0:T(217)-.12,bg:'dark',tr:'whip',zoom:.05,
 sfx:[[T(218),'whoosh',.5],[T(221)-.05,'pop',1],[T(223),'ding',.8]],
 build(r){const st={};
   const B=browser(r,'left:80px;top:520px;width:920px;height:900px','yourblog.com/admin/new-post',{dark:true});st.B=B;
-  B.body.innerHTML=`<div style="display:flex;height:100%"><div style="flex:1;padding:36px"><div style="font-weight:900;font-size:42px;letter-spacing:-1.5px">New post</div>${[95,88,92,70,0,90,84,60].map(w=>w?`<div class="line-ph" style="height:13px;width:${w}%;margin-top:18px;background:#2C2C31"></div>`:'<div style="height:20px"></div>').join('')}</div>
-   <div style="width:300px;border-left:1.5px solid #222226;padding:30px 26px"><div style="color:#8A8A90;font-size:20px;font-weight:700;letter-spacing:1px">STATUS</div><div style="font-size:24px;margin-top:8px">Draft</div><div class="pb" style="margin-top:30px;height:78px;border-radius:20px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;box-shadow:0 0 40px rgba(216,158,55,.5)">Publish</div></div></div>`;
+  B.body.innerHTML=`<div style="display:flex;height:100%"><div style="flex:1;padding:36px"><div style="font-weight:900;font-size:42px;letter-spacing:-1.5px">New post</div>${[95,88,92,70,0,90,84,60].map(w=>w?`<div class="line-ph" style="height:13px;width:${w}%;margin-top:18px;background:#44444E"></div>`:'<div style="height:20px"></div>').join('')}</div>
+   <div style="width:300px;border-left:1.5px solid #383842;padding:30px 26px"><div style="color:#A8A8B2;font-size:20px;font-weight:700;letter-spacing:1px">STATUS</div><div style="font-size:24px;margin-top:8px">Draft</div><div class="pb" style="margin-top:30px;height:78px;border-radius:20px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;box-shadow:0 0 40px rgba(216,158,55,.5)">Publish</div></div></div>`;
   st.dim=el('div','abs','inset:0;background:rgba(5,5,6,.6);opacity:0;z-index:3',null,r);
   st.mod=el('div','card','left:150px;top:820px;width:780px;padding:40px 44px;z-index:4;text-align:center',
     `<div class="pill" style="background:#FBF0DA;color:${CORAL};font-size:22px">Before you hit publish</div><div style="font-weight:900;font-size:150px;letter-spacing:-6px;line-height:1;margin-top:16px;color:${CORAL}">1</div><div style="font-weight:800;font-size:40px;letter-spacing:-1px;margin-top:4px">question to ask yourself</div>`,r);
@@ -202,9 +202,9 @@ scene({t0:T(225)-.12,bg:'dark',zoom:.05,
 sfx:[[T(225),'whoosh',.6],[T(228),'scan',.9],[T(231),'tick',.6],[T(232),'tick',.6],[T(233),'success',.9]],
 build(r){const st={};glow(r,700,900,500,'rgba(76,125,255,.25)',.7);
   const stack=el('div','abs p3','left:560px;top:520px;width:440px;height:900px',null,r);st.stack=stack;st.res=[];
-  for(let i=0;i<8;i++){const d=DOMS[i%6];st.res.push(el('div','abs',`left:0;top:${i*102}px;width:440px;height:90px;border-radius:16px;background:#18181B;border:1.5px solid #2E2E33;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:19px;color:#AAA`,
+  for(let i=0;i<8;i++){const d=DOMS[i%6];st.res.push(el('div','abs',`left:0;top:${i*102}px;width:440px;height:90px;border-radius:16px;background:#2A2A32;border:1.5px solid #46464F;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:19px;color:#AAA`,
     `<b style="color:#666;width:30px">#${i+1}</b>${FAV(d[1],d[2])}<div style="flex:1"><div style="color:#8AB4FF;font-weight:700;font-size:19px">${['SEO Basics Guide','10 SEO Tips','What Is SEO?','SEO in 2026','SEO Checklist','Beginner SEO','SEO Explained','SEO 101'][i]}</div><div class="line-ph" style="height:6px;margin-top:8px;width:80%"></div></div>`,stack))}
-  el('div','pill abs',`left:560px;top:460px;background:#1E1E22;color:#AAA;font-size:20px`,'PAGE ONE',r);
+  el('div','pill abs',`left:560px;top:460px;background:#30303A;color:#AAA;font-size:20px`,'PAGE ONE',r);
   const Y=el('div','card','left:70px;top:560px;width:520px;padding:26px 28px;z-index:3',null,r);st.Y=Y;
   const secs=[['What is SEO',0],['Why it matters',0],['Basic checklist',0],['Original survey: 312 sites',1]];
   Y.innerHTML=`<div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#777;font-weight:600">${FAV(CORAL,'Y')} Your page</div><div style="font-weight:800;font-size:30px;margin-top:8px;letter-spacing:-.5px">SEO Strategy Guide</div>`+
@@ -225,14 +225,14 @@ update(s,lt,t){s.stack.style.transform=`rotateY(-28deg) rotateX(6deg) translateZ
 scene({t0:T(235)-.12,bg:'dark',tr:'whip',zoom:.06,
 sfx:[[T(240),'pop',.7],[T(242)-.05,'error',1],[T(243),'click',.8],[T(244),'thud',.6]],
 build(r){const st={};st.gl=glow(r,540,1000,460,'rgba(216,158,55,.4)',.7);
-  const C=el('div','dcard','left:140px;top:560px;width:800px;padding:36px 40px;background:#141416',null,r);st.C=C;
+  const C=el('div','dcard','left:140px;top:560px;width:800px;padding:36px 40px;background:#202027',null,r);st.C=C;
   C.innerHTML=`<div style="font-weight:800;font-size:30px">Pre-publish check</div>
-   <div class="ck1" style="margin-top:22px;display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;border:2px solid #2E2E33;font-size:26px;font-weight:600"><span class="bx" style="width:40px;height:40px;border-radius:10px;border:3px solid #55555C;display:inline-flex;align-items:center;justify-content:center"></span>Adds something page one doesn't have?</div>
+   <div class="ck1" style="margin-top:22px;display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;border:2px solid #46464F;font-size:26px;font-weight:600"><span class="bx" style="width:40px;height:40px;border-radius:10px;border:3px solid #55555C;display:inline-flex;align-items:center;justify-content:center"></span>Adds something page one doesn't have?</div>
    <div class="btn" style="margin-top:30px;height:110px;border-radius:26px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;gap:16px;font-weight:900;font-size:42px;position:relative;overflow:hidden"><span class="bl">Publish</span><div class="sl" style="position:absolute;left:8%;right:8%;top:50%;height:7px;background:#fff;border-radius:4px;transform:scaleX(0);transform-origin:left"></div></div>
    <div class="dr" style="margin-top:18px;text-align:center;font-size:24px;color:#9A9AA2;font-weight:600;opacity:0">↳ Saved as draft. Make it better first.</div>`;
   st.cur=cursor(r);return st},
 update(s,lt,t){popIn(s.C,t,s.t0,{dy:100,s0:.9,post:`rotateX(${10-6*P(t,s.t0,4)}deg)`});const C=s.C;
-  const bx=C.querySelector('.bx'),c1=C.querySelector('.ck1');const q=t>T(240)-.05;bx.innerHTML=q?IC.bigx(RED,30):'';bx.style.borderColor=q?RED:'#55555C';c1.style.borderColor=q?'rgba(255,77,61,.6)':'#2E2E33';
+  const bx=C.querySelector('.bx'),c1=C.querySelector('.ck1');const q=t>T(240)-.05;bx.innerHTML=q?IC.bigx(RED,30):'';bx.style.borderColor=q?RED:'#55555C';c1.style.borderColor=q?'rgba(255,77,61,.6)':'#46464F';
   c1.style.transform=`translateX(${q?Math.sin((t-T(240))*60)*8*(1-P(t,T(240),.4)):0}px)`;
   const no=T(242)-.05;const b=C.querySelector('.btn');const off=P(t,no,.35);
   b.style.background=off>0?`rgb(${lerp(255,46,off)},${lerp(106,46,off)},${lerp(61,52,off)})`:CORAL;b.querySelector('.sl').style.transform=`scaleX(${eOut(P(t,no+.1,.3))})`;
@@ -247,8 +247,8 @@ scene({t0:T(245)-.12,bg:'dark',keep:true,zoom:.04,
 sfx:[[T(245)+.55,'click',.5],[TE(250)+.25,'success',.9],[TE(250)+.3,'sparkle',.6]],
 build(r){const st={};st.g=glow(r,540,880,560,'rgba(255,185,56,.25)',.8);
   st.rays=el('div','abs','left:-210px;top:130px;width:1500px;height:1500px;border-radius:50%;background:repeating-conic-gradient(rgba(255,185,56,.07) 0 6deg,transparent 6deg 18deg);-webkit-mask-image:radial-gradient(circle,#000 15%,transparent 60%)',null,r);
-  const C=el('div','dcard','left:110px;top:600px;width:860px;padding:44px 44px 40px;background:#141416',null,r);st.card=C;
-  C.innerHTML=`<div style="display:flex;align-items:center;gap:28px"><div style="width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2A2A2E,#0C0C0E);border:3px solid #FFB938;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,185,56,.3)">${IC.logo(96)}</div>
+  const C=el('div','dcard','left:110px;top:600px;width:860px;padding:44px 44px 40px;background:#202027',null,r);st.card=C;
+  C.innerHTML=`<div style="display:flex;align-items:center;gap:28px"><div style="width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#33333B,#0C0C0E);border:3px solid #FFB938;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,185,56,.3)">${IC.logo(96)}</div>
    <div><div style="font-weight:800;font-size:52px;letter-spacing:-1.5px">Answer Theory</div><div style="font-size:26px;color:#A0A0A8;margin-top:8px;line-height:1.35">SEO &amp; AI search,<br>without the fluff.</div></div></div>
    <div class="btn" style="margin-top:38px;height:104px;border-radius:26px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:800;font-size:40px;box-shadow:0 0 40px rgba(216,158,55,.45)">Follow</div>`;
   st.n1=toast(r,'left:150px;top:1160px;z-index:4',`${IC.check(GREEN,30)} You'll get the next one first`);
@@ -257,7 +257,7 @@ build(r){const st={};st.g=glow(r,540,880,560,'rgba(255,185,56,.25)',.8);
 update(s,lt,t){const cp=back(P(t,T(245)-.2,.5),1.3);s.card.style.transform=`translateY(${(1-cp)*160}px) scale(${.9+.1*cp}) rotateX(${6-6*cp}deg)`;s.card.style.opacity=clamp(cp*2);
   s.rays.style.transform=`rotate(${t*10}deg)`;
   const click=T(245)+.55;const mv=eIO(P(t,T(245),.5));cursorAt(s.cur,lerp(860,560,mv),lerp(1520,960,mv),t>click?P(t,click,.35):null);s.cur.style.opacity=P(t,T(245),.15)*(1-P(t,click+1.2,.3));
-  const b=s.card.querySelector('.btn');const on=t>click;b.innerHTML=on?`${IC.check('#1FCB6B',40)} Following`:'Follow';b.style.background=on?'#26262A':CORAL;b.style.color=on?'#fff':'#141414';b.style.boxShadow=on?'none':'0 0 40px rgba(216,158,55,.45)';
+  const b=s.card.querySelector('.btn');const on=t>click;b.innerHTML=on?`${IC.check('#1FCB6B',40)} Following`:'Follow';b.style.background=on?'#3A3A44':CORAL;b.style.color=on?'#fff':'#141414';b.style.boxShadow=on?'none':'0 0 40px rgba(216,158,55,.45)';
   b.style.transform=`scale(${1-.06*Math.sin(Math.PI*P(t,click-.05,.25))})`;s.burst(540,960,P(t,click,.9));
   popIn(s.n1,t,click+.5,{dx:-80,dy:0,s0:.9});popIn(s.n2,t,click+.8,{dx:80,dy:0,s0:.9});
   const jp=P(t,click,.6);s.m.set(880,612-Math.sin(Math.PI*jp)*70,t,{op:cp,mood:on?'happy':'idle',squash:-.12*Math.sin(Math.PI*jp)});

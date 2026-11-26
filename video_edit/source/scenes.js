@@ -9,16 +9,16 @@ build(r){const st={};glow(r,540,960,620,'rgba(216,158,55,.35)',.6);
   const w=el('div','abs p3','left:0;top:0;width:1080px;height:1920px',null,r);st.w=w;
   const B=browser(w,'left:120px;top:560px;width:840px;height:780px','yourblog.com/admin/posts',{dark:true});st.B=B;
   B.body.innerHTML=`<div style="display:flex;align-items:center;padding:28px 30px 18px"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Posts</div><div class="pill" style="margin-left:18px;background:#1F1F23;color:#AAA;font-size:20px">All · <b class="n" style="color:#fff;margin-left:6px">0</b></div><div class="pill" style="margin-left:auto;background:${CORAL};color:#141414;font-size:22px">+ Add new</div></div>
-   <div style="display:flex;padding:0 30px 10px;color:#6E6E76;font-size:18px;font-weight:600;letter-spacing:1px"><span style="flex:1">TITLE</span><span style="width:150px">STATUS</span><span style="width:90px">DATE</span></div><div class="lst" style="position:relative;height:600px;overflow:hidden"></div>`;
+   <div style="display:flex;padding:0 30px 10px;color:#A0A0AA;font-size:18px;font-weight:600;letter-spacing:1px"><span style="flex:1">TITLE</span><span style="width:150px">STATUS</span><span style="width:90px">DATE</span></div><div class="lst" style="position:relative;height:600px;overflow:hidden"></div>`;
   st.rows=[];const L=B.body.querySelector('.lst');
-  for(let k=0;k<11;k++){st.rows.push(el('div','abs',`left:30px;right:30px;height:62px;display:flex;align-items:center;border-top:1px solid #222226;font-size:23px;font-weight:500`,
-   `<span style="width:22px;height:22px;border-radius:6px;border:2px solid #3A3A40;margin-right:16px"></span><span class="tt" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#E8E8EC"></span><span style="width:150px"><span class="pill" style="background:rgba(31,203,107,.14);color:${GREEN};font-size:18px;padding:5px 12px">Published</span></span><span style="width:90px;color:#77777F;font-size:20px">Today</span>`,L))}
+  for(let k=0;k<11;k++){st.rows.push(el('div','abs',`left:30px;right:30px;height:62px;display:flex;align-items:center;border-top:1px solid #383842;font-size:23px;font-weight:500`,
+   `<span style="width:22px;height:22px;border-radius:6px;border:2px solid #55555F;margin-right:16px"></span><span class="tt" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#E8E8EC"></span><span style="width:150px"><span class="pill" style="background:rgba(31,203,107,.14);color:${GREEN};font-size:18px;padding:5px 12px">Published</span></span><span style="width:90px;color:#A6A6B0;font-size:20px">Today</span>`,L))}
   st.big=el('div','abs',`left:70px;top:470px;padding:22px 34px;border-radius:30px;background:rgba(20,20,24,.85);border:1.5px solid #3A3A42;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(216,158,55,.25);display:flex;align-items:baseline;gap:14px`,
-    `<span class="bn" style="font-weight:900;font-size:110px;letter-spacing:-5px;color:${CORAL};line-height:1">0</span><span style="font-size:32px;font-weight:700;color:#ddd">posts<br><span style="color:#8A8A90;font-size:24px;font-weight:500">published</span></span>`,w);
+    `<span class="bn" style="font-weight:900;font-size:110px;letter-spacing:-5px;color:${CORAL};line-height:1">0</span><span style="font-size:32px;font-weight:700;color:#ddd">posts<br><span style="color:#A8A8B2;font-size:24px;font-weight:500">published</span></span>`,w);
   st.trust=el('div','dcard',`left:600px;top:1210px;width:400px;padding:26px 28px;background:rgba(22,22,26,.95)`,
-    `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div><div style="font-weight:700;font-size:26px">Site trust</div><div style="color:#8A8A90;font-size:20px">based on volume?</div></div></div>
-     <div style="margin-top:20px;height:14px;border-radius:8px;background:#26262A;overflow:hidden"><div class="tb" style="height:100%;width:0;background:linear-gradient(90deg,${RED},${GOLD})"></div></div>
-     <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:20px;color:#8A8A90"><span>Low</span><span class="tv" style="color:${GOLD};font-weight:700"></span></div>`,w);
+    `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div><div style="font-weight:700;font-size:26px">Site trust</div><div style="color:#A8A8B2;font-size:20px">based on volume?</div></div></div>
+     <div style="margin-top:20px;height:14px;border-radius:8px;background:#3A3A44;overflow:hidden"><div class="tb" style="height:100%;width:0;background:linear-gradient(90deg,${RED},${GOLD})"></div></div>
+     <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:20px;color:#A8A8B2"><span>Low</span><span class="tv" style="color:${GOLD};font-weight:700"></span></div>`,w);
   st.m=mascot(w,130);return st},
 update(s,lt,t){
   const N=Math.min(100,Math.floor(100*eOut(P(t,0.1,1.45))));
@@ -38,16 +38,16 @@ scene({t0:T(9)-.12,bg:'dark',tr:'whip',zoom:.05,
 sfx:[[T(11),'pop',.8],[T(16)-.05,'drop',1],[T(16)+.1,'error',.7],[T(16)+.5,'pop',.6],[T(16)+.75,'pop',.6],[T(16)+1,'pop',.6]],
 build(r){const st={};glow(r,540,1000,600,'rgba(255,77,61,.25)',.6);
   const B=browser(r,'left:80px;top:520px;width:920px;height:900px','console.search/performance',{dark:true});st.B=B;
-  const kpi=(l,v,id)=>`<div style="flex:1;padding:22px 24px;border-radius:18px;background:#18181B;border:1.5px solid #26262A"><div style="color:#8A8A90;font-size:19px;font-weight:600">${l}</div><div class="${id}" style="font-size:44px;font-weight:800;letter-spacing:-1.5px;margin-top:6px">${v}</div></div>`;
+  const kpi=(l,v,id)=>`<div style="flex:1;padding:22px 24px;border-radius:18px;background:#2A2A32;border:1.5px solid #3A3A44"><div style="color:#A8A8B2;font-size:19px;font-weight:600">${l}</div><div class="${id}" style="font-size:44px;font-weight:800;letter-spacing:-1.5px;margin-top:6px">${v}</div></div>`;
   B.body.innerHTML=`<div style="padding:26px 30px 0;display:flex;gap:16px">${kpi('Total clicks','12.4K','k1')}${kpi('Impressions','318K','k2')}${kpi('Avg. position','4.2','k3')}</div>
    <svg class="ch" width="920" height="470" style="position:absolute;left:0;top:200px"><defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${GREEN}" stop-opacity=".35"/><stop offset="1" stop-color="${GREEN}" stop-opacity="0"/></linearGradient>
    <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${RED}" stop-opacity=".4"/><stop offset="1" stop-color="${RED}" stop-opacity="0"/></linearGradient><clipPath id="c1"><rect class="cr1" x="0" y="0" width="0" height="470"/></clipPath><clipPath id="c2"><rect class="cr2" x="470" y="0" width="0" height="470"/></clipPath></defs>
-   ${[0,1,2,3].map(i=>`<path d="M30 ${80+i*100}H890" stroke="#232327" stroke-width="2"/>`).join('')}
+   ${[0,1,2,3].map(i=>`<path d="M30 ${80+i*100}H890" stroke="#3A3A44" stroke-width="2"/>`).join('')}
    <g clip-path="url(#c1)"><path d="M30 380 C100 360 150 330 220 300 S330 230 400 170 S450 120 470 110 V440 H30Z" fill="url(#gA)"/><path d="M30 380 C100 360 150 330 220 300 S330 230 400 170 S450 120 470 110" stroke="${GREEN}" stroke-width="6" fill="none"/></g>
    <g clip-path="url(#c2)"><path d="M470 110 C520 115 540 200 590 280 S700 390 780 405 S860 415 890 418 V440 H470Z" fill="url(#gB)"/><path d="M470 110 C520 115 540 200 590 280 S700 390 780 405 S860 415 890 418" stroke="${RED}" stroke-width="6" fill="none"/></g>
    <g class="pin"><path d="M470 60V440" stroke="#fff" stroke-dasharray="8 8" stroke-width="2.5" opacity=".6"/></g></svg>
    <div class="pinl pill" style="position:absolute;left:330px;top:200px;background:#fff;color:#141414;font-size:21px;box-shadow:0 10px 30px rgba(0,0,0,.4)">${IC.doc(CORAL,26)} Published 100 posts</div>`;
-  st.toasts=[['seo tips','3','41'],['blog strategy','5','38'],['content plan','2','29']].map((q,i)=>toast(r,`left:470px;top:${1180+i*96}px;width:560px;z-index:5`,`${IC.x(RED,30)}<span style="flex:1">"${q[0]}"</span><span style="color:#8A8A90">#${q[1]}</span><span style="color:${RED}">→ #${q[2]}</span>`));
+  st.toasts=[['seo tips','3','41'],['blog strategy','5','38'],['content plan','2','29']].map((q,i)=>toast(r,`left:470px;top:${1180+i*96}px;width:560px;z-index:5`,`${IC.x(RED,30)}<span style="flex:1">"${q[0]}"</span><span style="color:#A8A8B2">#${q[1]}</span><span style="color:${RED}">→ #${q[2]}</span>`));
   st.m=mascot(r,140);return st},
 update(s,lt,t){const B=s.B.body;const hurt=T(16)-.05;
   B.querySelector('.cr1').setAttribute('width',470*eOut(P(t,T(9),1.3)));B.querySelector('.cr2').setAttribute('width',430*eIO(P(t,hurt,1)));
@@ -64,11 +64,11 @@ scene({t0:T(19)-.12,bg:'dark',zoom:.12,
 sfx:[[T(23)-.05,'click',1],[T(23),'ding',.7]],
 build(r){const st={};st.g=glow(r,540,900,520,'rgba(255,200,80,.55)',0);
   st.rays=el('div','abs','left:140px;top:500px;width:800px;height:800px;border-radius:50%;background:repeating-conic-gradient(rgba(255,210,120,.16) 0 8deg,transparent 8deg 22deg);-webkit-mask-image:radial-gradient(circle,#000 20%,transparent 70%)',null,r);
-  st.b=el('div','abs','left:390px;top:640px;width:300px;height:420px',`<svg viewBox="0 0 100 140" width="300" height="420"><path class="gl1" d="M50 6C27 6 12 23 12 44c0 15 8 24 15 33 4 5 6 10 6 16h34c0-6 2-11 6-16 7-9 15-18 15-33C88 23 73 6 50 6z" fill="#2A2A2E" stroke="#55555C" stroke-width="2"/>
-   <path class="fil" d="M40 92V70l-6-14M60 92V70l6-14M34 56q8 6 16 0t16 0" stroke="#6A6A70" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="33" y="96" width="34" height="9" rx="3" fill="#8A8A90"/><rect x="35" y="107" width="30" height="9" rx="3" fill="#6E6E74"/><path d="M40 120h20l-4 8h-12z" fill="#55555C"/></svg>`,r);
+  st.b=el('div','abs','left:390px;top:640px;width:300px;height:420px',`<svg viewBox="0 0 100 140" width="300" height="420"><path class="gl1" d="M50 6C27 6 12 23 12 44c0 15 8 24 15 33 4 5 6 10 6 16h34c0-6 2-11 6-16 7-9 15-18 15-33C88 23 73 6 50 6z" fill="#4A4A55" stroke="#8C8C98" stroke-width="2"/>
+   <path class="fil" d="M40 92V70l-6-14M60 92V70l6-14M34 56q8 6 16 0t16 0" stroke="#6A6A70" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="33" y="96" width="34" height="9" rx="3" fill="#A8A8B2"/><rect x="35" y="107" width="30" height="9" rx="3" fill="#6E6E74"/><path d="M40 120h20l-4 8h-12z" fill="#55555C"/></svg>`,r);
   st.m=mascot(r,150);return st},
 update(s,lt,t){const on=P(t,T(23)-.05,.25);const f=on>0&&on<1?(Math.sin(t*90)>0?1:.3):on;
-  s.b.querySelector('.gl1').setAttribute('fill',f>.5?'#FFD36B':'#2A2A2E');s.b.querySelector('.gl1').setAttribute('stroke',f>.5?'#FFE6A8':'#55555C');s.b.querySelector('.fil').setAttribute('stroke',f>.5?'#FF8A3D':'#6A6A70');
+  s.b.querySelector('.gl1').setAttribute('fill',f>.5?'#FFD36B':'#4A4A55');s.b.querySelector('.gl1').setAttribute('stroke',f>.5?'#FFE6A8':'#8C8C98');s.b.querySelector('.fil').setAttribute('stroke',f>.5?'#FF8A3D':'#9A9AA6');
   s.g.style.opacity=.9*f;s.rays.style.opacity=f;s.rays.style.transform=`rotate(${t*20}deg) scale(${.8+.2*f})`;
   popIn(s.b,t,T(19)-.1,{dy:-80});s.b.style.filter=f>.5?'drop-shadow(0 0 40px rgba(255,200,80,.8))':'';
   s.m.set(540,1420,t,{look:0,mood:f>.5?'happy':'idle',squash:-.1*Math.sin(Math.PI*P(t,T(23),.3))});
@@ -136,10 +136,10 @@ build(r){const st={};glow(r,540,800,600,'rgba(255,69,0,.18)',.7);
    ${com('#7C5CFF','rank_hacker','Volume wins. Just publish more 🤷','212')}${com('#1FB5A8','content_cara','Quality over quantity. Always.','187')}${com('#F2A93B','serp_nerd','Honestly… it depends on topic coverage','341')}</div>`;
   st.cms=[...B.body.querySelectorAll('.cm')];
   const Pc=el('div','dcard',`left:130px;top:1060px;width:820px;padding:30px 34px;background:rgba(18,18,21,.96);box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.05)`,null,r);st.poll=Pc;
-  const opt=(lab,ic,col,cls)=>`<div class="${cls}" style="position:relative;height:108px;border-radius:20px;border:2px solid #303036;margin-top:16px;overflow:hidden;display:flex;align-items:center;padding:0 28px;gap:18px">
+  const opt=(lab,ic,col,cls)=>`<div class="${cls}" style="position:relative;height:108px;border-radius:20px;border:2px solid #474751;margin-top:16px;overflow:hidden;display:flex;align-items:center;padding:0 28px;gap:18px">
      <div class="fill" style="position:absolute;left:0;top:0;bottom:0;width:0;background:${col}"></div><div style="position:relative;display:flex;gap:4px">${ic}</div>
      <div style="position:relative;font-weight:700;font-size:33px;letter-spacing:-.5px">${lab}</div><div class="pc" style="position:relative;margin-left:auto;font-weight:700;font-size:32px"></div></div>`;
-  Pc.innerHTML=`<div style="color:#8A8A90;font-size:24px;font-weight:700;letter-spacing:1px">POLL · Would you rather publish…</div>`+opt('10 great articles',IC.star(GOLD,30)+IC.star(GOLD,30)+IC.star(GOLD,30),'rgba(216,158,55,.3)','o1')+opt('100 average ones',IC.doc('#6B6B73',34)+IC.doc('#6B6B73',34),'rgba(76,125,255,.3)','o2');
+  Pc.innerHTML=`<div style="color:#A8A8B2;font-size:24px;font-weight:700;letter-spacing:1px">POLL · Would you rather publish…</div>`+opt('10 great articles',IC.star(GOLD,30)+IC.star(GOLD,30)+IC.star(GOLD,30),'rgba(216,158,55,.3)','o1')+opt('100 average ones',IC.doc('#A3A3AE',34)+IC.doc('#A3A3AE',34),'rgba(76,125,255,.3)','o2');
   st.cur=cursor(r);st.m=mascot(r,130);return st},
 update(s,lt,t){const pollT=T(50)-.15;
   s.B.el.style.transform=`rotateX(${6}deg) rotateY(${-6+4*P(t,s.t0,5)}deg) translateY(${-80*eIO(P(t,pollT,.6))}px)`;
@@ -150,7 +150,7 @@ update(s,lt,t){const pollT=T(50)-.15;
   const o1=s.poll.querySelector('.o1'),o2=s.poll.querySelector('.o2');const f1=eOut(P(t,T(54),.9)),f2=eOut(P(t,T(58),.9));
   o1.querySelector('.fill').style.width=(47*f1)+'%';o2.querySelector('.fill').style.width=(53*f2)+'%';
   o1.querySelector('.pc').textContent=f1>0?Math.round(47*f1)+'%':'';o2.querySelector('.pc').textContent=f2>0?Math.round(53*f2)+'%':'';
-  o1.style.borderColor=t>T(54)&&t<T(58)?CORAL:'#303036';o2.style.borderColor=t>T(58)?BLUE:'#303036';
+  o1.style.borderColor=t>T(54)&&t<T(58)?CORAL:'#474751';o2.style.borderColor=t>T(58)?BLUE:'#474751';
   const cx=t<T(57)?lerp(900,700,eIO(P(t,T(53),.5))):lerp(700,720,eIO(P(t,T(57),.5)));const cy=t<T(57)?lerp(1500,1205,eIO(P(t,T(53),.5))):lerp(1205,1330,eIO(P(t,T(57),.5)));
   cursorAt(s.cur,cx,cy,t>T(54)&&t<T(54)+.4?P(t,T(54),.4):t>T(58)&&t<T(58)+.4?P(t,T(58),.4):null);s.cur.style.opacity=P(t,T(53),.2);
   const mp=P(t,pollT+.4,.4);s.m.set(900,1063,t,{op:mp>0?1:0,s:back(mp,2),look:-1});
@@ -184,16 +184,16 @@ scene({t0:T(67)-.12,bg:'dark',tr:'whip',zoom:.04,
 sfx:[[T(67),'type',.7],[T(70),'pop',.5],[T(70)+.15,'pop',.5],[T(70)+.3,'pop',.5],[T(74),'mark',.6],[T(74)+.2,'mark',.6],[T(74)+.4,'mark',.6],[T(76)-.1,'zoomout',1],[T(76)+.2,'ticks',.7]],
 build(r){const st={};
   const B=browser(r,'left:90px;top:500px;width:900px;height:1010px','search · how to improve seo',{dark:true});st.B=B;
-  let h=`<div style="padding:24px 30px"><div style="height:68px;border-radius:34px;border:2px solid #34343A;display:flex;align-items:center;gap:14px;padding:0 26px;font-size:28px;background:#18181B">${IC.G(40)}<span class="q"></span></div>`;
+  let h=`<div style="padding:24px 30px"><div style="height:68px;border-radius:34px;border:2px solid #4E4E58;display:flex;align-items:center;gap:14px;padding:0 26px;font-size:28px;background:#2A2A32">${IC.G(40)}<span class="q"></span></div>`;
   DOMS.forEach((d,i)=>{h+=`<div class="res" style="margin-top:22px;padding:16px 18px;border-radius:16px;${d[0]==='yourblog.com'?`border:2px solid ${CORAL};background:rgba(216,158,55,.07)`:'border:2px solid transparent'}"><div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#9A9AA2">${FAV(d[1],d[2])}${d[0]}</div>
     <div style="font-size:30px;font-weight:600;margin-top:8px;color:#8AB4FF"><span class="hl" style="background-image:linear-gradient(rgba(255,200,60,.38),rgba(255,200,60,.38));background-repeat:no-repeat;background-size:0% 100%">10 Easy Ways to Improve Your SEO (2026)</span></div>
-    <div style="font-size:21px;color:#8A8A90;margin-top:6px">Want to rank higher? Here are 10 easy ways to improve your SEO…</div></div>`});
+    <div style="font-size:21px;color:#A8A8B2;margin-top:6px">Want to rank higher? Here are 10 easy ways to improve your SEO…</div></div>`});
   B.body.innerHTML=h+'</div>';st.res=[...B.body.querySelectorAll('.res')];
   const wall=el('div','abs p3','left:-240px;top:420px;width:1560px;height:1300px',null,r);st.wall=wall;st.minis=[];
   for(let i=0;i<70;i++){const d=DOMS[i%6];const x=(i%10)*156,y=Math.floor(i/10)*180;
-    st.minis.push(el('div','abs',`left:${x}px;top:${y}px;width:140px;height:160px;border-radius:14px;background:#17171A;border:1.5px solid #2C2C31;padding:12px;overflow:hidden`,
+    st.minis.push(el('div','abs',`left:${x}px;top:${y}px;width:140px;height:160px;border-radius:14px;background:#26262E;border:1.5px solid #44444E;padding:12px;overflow:hidden`,
       `<div style="display:flex;gap:4px;margin-bottom:10px"><i style="width:7px;height:7px;border-radius:50%;background:#FF5F57"></i><i style="width:7px;height:7px;border-radius:50%;background:#FEBC2E"></i><i style="width:7px;height:7px;border-radius:50%;background:#28C840"></i></div>${FAV(d[1],d[2])}<div style="font-size:12px;font-weight:700;color:#8AB4FF;margin-top:8px;line-height:1.25">10 Easy Ways to Improve Your SEO</div><div class="line-ph" style="height:5px;margin-top:8px"></div><div class="line-ph" style="height:5px;margin-top:5px;width:70%"></div>`,wall))}
-  st.cnt=el('div','abs',`left:50%;top:1330px;transform:translateX(-50%);padding:20px 34px;border-radius:26px;background:rgba(18,18,21,.95);border:1.5px solid #3A3A40;box-shadow:0 30px 80px rgba(0,0,0,.7);white-space:nowrap;font-size:32px;font-weight:700`,`<span class="c" style="color:${GOLD};font-weight:900;font-size:56px;letter-spacing:-2px">0</span> sites say the same thing`,r);
+  st.cnt=el('div','abs',`left:50%;top:1330px;transform:translateX(-50%);padding:20px 34px;border-radius:26px;background:rgba(18,18,21,.95);border:1.5px solid #55555F;box-shadow:0 30px 80px rgba(0,0,0,.7);white-space:nowrap;font-size:32px;font-weight:700`,`<span class="c" style="color:${GOLD};font-weight:900;font-size:56px;letter-spacing:-2px">0</span> sites say the same thing`,r);
   return st},
 update(s,lt,t){const B=s.B.body;typed(B.querySelector('.q'),'how to improve seo',P(t,T(67)-.05,.9));
   s.res.forEach((e,i)=>{popIn(e,t,T(69)+i*.12,{dy:24,s0:.96});e.querySelector('.hl').style.backgroundSize=`${100*eOut(P(t,T(74)+i*.12,.3))}% 100%`});
@@ -210,11 +210,11 @@ scene({t0:T(82)-.12,bg:'dark',zoom:.05,
 sfx:[[T(82),'type',.6],[T(85),'shimmer',.6],[T(87),'error',.6],[T(89)-.1,'whoosh',.9],[T(90)+.15,'reject',1],[T(90)+.3,'pop',.7]],
 build(r){const st={};glow(r,540,950,560,'rgba(76,125,255,.3)',.7);
   const B=browser(r,'left:90px;top:520px;width:900px;height:760px','ai.assistant/chat',{dark:true});st.B=B;
-  B.body.innerHTML=`<div style="padding:26px 30px;display:flex;align-items:center;gap:14px;border-bottom:1.5px solid #222226">${IC.spark(BLUE,38)}<div style="font-weight:800;font-size:28px">AI Assistant</div><div class="pill" style="margin-left:auto;background:#1E1E22;color:#9A9AA2;font-size:19px">Search on</div></div>
+  B.body.innerHTML=`<div style="padding:26px 30px;display:flex;align-items:center;gap:14px;border-bottom:1.5px solid #383842">${IC.spark(BLUE,38)}<div style="font-weight:800;font-size:28px">AI Assistant</div><div class="pill" style="margin-left:auto;background:#30303A;color:#9A9AA2;font-size:19px">Search on</div></div>
    <div style="padding:26px 30px"><div style="display:flex;justify-content:flex-end"><div class="ub" style="max-width:600px;padding:18px 24px;border-radius:22px 22px 6px 22px;background:#2A2A30;font-size:27px"></div></div>
    <div class="ans" style="margin-top:26px;display:flex;gap:16px"><div style="flex:none">${IC.spark(BLUE,36)}</div><div style="flex:1"><div class="line-ph" style="height:14px;width:95%;background:#3A3A42"></div><div class="line-ph" style="height:14px;width:88%;margin-top:14px;background:#3A3A42"></div><div class="line-ph" style="height:14px;width:72%;margin-top:14px;background:#3A3A42"></div>
-   <div class="src" style="display:flex;gap:10px;margin-top:24px;align-items:center">${DOMS.filter(d=>d[0]!=='yourblog.com').map(d=>FAV(d[1],d[2])).join('')}<span class="pill" style="background:#1E1E22;color:#C8C8D0;font-size:20px">1,247 sources</span></div></div></div></div>`;
-  st.icons=[IC.G(84),`<div style="width:84px;height:84px;border-radius:50%;background:#1A1A1E;border:2px solid #34343A;display:flex;align-items:center;justify-content:center">${IC.spark(BLUE,46)}</div>`].map((h,i)=>{const e=el('div','abs',`left:${i?820:176}px;top:470px`,h+`<div class="xb" style="position:absolute;right:-8px;top:-8px;opacity:0">${IC.x(RED,36)}</div>`,r);return e});
+   <div class="src" style="display:flex;gap:10px;margin-top:24px;align-items:center">${DOMS.filter(d=>d[0]!=='yourblog.com').map(d=>FAV(d[1],d[2])).join('')}<span class="pill" style="background:#30303A;color:#C8C8D0;font-size:20px">1,247 sources</span></div></div></div></div>`;
+  st.icons=[IC.G(84),`<div style="width:84px;height:84px;border-radius:50%;background:#2C2C34;border:2px solid #4E4E58;display:flex;align-items:center;justify-content:center">${IC.spark(BLUE,46)}</div>`].map((h,i)=>{const e=el('div','abs',`left:${i?820:176}px;top:470px`,h+`<div class="xb" style="position:absolute;right:-8px;top:-8px;opacity:0">${IC.x(RED,36)}</div>`,r);return e});
   st.art=el('div','card',`left:240px;top:1330px;width:600px;padding:24px 28px;border:3px solid transparent`,`<div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#777">${FAV(CORAL,'Y')} yourblog.com</div><div style="font-weight:800;font-size:30px;margin-top:10px;letter-spacing:-.5px;line-height:1.2">10 Easy Ways to Improve Your SEO (2026)</div><div class="pill" style="margin-top:12px;background:#F1F1EE;color:#555;font-size:19px">copy #4,813</div>`,r);
   st.rej=toast(r,'left:150px;top:1200px;width:780px;z-index:6',`${IC.x(RED,34)}<span style="flex:1">Already covered by 1,247 sources</span><span style="color:${RED}">Skipped</span>`);
   return st},
@@ -233,12 +233,12 @@ scene({t0:T(95)-.12,bg:'dark',tr:'whip',zoom:.05,
 sfx:[[T(95)+.1,'click',1],[T(95)+.3,'ticks',.8],[T(100)-.05,'sweepdown',1],[T(104),'error',.8]],
 build(r){const st={};
   const B=browser(r,'left:110px;top:490px;width:860px;height:430px','content.generator/bulk',{dark:true});st.B=B;
-  B.body.innerHTML=`<div style="padding:22px 28px;display:flex;align-items:center;gap:16px"><div class="pill gb" style="background:${CORAL};color:#141414;font-size:24px;padding:12px 22px">✦ Generate 100 posts</div><div style="flex:1;height:14px;border-radius:8px;background:#26262A;overflow:hidden"><div class="pb" style="height:100%;width:0;background:${CORAL}"></div></div><div class="pn mono" style="font-size:22px;color:#AAA;width:90px;text-align:right">0/100</div></div><div class="ls" style="position:relative;height:260px;overflow:hidden;margin:0 28px;-webkit-mask-image:linear-gradient(#000 60%,transparent)"></div>`;
-  st.L=B.body.querySelector('.ls');st.rows=[...Array(7)].map(()=>el('div','abs','left:0;right:0;height:48px;display:flex;align-items:center;gap:12px;font-size:22px;color:#C8C8D0',`${IC.check(GREEN,26)}<span class="tt"></span><span class="pill" style="margin-left:auto;background:#1E1E22;color:#77777F;font-size:17px;padding:4px 12px">generic</span>`,st.L));
-  const C=el('div','dcard','left:140px;top:960px;width:800px;height:540px;background:#121214',null,r);st.card=C;
+  B.body.innerHTML=`<div style="padding:22px 28px;display:flex;align-items:center;gap:16px"><div class="pill gb" style="background:${CORAL};color:#141414;font-size:24px;padding:12px 22px">✦ Generate 100 posts</div><div style="flex:1;height:14px;border-radius:8px;background:#3A3A44;overflow:hidden"><div class="pb" style="height:100%;width:0;background:${CORAL}"></div></div><div class="pn mono" style="font-size:22px;color:#AAA;width:90px;text-align:right">0/100</div></div><div class="ls" style="position:relative;height:260px;overflow:hidden;margin:0 28px;-webkit-mask-image:linear-gradient(#000 60%,transparent)"></div>`;
+  st.L=B.body.querySelector('.ls');st.rows=[...Array(7)].map(()=>el('div','abs','left:0;right:0;height:48px;display:flex;align-items:center;gap:12px;font-size:22px;color:#C8C8D0',`${IC.check(GREEN,26)}<span class="tt"></span><span class="pill" style="margin-left:auto;background:#30303A;color:#A6A6B0;font-size:17px;padding:4px 12px">generic</span>`,st.L));
+  const C=el('div','dcard','left:140px;top:960px;width:800px;height:540px;background:#1F1F25',null,r);st.card=C;
   const R=240,cx=400,cy=370;const pt=a=>[cx+R*Math.cos(a*Math.PI/180),cy+R*Math.sin(a*Math.PI/180)];
   const arc=(a0,a1,col)=>{const[x0,y0]=pt(a0),[x1,y1]=pt(a1);return `<path d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1}" stroke="${col}" stroke-width="34" fill="none"/>`};
-  let ticks='';for(let a=180;a<=360;a+=9){const[x0,y0]=[cx+(R-40)*Math.cos(a*Math.PI/180),cy+(R-40)*Math.sin(a*Math.PI/180)],[x1,y1]=[cx+(R-54)*Math.cos(a*Math.PI/180),cy+(R-54)*Math.sin(a*Math.PI/180)];ticks+=`<path d="M${x0} ${y0}L${x1} ${y1}" stroke="#3A3A40" stroke-width="3"/>`}
+  let ticks='';for(let a=180;a<=360;a+=9){const[x0,y0]=[cx+(R-40)*Math.cos(a*Math.PI/180),cy+(R-40)*Math.sin(a*Math.PI/180)],[x1,y1]=[cx+(R-54)*Math.cos(a*Math.PI/180),cy+(R-54)*Math.sin(a*Math.PI/180)];ticks+=`<path d="M${x0} ${y0}L${x1} ${y1}" stroke="#55555F" stroke-width="3"/>`}
   C.innerHTML=`<div style="position:absolute;left:34px;top:28px;display:flex;align-items:center;gap:14px">${IC.G(44)}<div style="font-weight:700;font-size:30px">Site quality score</div></div>
    <svg width="800" height="540" style="position:absolute;left:0;top:0;overflow:visible"><defs><filter id="ng"><feGaussianBlur stdDeviation="8"/></filter></defs>${arc(180,238,RED)}${arc(242,298,GOLD)}${arc(302,360,GREEN)}${ticks}
    <g class="nd" style="transform-origin:${cx}px ${cy}px"><path d="M${cx-11} ${cy} L${cx} ${cy-205} L${cx+11} ${cy}Z" fill="#000" opacity=".5" filter="url(#ng)"/><path d="M${cx-11} ${cy} L${cx} ${cy-205} L${cx+11} ${cy}Z" fill="#fff"/><circle cx="${cx}" cy="${cy}" r="22" fill="#fff"/></g></svg>
@@ -294,7 +294,7 @@ build(r){const st={};
      <div><div style="font-weight:800;font-size:44px;letter-spacing:-1px;color:#9C9486;position:relative;display:inline-block">Coffee<div class="st" style="position:absolute;left:-6px;right:-6px;top:52%;height:5px;background:${RED};transform-origin:left;transform:scaleX(0)"></div></div><div class="na pill" style="margin-top:14px;background:#FFE7E3;color:${RED};font-size:24px">${IC.x(RED,26)} Not on the menu</div></div>`,M);
   return st},
 update(s,lt,t){s.M.style.transform=`rotateX(${8-4*P(t,s.t0,5)}deg) rotateY(${-6+6*P(t,s.t0,5)}deg)`;
-  s.d.forEach((d,i)=>popIn(d,t,T(122)-.1+i*.3,{dy:60,s0:.7}));
+  s.d.forEach((d,i)=>popIn(d,t,s.t0+.15+i*.25,{dy:60,s0:.7}));s.d.forEach((d,i)=>{d.style.boxShadow=t>T(122)-.1+i*.3&&t<T(122)+.5+i*.3?'0 0 0 4px rgba(216,158,55,.6),0 14px 30px rgba(60,40,20,.12)':''})
   const nc=T(125);popIn(s.cof,t,nc-.1,{dy:40,s0:.92});s.cof.style.transform+=` translateX(${t>T(127)?Math.sin((t-T(127))*55)*10*(1-P(t,T(127),.5)):0}px)`;
   s.cof.querySelector('.st').style.transform=`scaleX(${eOut(P(t,T(126),.3))})`;popIn(s.cof.querySelector('.na'),t,T(127)-.05,{dy:0,s0:0,k:3});
   s.cof.style.borderColor=t>T(127)?RED:'#D9D1C0';

@@ -197,39 +197,31 @@ arp_g = np.where((t > sA) & (t < sB), 0.4, 1.0)
 mus = pad + sub * .9 + arp * arp_g + (kick + hat) * drums_g
 mus *= np.clip((DUR - t) / 1.5, 0, 1) * np.clip(t / .3, 0, 1)
 
-# ---------- voice: rebuild with tightened pauses ----------
-v, vsr = sf.read(f"{S}/sep/vocals48.wav"); assert vsr == SR
+# ---------- voice: original recording, silence inserted at sentence breaks (no stretching) ----------
+v, vsr = sf.read(f"{S}/sep/vocals_ft48.wav"); assert vsr == SR
 v = v if v.ndim == 1 else v.mean(1)
-X = int(.012 * SR); parts = []
-for a, b in cuts["segs"]:
-    seg = v[int(a * SR):int(b * SR)].copy()
-    if len(seg) > 2 * X: seg[:X] *= np.linspace(0, 1, X); seg[-X:] *= np.linspace(1, 0, X)
-    parts.append(seg)
-import subprocess
-sf.write(f"{S}/build/voice_cat.wav", np.concatenate(parts), SR)
-subprocess.run(["ffmpeg","-v","error","-y","-i",f"{S}/build/voice_cat.wav","-af",f"rubberband=tempo={cuts['tempo']}:pitchq=quality:transients=smooth:formant=preserved",f"{S}/build/voice_st.wav"],check=True)
-voice,_=sf.read(f"{S}/build/voice_st.wav"); voice=voice[:N]; voice = np.pad(voice, (0, N - len(voice)))
-# vocal rider: level each word toward the median word loudness (keeps the last line from fading)
-g = np.ones(N); rms = []
-for w in W:
-    a, b = int(w["s"] * SR), max(int(w["e"] * SR), int(w["s"] * SR) + 400)
-    rms.append(np.sqrt(np.mean(voice[a:b] ** 2)) + 1e-9)
-med = np.median(rms)
-for k, w in enumerate(W):
-    a = int((w["s"] - .03) * SR); b = int((w["e"] + .03) * SR)
-    gk = np.clip(med / rms[k], 0.7, 2.4) ** 0.8
-    if k >= len(W) - 6: gk = max(gk, np.clip(med / rms[k], 1, 2.8))  # final CTA line at full presence
-    g[max(0, a):b] = gk
-# hold gain through gaps, smooth 60ms
-gs = lp(g, 6)
-voice = voice * gs
-voice = voice / (np.sqrt(np.mean(voice[np.abs(voice) > 1e-3] ** 2)) + 1e-9) * 10 ** (-20 / 20)
+v = v[:int(cuts["end"] * SR)]
+parts = []; p = 0
+for x, d in cuts["ins"]:
+    k = int(x * SR); parts.append(v[p:k]); parts.append(np.zeros(int(d * SR))); p = k
+parts.append(v[p:])
+voice = np.concatenate(parts)[:N]; voice = np.pad(voice, (0, N - len(voice)))
+# one smooth lift on the final line only (you naturally trail off there)
+L = len(W); a = W[L - 6]["s"] - .3; b = W[L - 1]["e"] + .3
+g = np.ones(N); tt = np.arange(N) / SR
+g += (10 ** (4 / 20) - 1) * np.clip((tt - a) / .4, 0, 1) * np.clip((b + .4 - tt) / .4, 0, 1)
+voice *= g
+voice = voice / (np.sqrt(np.mean(voice[np.abs(voice) > 2e-3] ** 2)) + 1e-9) * 10 ** (-20 / 20)
 sf.write(f"{S}/build/voice_raw.wav", np.clip(voice, -1, 1), SR)
 
-# duck music under voice
-venv = np.abs(voice); w = int(.15 * SR); venv = np.convolve(venv, np.ones(w) / w, mode="same")
-duck = 1 - .6 * np.clip(venv / (np.percentile(venv, 90) + 1e-9), 0, 1)
-mus *= lp(duck, 4)
+# strong ducking of music + SFX whenever the voice is speaking
+venv = np.abs(voice); w = int(.08 * SR); venv = np.convolve(venv, np.ones(w) / w, mode="same")
+act = np.clip(venv / (np.percentile(venv[venv > 1e-4], 60) + 1e-9), 0, 1)
+hold = lp(act, 3)  # ~50ms release smoothing
+act = np.maximum(act, hold)
+mus *= 1 - .70 * lp(act, 6)          # ~ -10 dB under speech
+sd = 1 - .68 * lp(act, 10)           # SFX ~ -10 dB under speech, full in gaps
+sfxL *= sd; sfxR *= sd
 sf.write(f"{S}/build/music.wav", norm(mus, .5), SR)
 sf.write(f"{S}/build/sfx.wav", np.stack([sfxL, sfxR], 1) / (np.max(np.abs([sfxL, sfxR])) + 1e-9) * .9, SR)
 print("ok", DUR)
