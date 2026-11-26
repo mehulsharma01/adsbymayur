@@ -136,68 +136,15 @@ LIB = dict(whoosh=lambda: whoosh(), whip=whip, pop=pop, tick=tick, click=click, 
            reject=reject, deflate=deflate, sad=sad, clink=clink, steps=steps, pops=pops, fill=fill, scan=scan)
 GAIN = dict(whoosh=.55, whip=.6, tick=.35, ticks=.45, type=.4, riser=.7)
 
-# ---------- real SFX samples (Epidemic Sound via Higgsfield) ----------
-import os
-LIBD = f"{S}/sfxlib"
-def samp(name, maxlen=None, fade=.08, start=None, gain=1.0):
-    x, sr = sf.read(f"{LIBD}/{name}.wav"); x = x if x.ndim == 2 else np.stack([x, x], 1)
-    env_ = np.abs(x).mean(1); thr = env_.max() * 0.06
-    i0 = int(start * SR) if start is not None else max(0, int(np.argmax(env_ > thr)) - int(.004 * SR))
-    x = x[i0:]
-    if maxlen: x = x[:int(maxlen * SR)]
-    f = min(len(x) // 2, int(fade * SR)); x[-f:] *= np.linspace(1, 0, f)[:, None]
-    return x * gain
-def first_onsets(name, n=3, gap=.25):
-    x, _ = sf.read(f"{LIBD}/{name}.wav"); m = np.abs(x).mean(1) if x.ndim == 2 else np.abs(x)
-    thr = m.max() * .25; outs = []; i = 0
-    while len(outs) < n and i < len(m):
-        if m[i] > thr: outs.append(i / SR); i += int(gap * SR)
-        else: i += 1
-    return outs
-CL = first_onsets("clicks", 4)
-cnt = {}
-def rot(key, opts):
-    k = cnt.get(key, 0); cnt[key] = k + 1; return opts[k % len(opts)]
-def lowpassed(x, fc): return np.stack([lp(x[:, 0], fc), lp(x[:, 1], fc)], 1)
-SMAP = {
- "whoosh1": lambda: samp("whoosh1", 1.2, .3, gain=.8), "whoosh2": lambda: samp("whoosh2", 1.0, .25, gain=.8), "whoosh3": lambda: samp("whoosh3", 1.2, .3, gain=.8),
- "whoosh": lambda: samp(rot("w", ["whoosh1", "whoosh3", "whoosh2"]), 1.1, .3, gain=.75), "whip": lambda: samp("whoosh2", .9, .25, gain=.8),
- "swish": lambda: samp("whoosh2", .8, .25, gain=.6),
- "pop": lambda: samp(rot("p", ["pop1", "pop2"]), .5, .05), "pops": None, "mark": lambda: samp("pop2", .3, .05, gain=.5),
- "tick": lambda: samp("pop2", .3, .05, gain=.4), "fill": lambda: samp("pop1", .4, .05, gain=.5), "clink": lambda: samp("pop1", .5, .05, gain=.8),
- "popup": lambda: samp("popup", 1.0, .2, gain=.8),
- "click": lambda: samp("clicks", .25, .03, start=rot("c", CL)),
- "ticks": lambda: samp("counter", 1.3, .3, gain=.7), "counter": lambda: samp("counter", 2.4, .4, gain=.8),
- "type": lambda: samp("typing", 1.0, .2, start=rot("t", [0.2, 2.1, 4.3, 6.2]), gain=.8),
- "ding": lambda: samp("success", 1.2, .3, gain=.6), "success": lambda: samp("success", 1.3, .3),
- "sparkle": lambda: samp("sparkle", 1.6, .5, gain=.7), "shimmer": lambda: samp("sparkle", 1.4, .5, gain=.5),
- "thud": lambda: samp("thud", .4, .1), "stamp": None, "hit": lambda: samp("boom", 2.5, .8),
- "boom": lambda: samp("boom", 2.6, .8),
- "riser": lambda: samp("riser", 2.8, .1, gain=.8), "scan": lambda: samp("riser", 1.6, .4, gain=.4),
- "error": lambda: samp("error", 1.2, .2, gain=.8), "reject": None, "crack": lambda: samp("glitch", .4, .1, gain=.6),
- "drop": lambda: samp("glitch", 1.3, .4, gain=.8), "sweepdown": lambda: samp("glitch", 1.3, .4, gain=.75),
- "deflate": lambda: lowpassed(samp("glitch", .9, .3, gain=.6), 2500), "sad": lambda: lowpassed(samp("glitch", .9, .3, gain=.55), 2000),
- "freeze": lambda: samp("freeze", 2.2, .6, gain=.8), "flip": lambda: samp("flip", .6, .15),
- "steps": lambda: samp("steps", 1.4, .3, gain=.8), "zoomout": None,
-}
-def get(tp):
-    if tp == "pops":
-        out = np.zeros((int(1.0 * SR), 2))
-        for k in range(6):
-            x = samp(rot("p", ["pop2", "pop1"]), .3, .05, gain=.6 + .3 * rng.random()); s0 = int(k * .13 * SR); out[s0:s0 + len(x)] += x[:len(out) - s0]
-        return out
-    if tp == "stamp": a = samp("stamp", .4, .08); b_ = samp("thud", .4, .1) * .7; o = np.zeros((max(len(a), len(b_)), 2)); o[:len(a)] += a; o[:len(b_)] += b_; return o
-    if tp == "reject": a = samp("error", 1.0, .2); b_ = samp("thud", .4, .1) * .8; o = np.zeros((len(a), 2)); o[:len(a)] += a; o[:len(b_)] += b_; return o
-    if tp == "zoomout": a = samp("whoosh3", 1.2, .3); b_ = samp("boom", 1.5, .6) * .5; o = np.zeros((max(len(a), len(b_) + int(.3 * SR)), 2)); o[:len(a)] += a; o[int(.3 * SR):int(.3 * SR) + len(b_)] += b_; return o
-    return SMAP[tp]()
 sfxL = np.zeros(N); sfxR = np.zeros(N)
 cues = json.load(open(f"{S}/build/sfx.json"))
 for c in cues:
     t0 = c["t"]
-    x = get(c["type"]) * c["g"]
-    if c["type"] == "riser": t0 -= 2.5
+    if c["type"] == "riser": t0 -= 1.3  # risers lead into their target
+    x = LIB[c["type"]]() * c["g"] * GAIN.get(c["type"], .8)
     s = max(0, int(t0 * SR)); x = x[:N - s]
-    sfxL[s:s + len(x)] += x[:, 0]; sfxR[s:s + len(x)] += x[:, 1]
+    pan = rng.uniform(-.25, .25)
+    sfxL[s:s + len(x)] += x * (1 - pan); sfxR[s:s + len(x)] += x * (1 + pan)
 
 # ---------- music bed (A minor, 100 bpm) ----------
 BPM = 100; beat = 60 / BPM; bar = 4 * beat
@@ -250,10 +197,6 @@ arp_g = np.where((t > sA) & (t < sB), 0.4, 1.0)
 mus = pad + sub * .9 + arp * arp_g + (kick + hat) * drums_g
 mus *= np.clip((DUR - t) / 1.5, 0, 1) * np.clip(t / .3, 0, 1)
 
-if os.path.exists(f"{S}/build/music_gen.wav"):
-    mg, _ = sf.read(f"{S}/build/music_gen.wav"); mg = mg.mean(1) if mg.ndim == 2 else mg
-    mg = mg[:N]; mg = np.pad(mg, (0, N - len(mg))); tt_ = np.arange(N) / SR
-    mus = mg * np.clip((DUR - tt_) / 1.8, 0, 1)
 # ---------- voice: original recording, silence inserted at sentence breaks (no stretching) ----------
 v, vsr = sf.read(f"{S}/sep/vocals_ft48.wav"); assert vsr == SR
 v = v if v.ndim == 1 else v.mean(1)

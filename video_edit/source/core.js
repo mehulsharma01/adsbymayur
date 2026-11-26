@@ -176,9 +176,8 @@ function ambient(t,cream){GH.style.color=cream?'#000':'#fff';
 const SC=[];const ROOT=document.getElementById('scenes');
 function scene(o){SC.push(o);if(o.sfx)o.sfx.forEach(c=>sfx(...c))}
 function finalize(){SC.sort((a,b)=>a.t0-b.t0);SC.forEach((s,i)=>{s.t1=s.t1||(SC[i+1]?SC[i+1].t0:window.DUR)});
-  let k=0;SC.forEach((s,i)=>{if(i===0||s.nowhoosh)return;const pv=SC[i-1];const tt=s.t0-0.12;
-    const big=pv.bg!==s.bg||s.tr==='whip';const busy=window.SFX.some(c=>Math.abs(c.t-tt)<0.45);
-    if(big&&!busy){sfx(tt,'whoosh'+(1+(k++%3)),.55)}})}
+  SC.forEach((s,i)=>{if(i>0&&!s.nowhoosh)sfx(s.t0-0.12,s.tr==='whip'?'whip':'whoosh',.8)});
+  [...EMPH].forEach(i=>sfx(T(i)+.03,'tick',.5))}
 const bgD=document.getElementById('bgDark'),bgC=document.getElementById('bgCream'),FL=document.getElementById('flash'),HD=document.getElementById('handle');
 HD.innerHTML=IC.logo(34,'currentColor')+'<span>Answer Theory</span>';
 function sceneAt(t){let s=SC[0];for(const x of SC)if(x.t0<=t)s=x;return s}
@@ -186,14 +185,14 @@ window.renderAt=function(t){
   const cs=sceneAt(t);const idx=SC.indexOf(cs);const prev=SC[idx-1];
   let cream=cs.bg==='cream'?1:0;
   if(prev&&prev.bg!==cs.bg){const p=eIO(P(t,cs.t0-0.1,0.18));cream=lerp(prev.bg==='cream'?1:0,cream,p)}
-  bgC.style.opacity=cream;document.getElementById('capbg').style.opacity=1-cream;ambient(t,cream>.5);
+  bgC.style.opacity=cream;ambient(t,cream>.5);
   FL.style.opacity=prev&&prev.bg!==cs.bg&&t>=cs.t0-0.02?0.06*(1-P(t,cs.t0-0.02,0.2)):0;
   for(const s of SC){
     const vis=t>=s.t0-0.15&&t<s.t1+0.2;
     if(!vis){if(s.root)s.root.style.display='none';continue}
     if(!s.root){s.root=el('div','scene',null,null,ROOT);s.cam=el('div','cam',null,null,s.root);s.st=s.build(s.cam,s)||{};s.st.t0=s.t0;s.st.t1=s.t1}
     s.root.style.display='block';
-    const pin=s.instant?1:eOut(P(t,s.t0-0.15,0.3)),pout=s.keep?0:eIn(P(t,s.t1-0.02,0.2));
+    const pin=eOut(P(t,s.t0-0.15,0.3)),pout=s.keep?0:eIn(P(t,s.t1-0.02,0.2));
     s.root.style.opacity=Math.min(pin,1-pout);
     let tx=0,sc=(0.96+0.04*pin)*(1+0.04*pout),bl=(1-pin)*8+pout*8;
     if(s.tr==='whip'){tx=(1-pin)*420;sc=1;bl=(1-pin)*12}

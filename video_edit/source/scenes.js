@@ -2,35 +2,35 @@
 buildChunks([]);
 const TITLES=['10 Easy SEO Tips for 2026','What Is Keyword Research?','Best SEO Tools (Updated)','How to Rank on Google Fast','SEO Checklist for Beginners','On-Page SEO: Full Guide','Why Backlinks Matter','Meta Tags Explained','Local SEO in 5 Steps','Content Marketing 101','Technical SEO Basics','Blogging for Traffic','SEO vs SEM','Long-tail Keywords Guide'];
 
-/* ===== S1 HOOK: 3D content storm + giant counter ===== */
-scene({t0:0,bg:'dark',zoom:.10,instant:true,
-sfx:[[0,'whoosh',.9],[0.05,'counter',1],[T(3)+.08,'boom',1.1],[T(3)+.1,'stamp',.7],[T(6)-.1,'popup',.8],[T(8),'error',.7]],
-build(r){const st={cards:[]};st.g=glow(r,540,880,640,'rgba(216,158,55,.45)',.9);
-  const F=el('div','abs p3','left:540px;top:900px;width:0;height:0',null,r);st.F=F;
-  for(let i=0;i<72;i++){const light=rnd(i+1)<.45;const gold=rnd(i+2)<.3;
-    const c=el('div','abs',`left:-110px;top:-140px;width:220px;height:280px;border-radius:20px;padding:18px;background:${light?'#F4F1EA':'#2A2A33'};border:1.5px solid ${light?'#fff':'#4A4A56'};box-shadow:0 20px 40px rgba(0,0,0,.45)`,
-      `<div style="height:70px;border-radius:12px;background:${gold?'linear-gradient(135deg,#F0BC5E,#B07619)':light?'#E4DED2':'#3A3A44'}"></div><div style="height:12px;width:90%;border-radius:6px;margin-top:16px;background:${light?'#2A2A2A':'#D8D8E0'};opacity:.8"></div><div style="height:9px;width:75%;border-radius:5px;margin-top:12px;background:${light?'#C9C3B6':'#55555F'}"></div><div style="height:9px;width:85%;border-radius:5px;margin-top:9px;background:${light?'#C9C3B6':'#55555F'}"></div><div style="height:9px;width:60%;border-radius:5px;margin-top:9px;background:${light?'#C9C3B6':'#55555F'}"></div>`,F);
-    let x=(rnd(i+3)-.5)*1900,y=(rnd(i+4)-.5)*2300;if(Math.abs(x)<300&&Math.abs(y)<380){x+=x<0?-420:420}
-    st.cards.push({c,x,y,ph:rnd(i+5),rot:(rnd(i+6)-.5)*50})}
-  st.num=el('div','abs','left:0;right:0;top:640px;text-align:center;z-index:5',
-    `<div class="n" style="font-weight:900;font-size:330px;letter-spacing:-16px;line-height:1;color:${CORAL};text-shadow:0 0 60px rgba(216,158,55,.55),0 10px 40px rgba(0,0,0,.6)">0</div><div style="font-weight:800;font-size:46px;letter-spacing:22px;margin-top:6px;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.8)">ARTICLES</div>`,r);
-  st.fl=el('div','abs','inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,235,190,.9),rgba(216,158,55,.0) 60%);opacity:0;z-index:6',null,r);
-  st.sh=el('div','dcard',`left:170px;top:1130px;width:740px;padding:30px 34px;z-index:7`,
-    `<div style="display:flex;align-items:center;gap:16px">${IC.G(60)}<div><div style="font-weight:800;font-size:34px">Google trust score</div><div class="muted" style="font-size:23px">for yourwebsite.com</div></div><div style="margin-left:auto">${IC.x(RED,52)}</div></div>
-     <div style="margin-top:22px;height:22px;border-radius:12px;background:#3A3A44;overflow:hidden"><div class="tb" style="height:100%;width:0;border-radius:12px;background:linear-gradient(90deg,${RED},#FF7A5C)"></div></div>
-     <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:24px;font-weight:700"><span class="muted">Volume ≠ trust</span><span class="tv" style="color:${RED}">0%</span></div>`,r);
-  st.m=mascot(r,150);return st},
+/* ===== S1 HOOK: CMS publishing 100 posts ===== */
+scene({t0:0,bg:'dark',zoom:.08,
+sfx:[[0,'riser',.5],[0.15,'ticks',.7],[1.5,'pop',.9],[T(6)-.05,'pop',.9],[T(6)+.1,'shimmer',.5]],
+build(r){const st={};glow(r,540,960,620,'rgba(216,158,55,.35)',.6);
+  const w=el('div','abs p3','left:0;top:0;width:1080px;height:1920px',null,r);st.w=w;
+  const B=browser(w,'left:120px;top:560px;width:840px;height:780px','yourblog.com/admin/posts',{dark:true});st.B=B;
+  B.body.innerHTML=`<div style="display:flex;align-items:center;padding:28px 30px 18px"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Posts</div><div class="pill" style="margin-left:18px;background:#1F1F23;color:#AAA;font-size:20px">All · <b class="n" style="color:#fff;margin-left:6px">0</b></div><div class="pill" style="margin-left:auto;background:${CORAL};color:#141414;font-size:22px">+ Add new</div></div>
+   <div style="display:flex;padding:0 30px 10px;color:#A0A0AA;font-size:18px;font-weight:600;letter-spacing:1px"><span style="flex:1">TITLE</span><span style="width:150px">STATUS</span><span style="width:90px">DATE</span></div><div class="lst" style="position:relative;height:600px;overflow:hidden"></div>`;
+  st.rows=[];const L=B.body.querySelector('.lst');
+  for(let k=0;k<11;k++){st.rows.push(el('div','abs',`left:30px;right:30px;height:62px;display:flex;align-items:center;border-top:1px solid #383842;font-size:23px;font-weight:500`,
+   `<span style="width:22px;height:22px;border-radius:6px;border:2px solid #55555F;margin-right:16px"></span><span class="tt" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#E8E8EC"></span><span style="width:150px"><span class="pill" style="background:rgba(31,203,107,.14);color:${GREEN};font-size:18px;padding:5px 12px">Published</span></span><span style="width:90px;color:#A6A6B0;font-size:20px">Today</span>`,L))}
+  st.big=el('div','abs',`left:70px;top:470px;padding:22px 34px;border-radius:30px;background:rgba(20,20,24,.85);border:1.5px solid #3A3A42;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(216,158,55,.25);display:flex;align-items:baseline;gap:14px`,
+    `<span class="bn" style="font-weight:900;font-size:110px;letter-spacing:-5px;color:${CORAL};line-height:1">0</span><span style="font-size:32px;font-weight:700;color:#ddd">posts<br><span style="color:#A8A8B2;font-size:24px;font-weight:500">published</span></span>`,w);
+  st.trust=el('div','dcard',`left:600px;top:1210px;width:400px;padding:26px 28px;background:rgba(22,22,26,.95)`,
+    `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div><div style="font-weight:700;font-size:26px">Site trust</div><div style="color:#A8A8B2;font-size:20px">based on volume?</div></div></div>
+     <div style="margin-top:20px;height:14px;border-radius:8px;background:#3A3A44;overflow:hidden"><div class="tb" style="height:100%;width:0;background:linear-gradient(90deg,${RED},${GOLD})"></div></div>
+     <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:20px;color:#A8A8B2"><span>Low</span><span class="tv" style="color:${GOLD};font-weight:700"></span></div>`,w);
+  st.m=mascot(w,130);return st},
 update(s,lt,t){
-  const dist=700*t+1700*(1-Math.exp(-t*1.8));const trust=T(6)-.12;const dim=P(t,trust,.4);
-  s.cards.forEach(o=>{let z=((o.ph*3200+dist)%3200)-2600;const op=clamp((z+2600)/500)*clamp((700-z)/300);
-    o.c.style.opacity=op*(1-.6*dim);o.c.style.transform=`translate3d(${o.x}px,${o.y}px,${z}px) rotateY(${o.rot}deg) rotateX(${o.rot*.4}deg)`});
-  const hit=T(3)+.1;const v=Math.min(100,Math.round(100*eOut(P(t,0,hit))));s.num.querySelector('.n').textContent=v;
-  const slam=t>hit?1+.28*(1-eOut(P(t,hit,.4))):1+.02*Math.sin(t*40)*(1-P(t,0,hit));
-  const up=eIO(P(t,trust,.5));s.num.style.transform=`translateY(${-150*up}px) scale(${slam*(1-.32*up)})`;
-  s.fl.style.opacity=t>hit?.7*(1-P(t,hit,.45)):0;s.g.style.opacity=.9+.4*(t>hit?1-P(t,hit,.6):0);
-  popIn(s.sh,t,trust,{dy:140,s0:.85,k:1.6});const tb=eOut(P(t,trust+.25,1.2));
-  s.sh.querySelector('.tb').style.width=(18*tb)+'%';s.sh.querySelector('.tv').textContent=Math.round(18*tb)+'%';
-  const mp=P(t,T(7),.4);s.m.set(860,1150,t,{op:mp>0?1:0,s:back(mp,2),mood:'sad',look:-1});
+  const N=Math.min(100,Math.floor(100*eOut(P(t,0.1,1.45))));
+  s.B.body.querySelector('.n').textContent=N;s.big.querySelector('.bn').textContent=N;
+  const frac=(100*eOut(P(t,0.1,1.45)))%1;
+  s.rows.forEach((r,k)=>{const n=N-k;r.style.opacity=n>0?1:0;r.style.top=((k+(N<100?1-frac:0)-1)*62+62)+'px';r.querySelector('.tt').textContent=n>0?`${TITLES[n%TITLES.length]} #${n}`:'';r.style.background=k===0&&N<100?'rgba(216,158,55,.08)':''});
+  const ep=back(P(t,0,.6),1.3);
+  s.B.el.style.transform=`translateY(${(1-ep)*300}px) rotateX(${16-6*lt/3}deg) rotateY(${-14+5*lt/3}deg) rotateZ(2deg)`;s.B.el.style.opacity=clamp(ep*2);
+  popIn(s.big,t,.25,{post:`translateZ(140px) rotateY(-8deg)`});s.big.style.transform+=` scale(${1+.08*Math.sin(Math.PI*P(t,1.45,.3))})`;
+  popIn(s.trust,t,T(6)-.1,{dx:120,post:'translateZ(200px) rotateY(-10deg)'});
+  const tb=eOut(P(t,T(6)+.15,.8));s.trust.querySelector('.tb').style.width=(30*tb)+'%';s.trust.querySelector('.tv').textContent=tb>0?'Not from volume':'';
+  const mp=P(t,1.6,.4);s.m.set(860,575,t,{op:mp>0?1:0,s:back(mp,2),look:-1,mood:'idle'});
 }});
 
 /* ===== S2 HURT: rankings crash after mass publishing ===== */
