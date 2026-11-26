@@ -11,7 +11,7 @@ import soundfile as sf
 a,sr=sf.read(f"{S}/sep/htdemucs/orig_audio/vocals.wav"); a=a.mean(1) if a.ndim>1 else a
 hop=int(sr*0.01); n=len(a)//hop
 rms=np.array([np.sqrt(np.mean(a[i*hop:(i+1)*hop]**2))+1e-9 for i in range(n)]); db=20*np.log10(rms)
-KEEP=0.30  # target pause length
+KEEP=0.45  # target pause length
 cuts=[]
 for i in range(len(W)-1):
     g0,g1=W[i]["e"],W[i+1]["s"]
@@ -32,10 +32,11 @@ def mp(t):
         if t>=c1: s+=c1-c0
         elif t>c0: s+=t-c0
     return round(t-s,3)
-out=[{"w":w["w"],"s":mp(w["s"]),"e":mp(w["e"])} for w in W]
+D=mp(END);TARGET=86.86*1.15;TEMPO=max(0.85,D/TARGET)
+out=[{"w":w["w"],"s":round(mp(w["s"])/TEMPO,3),"e":round(mp(w["e"])/TEMPO,3)} for w in W]
 segs=[];p=0
 for c0,c1 in cuts: segs.append([p,c0]); p=c1
 segs.append([p,END])
-json.dump({"segs":segs,"dur":mp(END)},open(f"{S}/build/cuts.json","w"))
-open(f"{S}/build/data.js","w").write("window.WORDS="+json.dumps(out)+";window.DUR="+str(mp(END))+";")
-print("cuts",len(cuts),"removed %.2fs"%sum(c1-c0 for c0,c1 in cuts),"new dur",mp(END))
+json.dump({"segs":segs,"dur":round(D/TEMPO,3),"tempo":TEMPO},open(f"{S}/build/cuts.json","w"))
+open(f"{S}/build/data.js","w").write("window.WORDS="+json.dumps(out)+";window.DUR="+str(round(D/TEMPO,3))+";")
+print("cuts",len(cuts),"tempo",TEMPO,"new dur",D/TEMPO)

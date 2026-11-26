@@ -35,7 +35,7 @@ build(r){const st={};glow(r,540,980,600,'rgba(76,125,255,.28)',.8);
     `<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" stroke="#8A8A96" stroke-width="2.5" fill="none"/><path d="M15 15l6 6" stroke="#8A8A96" stroke-width="2.5"/></svg>${q}`,r),z,a:rnd(i+7)*Math.PI*2,rad:250+rnd(i+11)*420,i}});
   st.box=el('div','abs',`left:110px;top:880px;width:860px;padding:0;border-radius:40px;background:#fff;color:#141414;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(76,125,255,.35);z-index:4;overflow:hidden`,
    `<div style="height:96px;display:flex;align-items:center;gap:18px;padding:0 34px;font-size:32px;font-weight:500">${IC.G(52,'#F1F1EF')}<span class="q"></span></div><div class="dd" style="border-top:1.5px solid #EEE"></div>`,r);
-  st.cnt=el('div','pill abs',`left:50%;top:1450px;background:${CORAL};color:#fff;font-size:30px;z-index:5;white-space:nowrap`,'',r);
+  st.cnt=el('div','pill abs',`left:50%;top:1450px;background:${CORAL};color:#141414;font-size:30px;z-index:5;white-space:nowrap`,'',r);
   return st},
 update(s,lt,t){const cyc=['what is seo','seo tips','how to do seo','seo for beginners','is seo dead','seo strategy 2026','how to rank higher','seo vs aeo'];
   const k=Math.floor((t-T(140))/0.62);const kk=((k%cyc.length)+cyc.length)%cyc.length;const ph=((t-T(140))/0.62)%1;
@@ -56,7 +56,7 @@ build(r){const st={};
   const Pn=el('div','dcard','left:70px;top:500px;width:940px;height:900px;padding:30px;background:#111113',null,r);st.Pn=Pn;
   Pn.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.G(44)}<div style="font-weight:800;font-size:30px">Search demand in your niche</div><div class="pill" style="margin-left:auto;background:#1E1E22;color:#AAA;font-size:20px">48 topics</div></div><div class="gr" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px"></div>`;
   const gr=Pn.querySelector('.gr');st.cells=[];const cov=[0,5,9,14,18,22,27,33,38,44];
-  for(let i=0;i<48;i++){st.cells.push({e:el('div','',`height:58px;border-radius:14px;border:1.5px solid #2C2C31;background:#18181B;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:16px;color:#A0A0A8;white-space:nowrap;overflow:hidden`,`<span class="ic" style="flex:none;width:22px;display:inline-flex"></span>${QS[i%QS.length].slice(0,20)}`,gr),c:cov.includes(i),i})}
+  for(let i=0;i<48;i++){st.cells.push({e:el('div','',`height:58px;border-radius:14px;border:1.5px solid #2C2C31;background:#18181B;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:16px;color:#A0A0A8;white-space:nowrap;overflow:hidden`,`<span class="ic" style="flex:none;width:22px;display:inline-flex"></span><span style="overflow:hidden;text-overflow:ellipsis">${QS[i%QS.length]}</span>`,gr),c:cov.includes(i),i})}
   st.a=toast(r,'left:70px;top:1420px;width:440px;z-index:4',`${IC.check(GREEN,34)}<span>Covered</span><b class="cv" style="margin-left:auto;color:${GREEN};font-size:36px">0</b>`);
   st.b=toast(r,'left:570px;top:1420px;width:440px;z-index:4',`${IC.x(RED,34)}<span>Missed</span><b class="ms" style="margin-left:auto;color:${RED};font-size:36px">0</b>`);
   return st},
@@ -93,7 +93,7 @@ build(r){const st={};
   const A=el('div','card','left:90px;top:490px;width:900px;padding:30px 34px;border:3px solid transparent',null,r);st.A=A;
   A.innerHTML=`<div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#777;font-weight:600">${IC.G(34,'#F1F1EF')} Featured answer</div><div style="font-weight:800;font-size:31px;margin-top:12px;letter-spacing:-.5px">How long should a blog post be?</div>
    <div class="ans" style="font-size:25px;line-height:1.4;margin-top:10px;color:#333;min-height:70px"></div>
-   <div style="display:flex;gap:10px;margin-top:14px"><span class="pill b1" style="background:#E6F8EE;color:#13994F;font-size:20px">${IC.check(GREEN,22)} 40 words</span><span class="pill b2" style="background:#EEF2FF;color:${BLUE};font-size:20px">${IC.spark(BLUE,20)} Cited by AI</span><span class="pill b3" style="background:#FFF1E6;color:${CORAL};font-size:20px">★ Saved 2.3K</span></div>`;
+   <div style="display:flex;gap:10px;margin-top:14px"><span class="pill b1" style="background:#E6F8EE;color:#13994F;font-size:20px">${IC.check(GREEN,22)} 40 words</span><span class="pill b2" style="background:#EEF2FF;color:${BLUE};font-size:20px">${IC.spark(BLUE,20)} Cited by AI</span><span class="pill b3" style="background:#FBF0DA;color:${CORAL};font-size:20px">★ Saved 2.3K</span></div>`;
   st.g=glow(r,540,650,420,'rgba(31,203,107,.35)',0);
   const L=el('div','dcard','left:90px;top:930px;width:900px;height:560px;padding:28px 34px;background:#121214',null,r);st.L=L;
   L.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${IC.doc('#6B6B73',40)}<div style="font-weight:700;font-size:28px">The Ultimate Guide to SEO</div><div class="pill" style="margin-left:auto;background:#1E1E22;color:#AAA;font-size:19px">3,000 words</div></div>
@@ -115,7 +115,7 @@ update(s,lt,t){typed(s.A.querySelector('.ans'),'Long enough to fully answer the 
 /* ===== S19 STRATEGY: big caption moment (cream) ===== */
 scene({t0:T(195)-.12,bg:'cream',bigcap:true,zoom:.1,
 sfx:[[T(195),'riser',.8],[T(199),'hit',1],[T(199)+.05,'sparkle',.6]],
-build(r){const st={};st.rays=el('div','abs','left:-210px;top:410px;width:1500px;height:1500px;border-radius:50%;background:repeating-conic-gradient(rgba(255,106,61,.09) 0 7deg,transparent 7deg 20deg);-webkit-mask-image:radial-gradient(circle,#000 15%,transparent 65%)',null,r);
+build(r){const st={};st.rays=el('div','abs','left:-210px;top:410px;width:1500px;height:1500px;border-radius:50%;background:repeating-conic-gradient(rgba(216,158,55,.09) 0 7deg,transparent 7deg 20deg);-webkit-mask-image:radial-gradient(circle,#000 15%,transparent 65%)',null,r);
   st.m=mascot(r,170);st.ex=el('div','abs',`font-weight:900;font-size:90px;color:${CORAL}`,'!!',r);st.b=burst(r,16,CORAL,'spark');return st},
 update(s,lt,t){s.rays.style.transform=`rotate(${t*14}deg) scale(${.8+.25*P(t,T(199),.4)})`;s.rays.style.opacity=.6+.4*P(t,T(199),.3);
   const j=P(t,T(199),.6);s.m.set(540,1420-Math.sin(Math.PI*j)*90,t,{mood:t>T(199)?'happy':'idle',squash:-.12*Math.sin(Math.PI*j)});
@@ -130,12 +130,12 @@ build(r){const st={sp:[]};const cx=540,cy=1010;
   const labs=['Pricing','How-to guides','Comparisons','FAQs','Use cases','Glossary'];
   let lines='';labs.forEach((l,i)=>{const a=-Math.PI/2+i*Math.PI/3;const x=cx+Math.cos(a)*330,y=cy+Math.sin(a)*380;
     lines+=`<path class="ln${i}" d="M${cx} ${cy} L${x} ${y}" stroke="${CORAL}" stroke-width="4" stroke-dasharray="400" stroke-dashoffset="400" stroke-linecap="round" opacity=".7"/><circle class="pu${i}" r="9" fill="${CORAL}" opacity="0"/>`;
-    st.sp.push({x,y,c:el('div','card light-shadow',`left:${x-130}px;top:${y-48}px;width:260px;height:96px;border-radius:22px;display:flex;align-items:center;gap:14px;padding:0 20px;z-index:2`,
+    st.sp.push({x,y,c:el('div','card light-shadow',`left:${x-145}px;top:${y-48}px;width:290px;height:96px;border-radius:22px;display:flex;align-items:center;gap:14px;padding:0 20px;z-index:2`,
       `${IC.doc(CORAL,40)}<div style="font-weight:700;font-size:24px;letter-spacing:-.3px;flex:1">${l}</div><div class="ck">${IC.check(GREEN,30)}</div>`,r)})});
   st.svg=el('div','abs','inset:0',`<svg width="1080" height="1920">${lines}</svg>`,r);st.svg.style.zIndex=1;
-  st.hub=el('div','card',`left:${cx-180}px;top:${cy-85}px;width:360px;height:170px;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#141414;color:#fff;z-index:3;box-shadow:0 30px 70px rgba(0,0,0,.3),0 0 0 8px rgba(255,106,61,.15)`,
+  st.hub=el('div','card',`left:${cx-180}px;top:${cy-85}px;width:360px;height:170px;border-radius:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#141414;color:#fff;z-index:3;box-shadow:0 30px 70px rgba(0,0,0,.3),0 0 0 8px rgba(216,158,55,.15)`,
     `<div style="display:flex;align-items:center;gap:12px">${IC.book(CORAL,46)}<div style="font-weight:800;font-size:33px">Content library</div></div><div style="font-size:22px;color:#9A9AA0">one niche · real questions</div>`,r);
-  st.hg=glow(r,cx,cy,300,'rgba(255,106,61,.35)',0);st.m=mascot(r,120);st.m.el.style.zIndex=4;return st},
+  st.hg=glow(r,cx,cy,300,'rgba(216,158,55,.35)',0);st.m=mascot(r,120);st.m.el.style.zIndex=4;return st},
 update(s,lt,t){const hp=back(P(t,T(200)-.05,.45),2);s.hub.style.transform=`scale(${hp})`;s.hg.style.opacity=.8*hp*(.8+.2*Math.sin(t*4));
   s.sp.forEach((o,i)=>{const t0=T(202)-.2+i*.13;const p=back(P(t,t0+.12,.4),2);o.c.style.transform=`scale(${p}) translateY(${Math.sin(t*2+i)*5}px)`;o.c.style.opacity=clamp(p*3);
     s.svg.querySelector('.ln'+i).setAttribute('stroke-dashoffset',400*(1-eOut(P(t,t0,.3))));
@@ -151,7 +151,7 @@ build(r){const st={};
   const C=el('div','card light-shadow','left:90px;top:500px;width:900px;padding:30px 34px 20px',null,r);st.C=C;
   const qs=['How much does SEO cost in 2026?','How long until SEO starts working?','Is SEO worth it for a small business?','SEO or paid ads — which first?','Can AI-written content rank?'];
   C.innerHTML=`<div style="display:flex;align-items:center;gap:12px;font-weight:800;font-size:30px">${IC.G(40,'#F1F1EF')} People also ask</div>`+qs.map((q,i)=>`<div class="q" style="border-top:1.5px solid #ECEAE4;margin-top:${i?0:18}px"><div style="display:flex;align-items:center;gap:14px;height:88px;font-size:26px;font-weight:600"><span class="ck" style="width:32px">${IC.check(GREEN,30)}</span><span style="flex:1">${q}</span><span class="ch" style="font-size:24px;color:#999;display:inline-block">⌄</span></div>
-     <div class="ex" style="height:0;overflow:hidden"><div style="display:flex;align-items:center;gap:12px;padding:0 0 18px 46px"><span class="pill" style="background:#FFF1E6;color:${CORAL};font-size:19px">${IC.doc(CORAL,22)} yourblog.com/${['seo-cost','seo-timeline','seo-small-business','seo-vs-ads','ai-content-seo'][i]}</span><span class="muted" style="font-size:19px">answered</span></div></div></div>`).join('');
+     <div class="ex" style="height:0;overflow:hidden"><div style="display:flex;align-items:center;gap:12px;padding:0 0 18px 46px"><span class="pill" style="background:#FBF0DA;color:${CORAL};font-size:19px">${IC.doc(CORAL,22)} yourblog.com/${['seo-cost','seo-timeline','seo-small-business','seo-vs-ads','ai-content-seo'][i]}</span><span class="muted" style="font-size:19px">answered</span></div></div></div>`).join('');
   st.qs=[...C.querySelectorAll('.q')];st.cur=cursor(r);st.m=mascot(r,130);return st},
 update(s,lt,t){popIn(s.C,t,s.t0,{dy:80,s0:.92,post:`rotateX(${8-4*P(t,s.t0,3)}deg)`});
   const times=[T(207),T(207)+.35,T(208),T(208)+.35,T(209)+.2];
@@ -186,10 +186,10 @@ sfx:[[T(218),'whoosh',.5],[T(221)-.05,'pop',1],[T(223),'ding',.8]],
 build(r){const st={};
   const B=browser(r,'left:80px;top:520px;width:920px;height:900px','yourblog.com/admin/new-post',{dark:true});st.B=B;
   B.body.innerHTML=`<div style="display:flex;height:100%"><div style="flex:1;padding:36px"><div style="font-weight:900;font-size:42px;letter-spacing:-1.5px">New post</div>${[95,88,92,70,0,90,84,60].map(w=>w?`<div class="line-ph" style="height:13px;width:${w}%;margin-top:18px;background:#2C2C31"></div>`:'<div style="height:20px"></div>').join('')}</div>
-   <div style="width:300px;border-left:1.5px solid #222226;padding:30px 26px"><div style="color:#8A8A90;font-size:20px;font-weight:700;letter-spacing:1px">STATUS</div><div style="font-size:24px;margin-top:8px">Draft</div><div class="pb" style="margin-top:30px;height:78px;border-radius:20px;background:${CORAL};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;box-shadow:0 0 40px rgba(255,106,61,.5)">Publish</div></div></div>`;
+   <div style="width:300px;border-left:1.5px solid #222226;padding:30px 26px"><div style="color:#8A8A90;font-size:20px;font-weight:700;letter-spacing:1px">STATUS</div><div style="font-size:24px;margin-top:8px">Draft</div><div class="pb" style="margin-top:30px;height:78px;border-radius:20px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;box-shadow:0 0 40px rgba(216,158,55,.5)">Publish</div></div></div>`;
   st.dim=el('div','abs','inset:0;background:rgba(5,5,6,.6);opacity:0;z-index:3',null,r);
   st.mod=el('div','card','left:150px;top:820px;width:780px;padding:40px 44px;z-index:4;text-align:center',
-    `<div class="pill" style="background:#FFF1E6;color:${CORAL};font-size:22px">Before you hit publish</div><div style="font-weight:900;font-size:150px;letter-spacing:-6px;line-height:1;margin-top:16px;color:${CORAL}">1</div><div style="font-weight:800;font-size:40px;letter-spacing:-1px;margin-top:4px">question to ask yourself</div>`,r);
+    `<div class="pill" style="background:#FBF0DA;color:${CORAL};font-size:22px">Before you hit publish</div><div style="font-weight:900;font-size:150px;letter-spacing:-6px;line-height:1;margin-top:16px;color:${CORAL}">1</div><div style="font-weight:800;font-size:40px;letter-spacing:-1px;margin-top:4px">question to ask yourself</div>`,r);
   st.cur=cursor(r);st.cur.style.zIndex=5;return st},
 update(s,lt,t){s.B.el.style.transform=`rotateX(8deg) rotateY(${8-6*P(t,s.t0,5)}deg)`;
   const pb=s.B.body.querySelector('.pb');pb.style.transform=`scale(${1+.04*Math.sin(t*6)})`;
@@ -224,11 +224,11 @@ update(s,lt,t){s.stack.style.transform=`rotateY(-28deg) rotateX(6deg) translateZ
 /* ===== S25 DON'T PUBLISH ===== */
 scene({t0:T(235)-.12,bg:'dark',tr:'whip',zoom:.06,
 sfx:[[T(240),'pop',.7],[T(242)-.05,'error',1],[T(243),'click',.8],[T(244),'thud',.6]],
-build(r){const st={};st.gl=glow(r,540,1000,460,'rgba(255,106,61,.4)',.7);
+build(r){const st={};st.gl=glow(r,540,1000,460,'rgba(216,158,55,.4)',.7);
   const C=el('div','dcard','left:140px;top:560px;width:800px;padding:36px 40px;background:#141416',null,r);st.C=C;
   C.innerHTML=`<div style="font-weight:800;font-size:30px">Pre-publish check</div>
    <div class="ck1" style="margin-top:22px;display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;border:2px solid #2E2E33;font-size:26px;font-weight:600"><span class="bx" style="width:40px;height:40px;border-radius:10px;border:3px solid #55555C;display:inline-flex;align-items:center;justify-content:center"></span>Adds something page one doesn't have?</div>
-   <div class="btn" style="margin-top:30px;height:110px;border-radius:26px;background:${CORAL};display:flex;align-items:center;justify-content:center;gap:16px;font-weight:900;font-size:42px;position:relative;overflow:hidden"><span class="bl">Publish</span><div class="sl" style="position:absolute;left:8%;right:8%;top:50%;height:7px;background:#fff;border-radius:4px;transform:scaleX(0);transform-origin:left"></div></div>
+   <div class="btn" style="margin-top:30px;height:110px;border-radius:26px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;gap:16px;font-weight:900;font-size:42px;position:relative;overflow:hidden"><span class="bl">Publish</span><div class="sl" style="position:absolute;left:8%;right:8%;top:50%;height:7px;background:#fff;border-radius:4px;transform:scaleX(0);transform-origin:left"></div></div>
    <div class="dr" style="margin-top:18px;text-align:center;font-size:24px;color:#9A9AA2;font-weight:600;opacity:0">↳ Saved as draft. Make it better first.</div>`;
   st.cur=cursor(r);return st},
 update(s,lt,t){popIn(s.C,t,s.t0,{dy:100,s0:.9,post:`rotateX(${10-6*P(t,s.t0,4)}deg)`});const C=s.C;
@@ -236,28 +236,28 @@ update(s,lt,t){popIn(s.C,t,s.t0,{dy:100,s0:.9,post:`rotateX(${10-6*P(t,s.t0,4)}d
   c1.style.transform=`translateX(${q?Math.sin((t-T(240))*60)*8*(1-P(t,T(240),.4)):0}px)`;
   const no=T(242)-.05;const b=C.querySelector('.btn');const off=P(t,no,.35);
   b.style.background=off>0?`rgb(${lerp(255,46,off)},${lerp(106,46,off)},${lerp(61,52,off)})`:CORAL;b.querySelector('.sl').style.transform=`scaleX(${eOut(P(t,no+.1,.3))})`;
-  b.querySelector('.bl').textContent=t>T(243)?"Don't publish":'Publish';b.style.color=off>.5?'#D0D0D6':'#fff';b.querySelector('.sl').style.background=RED;
-  s.gl.style.background=`radial-gradient(circle,${off>.3?'rgba(255,77,61,.35)':'rgba(255,106,61,.4)'} 0%,transparent 68%)`;
+  b.querySelector('.bl').textContent=t>T(243)?"Don't publish":'Publish';b.style.color=off>.5?'#D0D0D6':'#141414';b.querySelector('.sl').style.background=RED;
+  s.gl.style.background=`radial-gradient(circle,${off>.3?'rgba(255,77,61,.35)':'rgba(216,158,55,.4)'} 0%,transparent 68%)`;
   const mv=eIO(P(t,T(237),.8)),back_=eIO(P(t,T(243)+.1,.6));cursorAt(s.cur,lerp(820,560,mv)+back_*260,lerp(1500,1080,mv)+back_*300,null);s.cur.style.opacity=P(t,T(237),.2);
   C.querySelector('.dr').style.opacity=P(t,T(244),.3);
 }});
 
 /* ===== S26 CTA: follow ===== */
 scene({t0:T(245)-.12,bg:'dark',keep:true,zoom:.04,
-sfx:[[T(245)+.55,'click',1],[T(245)+.6,'success',1],[T(245)+.65,'sparkle',.8],[T(245)+1.1,'pop',.6],[T(245)+1.4,'pop',.6]],
+sfx:[[T(245)+.55,'click',.5],[TE(250)+.25,'success',.9],[TE(250)+.3,'sparkle',.6]],
 build(r){const st={};st.g=glow(r,540,880,560,'rgba(255,185,56,.25)',.8);
   st.rays=el('div','abs','left:-210px;top:130px;width:1500px;height:1500px;border-radius:50%;background:repeating-conic-gradient(rgba(255,185,56,.07) 0 6deg,transparent 6deg 18deg);-webkit-mask-image:radial-gradient(circle,#000 15%,transparent 60%)',null,r);
   const C=el('div','dcard','left:110px;top:600px;width:860px;padding:44px 44px 40px;background:#141416',null,r);st.card=C;
   C.innerHTML=`<div style="display:flex;align-items:center;gap:28px"><div style="width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2A2A2E,#0C0C0E);border:3px solid #FFB938;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,185,56,.3)">${IC.logo(96)}</div>
    <div><div style="font-weight:800;font-size:52px;letter-spacing:-1.5px">Answer Theory</div><div style="font-size:26px;color:#A0A0A8;margin-top:8px;line-height:1.35">SEO &amp; AI search,<br>without the fluff.</div></div></div>
-   <div class="btn" style="margin-top:38px;height:104px;border-radius:26px;background:${CORAL};color:#fff;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:800;font-size:40px;box-shadow:0 0 40px rgba(255,106,61,.45)">Follow</div>`;
+   <div class="btn" style="margin-top:38px;height:104px;border-radius:26px;background:${CORAL};color:#141414;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:800;font-size:40px;box-shadow:0 0 40px rgba(216,158,55,.45)">Follow</div>`;
   st.n1=toast(r,'left:150px;top:1160px;z-index:4',`${IC.check(GREEN,30)} You'll get the next one first`);
   st.n2=toast(r,'left:330px;top:1260px;z-index:4',`<span style="font-size:26px">🔔</span> Search can't fool you now`);
   st.cur=cursor(r);st.burst=burst(r,18,'#FFB938');st.m=mascot(r,140);return st},
 update(s,lt,t){const cp=back(P(t,T(245)-.2,.5),1.3);s.card.style.transform=`translateY(${(1-cp)*160}px) scale(${.9+.1*cp}) rotateX(${6-6*cp}deg)`;s.card.style.opacity=clamp(cp*2);
   s.rays.style.transform=`rotate(${t*10}deg)`;
   const click=T(245)+.55;const mv=eIO(P(t,T(245),.5));cursorAt(s.cur,lerp(860,560,mv),lerp(1520,960,mv),t>click?P(t,click,.35):null);s.cur.style.opacity=P(t,T(245),.15)*(1-P(t,click+1.2,.3));
-  const b=s.card.querySelector('.btn');const on=t>click;b.innerHTML=on?`${IC.check('#1FCB6B',40)} Following`:'Follow';b.style.background=on?'#26262A':CORAL;b.style.boxShadow=on?'none':'0 0 40px rgba(255,106,61,.45)';
+  const b=s.card.querySelector('.btn');const on=t>click;b.innerHTML=on?`${IC.check('#1FCB6B',40)} Following`:'Follow';b.style.background=on?'#26262A':CORAL;b.style.color=on?'#fff':'#141414';b.style.boxShadow=on?'none':'0 0 40px rgba(216,158,55,.45)';
   b.style.transform=`scale(${1-.06*Math.sin(Math.PI*P(t,click-.05,.25))})`;s.burst(540,960,P(t,click,.9));
   popIn(s.n1,t,click+.5,{dx:-80,dy:0,s0:.9});popIn(s.n2,t,click+.8,{dx:80,dy:0,s0:.9});
   const jp=P(t,click,.6);s.m.set(880,612-Math.sin(Math.PI*jp)*70,t,{op:cp,mood:on?'happy':'idle',squash:-.12*Math.sin(Math.PI*jp)});

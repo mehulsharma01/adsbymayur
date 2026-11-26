@@ -5,15 +5,15 @@ const TITLES=['10 Easy SEO Tips for 2026','What Is Keyword Research?','Best SEO 
 /* ===== S1 HOOK: CMS publishing 100 posts ===== */
 scene({t0:0,bg:'dark',zoom:.08,
 sfx:[[0,'riser',.5],[0.15,'ticks',.7],[1.5,'pop',.9],[T(6)-.05,'pop',.9],[T(6)+.1,'shimmer',.5]],
-build(r){const st={};glow(r,540,960,620,'rgba(255,106,61,.35)',.6);
+build(r){const st={};glow(r,540,960,620,'rgba(216,158,55,.35)',.6);
   const w=el('div','abs p3','left:0;top:0;width:1080px;height:1920px',null,r);st.w=w;
   const B=browser(w,'left:120px;top:560px;width:840px;height:780px','yourblog.com/admin/posts',{dark:true});st.B=B;
-  B.body.innerHTML=`<div style="display:flex;align-items:center;padding:28px 30px 18px"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Posts</div><div class="pill" style="margin-left:18px;background:#1F1F23;color:#AAA;font-size:20px">All · <b class="n" style="color:#fff;margin-left:6px">0</b></div><div class="pill" style="margin-left:auto;background:${CORAL};color:#fff;font-size:22px">+ Add new</div></div>
+  B.body.innerHTML=`<div style="display:flex;align-items:center;padding:28px 30px 18px"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Posts</div><div class="pill" style="margin-left:18px;background:#1F1F23;color:#AAA;font-size:20px">All · <b class="n" style="color:#fff;margin-left:6px">0</b></div><div class="pill" style="margin-left:auto;background:${CORAL};color:#141414;font-size:22px">+ Add new</div></div>
    <div style="display:flex;padding:0 30px 10px;color:#6E6E76;font-size:18px;font-weight:600;letter-spacing:1px"><span style="flex:1">TITLE</span><span style="width:150px">STATUS</span><span style="width:90px">DATE</span></div><div class="lst" style="position:relative;height:600px;overflow:hidden"></div>`;
   st.rows=[];const L=B.body.querySelector('.lst');
   for(let k=0;k<11;k++){st.rows.push(el('div','abs',`left:30px;right:30px;height:62px;display:flex;align-items:center;border-top:1px solid #222226;font-size:23px;font-weight:500`,
    `<span style="width:22px;height:22px;border-radius:6px;border:2px solid #3A3A40;margin-right:16px"></span><span class="tt" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#E8E8EC"></span><span style="width:150px"><span class="pill" style="background:rgba(31,203,107,.14);color:${GREEN};font-size:18px;padding:5px 12px">Published</span></span><span style="width:90px;color:#77777F;font-size:20px">Today</span>`,L))}
-  st.big=el('div','abs',`left:70px;top:470px;padding:22px 34px;border-radius:30px;background:rgba(20,20,24,.85);border:1.5px solid #3A3A42;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,106,61,.25);display:flex;align-items:baseline;gap:14px`,
+  st.big=el('div','abs',`left:70px;top:470px;padding:22px 34px;border-radius:30px;background:rgba(20,20,24,.85);border:1.5px solid #3A3A42;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(216,158,55,.25);display:flex;align-items:baseline;gap:14px`,
     `<span class="bn" style="font-weight:900;font-size:110px;letter-spacing:-5px;color:${CORAL};line-height:1">0</span><span style="font-size:32px;font-weight:700;color:#ddd">posts<br><span style="color:#8A8A90;font-size:24px;font-weight:500">published</span></span>`,w);
   st.trust=el('div','dcard',`left:600px;top:1210px;width:400px;padding:26px 28px;background:rgba(22,22,26,.95)`,
     `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div><div style="font-weight:700;font-size:26px">Site trust</div><div style="color:#8A8A90;font-size:20px">based on volume?</div></div></div>
@@ -24,7 +24,7 @@ update(s,lt,t){
   const N=Math.min(100,Math.floor(100*eOut(P(t,0.1,1.45))));
   s.B.body.querySelector('.n').textContent=N;s.big.querySelector('.bn').textContent=N;
   const frac=(100*eOut(P(t,0.1,1.45)))%1;
-  s.rows.forEach((r,k)=>{const n=N-k;r.style.opacity=n>0?1:0;r.style.top=((k+(N<100?1-frac:0)-1)*62+62)+'px';r.querySelector('.tt').textContent=n>0?`${TITLES[n%TITLES.length]} #${n}`:'';r.style.background=k===0&&N<100?'rgba(255,106,61,.08)':''});
+  s.rows.forEach((r,k)=>{const n=N-k;r.style.opacity=n>0?1:0;r.style.top=((k+(N<100?1-frac:0)-1)*62+62)+'px';r.querySelector('.tt').textContent=n>0?`${TITLES[n%TITLES.length]} #${n}`:'';r.style.background=k===0&&N<100?'rgba(216,158,55,.08)':''});
   const ep=back(P(t,0,.6),1.3);
   s.B.el.style.transform=`translateY(${(1-ep)*300}px) rotateX(${16-6*lt/3}deg) rotateY(${-14+5*lt/3}deg) rotateZ(2deg)`;s.B.el.style.opacity=clamp(ep*2);
   popIn(s.big,t,.25,{post:`translateZ(140px) rotateY(-8deg)`});s.big.style.transform+=` scale(${1+.08*Math.sin(Math.PI*P(t,1.45,.3))})`;
@@ -92,7 +92,7 @@ build(r){const st={rows:[]};glow(r,540,1000,600,'rgba(140,190,255,.0)',0);
      `<span class="sf" style="width:26px;display:inline-flex;opacity:0">${IC.snow('#3F7BFF',26)}</span><span class="nm">${nm}</span><span style="flex:1;border-bottom:2px dotted #D9D1C0;margin:0 6px;transform:translateY(6px)"></span><span style="font-weight:600">$${(9+Math.floor(rnd(i)*22))}</span>`,inner);
     st.rows.push({row,i,fz:i%2===0||rnd(i+40)<.25});y+=48}
   st.frost=el('div','abs','inset:0;background:linear-gradient(160deg,rgba(225,238,255,.8),rgba(180,210,255,.45) 50%,rgba(235,245,255,.85));opacity:0',null,C);
-  st.badge=el('div','abs',`left:700px;top:470px;width:220px;height:220px;border-radius:50%;background:${CORAL};color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(255,106,61,.4);border:6px solid #FFF3EC`,
+  st.badge=el('div','abs',`left:700px;top:470px;width:220px;height:220px;border-radius:50%;background:${CORAL};color:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(216,158,55,.4);border:6px solid #FFF6E5`,
     `<div class="cn" style="font-weight:900;font-size:84px;letter-spacing:-4px;line-height:.9">0</div><div style="font-weight:700;font-size:26px">items</div>`,w);
   st.thermo=toast(w,'left:120px;top:1380px;z-index:3',`<span style="font-size:30px">🌡</span><span style="color:#2F6BFF;font-weight:800">-18°C</span><span class="muted" style="font-size:21px">reheated daily</span>`,false);
   st.stamp=el('div','abs',`left:230px;top:920px;width:620px;height:180px;border:9px solid #2F6BFF;border-radius:24px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;gap:22px;color:#2F6BFF;font-weight:900;font-size:100px;letter-spacing:6px;box-shadow:0 30px 70px rgba(47,107,255,.3)`,IC.snow('#2F6BFF',76)+'FROZEN',w);
@@ -117,7 +117,7 @@ update(s,lt,t){const fz=T(40)-.04;
 scene({t0:T(41)-.12,bg:'cream',zoom:.04,
 sfx:[[T(41),'flip',1]],
 build(r){const st={};const B=browser(r,'left:120px;top:540px;width:840px;height:900px','yourblog.com/blog');st.B=B;
-  let h=`<div style="padding:28px 32px 10px;display:flex;align-items:center"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Blog</div><div class="pill" style="margin-left:auto;background:${CORAL};color:#fff;font-size:22px">200 posts</div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:12px 32px">`;
+  let h=`<div style="padding:28px 32px 10px;display:flex;align-items:center"><div style="font-weight:800;font-size:36px;letter-spacing:-1px">Blog</div><div class="pill" style="margin-left:auto;background:${CORAL};color:#141414;font-size:22px">200 posts</div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:12px 32px">`;
   for(let i=0;i<12;i++){const th=i%2===0||rnd(i+9)<.3;h+=`<div style="height:170px;border-radius:16px;border:1.5px solid #ECEAE4;background:#fff;padding:14px;position:relative"><div style="height:66px;border-radius:10px;background:${th?'#E8EEF9':'linear-gradient(135deg,#FFD9C9,#FFB49A)'}"></div><div style="height:11px;width:85%;background:#2A2A2A;border-radius:6px;margin-top:14px;opacity:.75"></div><div style="height:8px;width:60%;background:#C9C7C0;border-radius:6px;margin-top:10px"></div>${th?`<span class="pill thin" style="position:absolute;right:10px;top:10px;background:#2F6BFF;color:#fff;font-size:15px;padding:4px 10px">❄ thin</span>`:''}</div>`}
   B.body.innerHTML=h+'</div>';return st},
 update(s,lt,t){const p=eOut(P(t,s.t0,.6));s.B.el.style.transform=`rotateY(${(1-p)*-160}deg) rotateX(6deg)`;s.B.el.style.opacity=p>.05?1:0;
@@ -139,7 +139,7 @@ build(r){const st={};glow(r,540,800,600,'rgba(255,69,0,.18)',.7);
   const opt=(lab,ic,col,cls)=>`<div class="${cls}" style="position:relative;height:108px;border-radius:20px;border:2px solid #303036;margin-top:16px;overflow:hidden;display:flex;align-items:center;padding:0 28px;gap:18px">
      <div class="fill" style="position:absolute;left:0;top:0;bottom:0;width:0;background:${col}"></div><div style="position:relative;display:flex;gap:4px">${ic}</div>
      <div style="position:relative;font-weight:700;font-size:33px;letter-spacing:-.5px">${lab}</div><div class="pc" style="position:relative;margin-left:auto;font-weight:700;font-size:32px"></div></div>`;
-  Pc.innerHTML=`<div style="color:#8A8A90;font-size:24px;font-weight:700;letter-spacing:1px">POLL · Would you rather publish…</div>`+opt('10 great articles',IC.star(GOLD,30)+IC.star(GOLD,30)+IC.star(GOLD,30),'rgba(255,106,61,.3)','o1')+opt('100 average ones',IC.doc('#6B6B73',34)+IC.doc('#6B6B73',34),'rgba(76,125,255,.3)','o2');
+  Pc.innerHTML=`<div style="color:#8A8A90;font-size:24px;font-weight:700;letter-spacing:1px">POLL · Would you rather publish…</div>`+opt('10 great articles',IC.star(GOLD,30)+IC.star(GOLD,30)+IC.star(GOLD,30),'rgba(216,158,55,.3)','o1')+opt('100 average ones',IC.doc('#6B6B73',34)+IC.doc('#6B6B73',34),'rgba(76,125,255,.3)','o2');
   st.cur=cursor(r);st.m=mascot(r,130);return st},
 update(s,lt,t){const pollT=T(50)-.15;
   s.B.el.style.transform=`rotateX(${6}deg) rotateY(${-6+4*P(t,s.t0,5)}deg) translateY(${-80*eIO(P(t,pollT,.6))}px)`;
@@ -159,18 +159,18 @@ update(s,lt,t){const pollT=T(50)-.15;
 /* ===== S7 BOTH FAIL: two fanned 3D cards ===== */
 scene({t0:T(61)-.12,bg:'dark',zoom:.07,
 sfx:[[T(61),'swish',.9],[T(61)+.2,'swish',.8],[T(63),'error',.8],[T(63)+.15,'crack',.8],[T(66)-.05,'stamp',1]],
-build(r){const st={};st.gl=glow(r,540,1000,560,'rgba(255,77,61,.4)',0);glow(r,540,1000,560,'rgba(255,106,61,.25)',.6);
+build(r){const st={};st.gl=glow(r,540,1000,560,'rgba(255,77,61,.4)',0);glow(r,540,1000,560,'rgba(216,158,55,.25)',.6);
   const card=(n,l,bg,ic)=>el('div','abs',`left:330px;top:640px;width:420px;height:580px;border-radius:34px;background:${bg};box-shadow:0 40px 90px rgba(0,0,0,.6),inset 0 2px 0 rgba(255,255,255,.25);padding:40px;color:#fff;transform-origin:50% 120%`,
     `<div style="display:flex;gap:6px">${ic}</div><div style="font-weight:900;font-size:200px;letter-spacing:-10px;line-height:1;margin-top:40px">${n}</div><div style="font-weight:700;font-size:40px;letter-spacing:-1px;margin-top:10px">${l}</div>
      <div class="xm" style="position:absolute;inset:0;border-radius:34px;background:rgba(20,6,4,.55);display:flex;align-items:center;justify-content:center;opacity:0">${IC.bigx(RED,260)}</div>`,r);
-  st.a=card('10','great articles','linear-gradient(150deg,#FF8A5C,#E0401A)',IC.star('#FFE3A3',36)+IC.star('#FFE3A3',36)+IC.star('#FFE3A3',36));
+  st.a=card('10','great articles','linear-gradient(150deg,#F0BC5E,#B07619)',IC.star('#FFF3D6',36)+IC.star('#FFF3D6',36)+IC.star('#FFF3D6',36));
   st.b=card('100','average ones','linear-gradient(150deg,#5C6E99,#2A3350)',IC.doc('#B9C4E0',40)+IC.doc('#B9C4E0',40));
   st.sa=shine(st.a);st.sb=shine(st.b);
   st.stamp=el('div','abs',`left:150px;top:1290px;width:780px;height:150px;border:9px solid ${RED};border-radius:24px;color:${RED};background:rgba(20,8,6,.88);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:84px;letter-spacing:4px;box-shadow:0 0 60px rgba(255,77,61,.4)`,'BOTH CAN FAIL',r);
   return st},
 update(s,lt,t){const fan=back(P(t,T(61)-.1,.6),1.4);const both=T(63)-.05,fail=T(66)-.05;const drop=eIn(P(t,fail,.4));
   [[s.a,-1],[s.b,1]].forEach(([c,d],i)=>{const shk=t>both?Math.sin((t-both)*60+i)*8*(1-P(t,both,.5)):0;
-    c.style.transform=`translateX(${d*190*fan+shk}px) translateY(${drop*60}px) rotate(${d*14*fan+d*4*drop}deg)`;c.style.opacity=clamp(fan*3);
+    c.style.transform=`translateX(${d*150*fan+shk}px) translateY(${drop*60}px) rotate(${d*14*fan+d*4*drop}deg)`;c.style.opacity=clamp(fan*3);
     const xp=P(t,both+i*.15,.3);c.querySelector('.xm').style.opacity=xp;c.querySelector('.xm').firstChild.style.transform=`scale(${back(xp,3)})`;
     c.style.filter=t>both?`saturate(${1-.6*xp})`:''});
   s.sa(P(t,T(61)+.3,.9));s.sb(P(t,T(61)+.5,.9));
@@ -185,7 +185,7 @@ sfx:[[T(67),'type',.7],[T(70),'pop',.5],[T(70)+.15,'pop',.5],[T(70)+.3,'pop',.5]
 build(r){const st={};
   const B=browser(r,'left:90px;top:500px;width:900px;height:1010px','search · how to improve seo',{dark:true});st.B=B;
   let h=`<div style="padding:24px 30px"><div style="height:68px;border-radius:34px;border:2px solid #34343A;display:flex;align-items:center;gap:14px;padding:0 26px;font-size:28px;background:#18181B">${IC.G(40)}<span class="q"></span></div>`;
-  DOMS.forEach((d,i)=>{h+=`<div class="res" style="margin-top:22px;padding:16px 18px;border-radius:16px;${d[0]==='yourblog.com'?`border:2px solid ${CORAL};background:rgba(255,106,61,.07)`:'border:2px solid transparent'}"><div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#9A9AA2">${FAV(d[1],d[2])}${d[0]}</div>
+  DOMS.forEach((d,i)=>{h+=`<div class="res" style="margin-top:22px;padding:16px 18px;border-radius:16px;${d[0]==='yourblog.com'?`border:2px solid ${CORAL};background:rgba(216,158,55,.07)`:'border:2px solid transparent'}"><div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#9A9AA2">${FAV(d[1],d[2])}${d[0]}</div>
     <div style="font-size:30px;font-weight:600;margin-top:8px;color:#8AB4FF"><span class="hl" style="background-image:linear-gradient(rgba(255,200,60,.38),rgba(255,200,60,.38));background-repeat:no-repeat;background-size:0% 100%">10 Easy Ways to Improve Your SEO (2026)</span></div>
     <div style="font-size:21px;color:#8A8A90;margin-top:6px">Want to rank higher? Here are 10 easy ways to improve your SEO…</div></div>`});
   B.body.innerHTML=h+'</div>';st.res=[...B.body.querySelectorAll('.res')];
@@ -233,7 +233,7 @@ scene({t0:T(95)-.12,bg:'dark',tr:'whip',zoom:.05,
 sfx:[[T(95)+.1,'click',1],[T(95)+.3,'ticks',.8],[T(100)-.05,'sweepdown',1],[T(104),'error',.8]],
 build(r){const st={};
   const B=browser(r,'left:110px;top:490px;width:860px;height:430px','content.generator/bulk',{dark:true});st.B=B;
-  B.body.innerHTML=`<div style="padding:22px 28px;display:flex;align-items:center;gap:16px"><div class="pill gb" style="background:${CORAL};color:#fff;font-size:24px;padding:12px 22px">✦ Generate 100 posts</div><div style="flex:1;height:14px;border-radius:8px;background:#26262A;overflow:hidden"><div class="pb" style="height:100%;width:0;background:${CORAL}"></div></div><div class="pn mono" style="font-size:22px;color:#AAA;width:90px;text-align:right">0/100</div></div><div class="ls" style="position:relative;height:260px;overflow:hidden;margin:0 28px;-webkit-mask-image:linear-gradient(#000 60%,transparent)"></div>`;
+  B.body.innerHTML=`<div style="padding:22px 28px;display:flex;align-items:center;gap:16px"><div class="pill gb" style="background:${CORAL};color:#141414;font-size:24px;padding:12px 22px">✦ Generate 100 posts</div><div style="flex:1;height:14px;border-radius:8px;background:#26262A;overflow:hidden"><div class="pb" style="height:100%;width:0;background:${CORAL}"></div></div><div class="pn mono" style="font-size:22px;color:#AAA;width:90px;text-align:right">0/100</div></div><div class="ls" style="position:relative;height:260px;overflow:hidden;margin:0 28px;-webkit-mask-image:linear-gradient(#000 60%,transparent)"></div>`;
   st.L=B.body.querySelector('.ls');st.rows=[...Array(7)].map(()=>el('div','abs','left:0;right:0;height:48px;display:flex;align-items:center;gap:12px;font-size:22px;color:#C8C8D0',`${IC.check(GREEN,26)}<span class="tt"></span><span class="pill" style="margin-left:auto;background:#1E1E22;color:#77777F;font-size:17px;padding:4px 12px">generic</span>`,st.L));
   const C=el('div','dcard','left:140px;top:960px;width:800px;height:540px;background:#121214',null,r);st.card=C;
   const R=240,cx=400,cy=370;const pt=a=>[cx+R*Math.cos(a*Math.PI/180),cy+R*Math.sin(a*Math.PI/180)];
@@ -265,7 +265,7 @@ scene({t0:T(105)-.12,bg:'cream',zoom:.05,
 sfx:[[T(110),'shimmer',.8],[T(111),'sparkle',.8],[T(114),'deflate',.9]],
 build(r){const st={cards:[]};glow(r,540,1000,560,'rgba(255,176,46,.35)',.8);
   const ring=el('div','abs p3','left:540px;top:1000px;width:0;height:0',null,r);st.ring=ring;
-  const G=['#FF8A5C,#E0401A','#FFC46B,#F08A1C','#7FA3FF,#3D5BD9','#5FD3A8,#1E9C74','#C08BFF,#7A3FE0'];
+  const G=['#F0BC5E,#B07619','#FFC46B,#F08A1C','#7FA3FF,#3D5BD9','#5FD3A8,#1E9C74','#C08BFF,#7A3FE0'];
   for(let i=0;i<10;i++){const c=el('div','abs',`left:-130px;top:-180px;width:260px;height:340px;border-radius:24px;background:#fff;box-shadow:0 20px 50px rgba(60,40,20,.18);padding:14px;color:#141414;backface-visibility:hidden`,
     `<div style="height:140px;border-radius:14px;background:linear-gradient(135deg,${G[i%5]});position:relative"><div style="position:absolute;left:12px;bottom:10px">${IC.doc('rgba(255,255,255,.9)',36)}</div></div><div style="font-weight:800;font-size:21px;margin-top:14px;line-height:1.2;letter-spacing:-.3px">${['The Complete SEO Playbook','Keyword Research, Done Right','Technical SEO Deep Dive','Link Building That Works','Content Briefs That Rank','AI Search Optimization','SEO for SaaS','Local SEO Masterclass','E-E-A-T Explained','SEO Audits Step by Step'][i]}</div><div style="display:flex;gap:2px;margin-top:10px">${IC.star(GOLD,20).repeat(5)}</div><div class="muted" style="font-size:16px;margin-top:6px">12 min read</div>`,ring);
     st.cards.push(c)}
@@ -288,7 +288,7 @@ build(r){const st={};
   const M=el('div','card light-shadow','left:90px;top:500px;width:900px;height:1020px;background:#FFFDF8;border:1.5px solid #EDE6D6',null,r);st.M=M;
   M.innerHTML=`<div style="text-align:center;padding-top:34px"><div style="font-family:ISerif;font-style:italic;font-size:64px;line-height:1">Maison Trois</div><div class="muted" style="font-size:20px;letter-spacing:4px;margin-top:8px;font-weight:600">THREE DISHES · DONE PERFECTLY</div></div>`;
   st.d=[['Truffle Risotto','#F4D9A0','#6B4E2E','#C9A86A'],['Seared Salmon','#FF9A76','#F7E3C4','#7FB069'],['Chocolate Soufflé','#5A3424','#F2E6D8','#C7372F']].map((d,i)=>el('div','abs',`left:${40+i*280}px;top:200px;width:260px;height:390px;border-radius:24px;background:#fff;border:1.5px solid #F0EBE0;box-shadow:0 14px 30px rgba(60,40,20,.08);display:flex;flex-direction:column;align-items:center;padding-top:22px`,
-    `${plate(d[1],d[2],d[3])}<div style="font-weight:800;font-size:25px;margin-top:16px;letter-spacing:-.4px">${d[0]}</div><div style="display:flex;gap:2px;margin-top:10px">${IC.star(GOLD,22).repeat(5)}</div><div class="pill" style="margin-top:12px;background:#FFF1E6;color:${CORAL};font-size:17px;padding:5px 12px">Chef's pick</div>`,M));
+    `${plate(d[1],d[2],d[3])}<div style="font-weight:800;font-size:25px;margin-top:16px;letter-spacing:-.4px">${d[0]}</div><div style="display:flex;gap:2px;margin-top:10px">${IC.star(GOLD,22).repeat(5)}</div><div class="pill" style="margin-top:12px;background:#FBF0DA;color:${CORAL};font-size:17px;padding:5px 12px">Chef's pick</div>`,M));
   st.cof=el('div','abs',`left:40px;top:630px;width:820px;height:320px;border-radius:24px;border:3px dashed #D9D1C0;display:flex;align-items:center;gap:36px;padding:0 50px`,
     `<svg width="170" height="170" viewBox="0 0 64 64"><path d="M12 24h34v14a14 14 0 01-14 14h-6a14 14 0 01-14-14z" fill="#F1EDE5" stroke="#BDB4A3" stroke-width="2.5"/><path d="M46 28h4a6 6 0 010 12h-4" stroke="#BDB4A3" stroke-width="2.5" fill="none"/><path d="M8 56h46" stroke="#BDB4A3" stroke-width="2.5" stroke-linecap="round"/><path class="stm" d="M22 18q-3-4 0-8M30 18q-3-4 0-8M38 18q-3-4 0-8" stroke="#D0C8B8" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
      <div><div style="font-weight:800;font-size:44px;letter-spacing:-1px;color:#9C9486;position:relative;display:inline-block">Coffee<div class="st" style="position:absolute;left:-6px;right:-6px;top:52%;height:5px;background:${RED};transform-origin:left;transform:scaleX(0)"></div></div><div class="na pill" style="margin-top:14px;background:#FFE7E3;color:${RED};font-size:24px">${IC.x(RED,26)} Not on the menu</div></div>`,M);

@@ -26,8 +26,8 @@ const IC={
  cursor:(s=54)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M4 2.5l15 10.2-6.6 1.2 3.9 7.3-2.9 1.5-3.9-7.4L4.6 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>`,
  up:(c='#8A8A90',s=30)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 4l7 8h-4.5v8h-5v-8H5z" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"/></svg>`,
  bubble:(c='#8A8A90',s=30)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"/></svg>`,
- doc:(c='#FF6A3D',s=40)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z" fill="${c}"/><path d="M14 2v5h5" fill="rgba(0,0,0,.18)"/><path d="M9 12h7M9 15.5h7M9 19h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>`,
- book:(c='#FF6A3D',s=44)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"><path d="M12 6c-2-1.6-5-2-8-1.6V19c3-.4 6 0 8 1.6 2-1.6 5-2 8-1.6V4.4C17 4 14 4.4 12 6zM12 6v14.6"/></svg>`,
+ doc:(c='#D89E37',s=40)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z" fill="${c}"/><path d="M14 2v5h5" fill="rgba(0,0,0,.18)"/><path d="M9 12h7M9 15.5h7M9 19h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+ book:(c='#D89E37',s=44)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"><path d="M12 6c-2-1.6-5-2-8-1.6V19c3-.4 6 0 8 1.6 2-1.6 5-2 8-1.6V4.4C17 4 14 4.4 12 6zM12 6v14.6"/></svg>`,
  logo:(s=40,c='#FFB938')=>`<svg width="${s}" height="${s}" viewBox="0 0 40 40"><g fill="${c}"><rect x="6" y="15" width="4" height="10" rx="2"/><rect x="12.5" y="9" width="4" height="22" rx="2"/><rect x="19" y="5" width="4" height="30" rx="2"/><rect x="25.5" y="11" width="4" height="18" rx="2"/></g><path d="M33 4c.3 2.4 1.6 3.7 4 4-2.4.3-3.7 1.6-4 4-.3-2.4-1.6-3.7-4-4 2.4-.3 3.7-1.6 4-4z" fill="${c}"/></svg>`,
 };
 
@@ -37,9 +37,9 @@ function mascot(parent,size=150){
   wrap.innerHTML=`<svg viewBox="0 0 100 100" width="${size}" height="${size}" style="overflow:visible">
    <ellipse class="sh" cx="50" cy="97" rx="30" ry="4" fill="rgba(0,0,0,.28)"/>
    <g class="body">
-    <rect x="34" y="84" width="9" height="12" rx="3" fill="#C9431E"/><rect x="57" y="84" width="9" height="12" rx="3" fill="#C9431E"/>
-    <path d="M20 18 Q20 10 28 10 H62 L80 28 V82 Q80 90 72 90 H28 Q20 90 20 82Z" fill="#FF6A3D"/>
-    <path d="M62 10 V22 Q62 28 68 28 H80Z" fill="#FFB197"/>
+    <rect x="34" y="84" width="9" height="12" rx="3" fill="#9C6E1E"/><rect x="57" y="84" width="9" height="12" rx="3" fill="#9C6E1E"/>
+    <path d="M20 18 Q20 10 28 10 H62 L80 28 V82 Q80 90 72 90 H28 Q20 90 20 82Z" fill="#D89E37"/>
+    <path d="M62 10 V22 Q62 28 68 28 H80Z" fill="#F2CF8C"/>
     <rect x="28" y="62" width="30" height="4" rx="2" fill="rgba(255,255,255,.35)"/><rect x="28" y="70" width="20" height="4" rx="2" fill="rgba(255,255,255,.35)"/>
     <g class="eyes"><rect class="e1" x="33" y="36" width="9" height="13" rx="3" fill="#1A0E0A"/><rect class="e2" x="55" y="36" width="9" height="13" rx="3" fill="#1A0E0A"/></g>
     <g class="happy" style="display:none" stroke="#1A0E0A" stroke-width="4" fill="none" stroke-linecap="round"><path d="M32 45 Q37.5 37 43 45"/><path d="M54 45 Q59.5 37 65 45"/></g>
@@ -98,7 +98,10 @@ function buildChunks(breaks){
   // merge tiny trailing chunks of 1 non-emph short word into next
   const out=[];for(let k=0;k<CHUNKS.length;k++){const c=CHUNKS[k];
     if(c.length===1&&!EMPH.has(c[0])&&W[c[0]].w.length<=4&&CHUNKS[k+1]&&!/[.?!]$/.test(W[c[0]].w)){CHUNKS[k+1]=c.concat(CHUNKS[k+1]);continue}out.push(c)}
-  CHUNKS=out;
+  // attach stranded single trailing words to the previous chunk
+  const o2=[];for(const c of out){const pv=o2[o2.length-1];const L=a=>a.reduce((x,j)=>x+W[j].w.length+1,0);
+    if(c.length===1&&pv&&!/[.?!]$/.test(W[pv[pv.length-1]].w)&&L(pv)+L(c)<=36){pv.push(c[0]);continue}o2.push(c)}
+  CHUNKS=o2;
 }
 let capCur=-1,capEls=[];
 function renderCaption(t,mode){
@@ -108,10 +111,9 @@ function renderCaption(t,mode){
     const line=el('div','line',null,null,CAP);const c=CHUNKS[k];let i=0;
     while(i<c.length){const wi=c[i];
       if(EMPH.has(wi)){const g=el('span','em',null,null,line);const box=el('span','box',null,null,g);const hs=['left:-7px;top:-1px','right:-7px;top:-1px','left:-7px;bottom:-7px','right:-7px;bottom:-7px'].map(p=>el('span','h',p,null,g));
-        const ws=[];while(i<c.length&&EMPH.has(c[i])){const s=el('span','w',null,W[c[i]].w.replace(/[,.]$/,'').replace(/^(.*)$/,'$1'),g);ws.push([c[i],s]);if(c[i+1]!=null&&EMPH.has(c[i+1]))el('span','w','margin-right:12px','',g);i++}
+        const ws=[];while(i<c.length&&EMPH.has(c[i])){const s=el('span','w',null,W[c[i]].w.replace(/[,.?!]$/,'').replace(/^(.*)$/,'$1'),g);ws.push([c[i],s]);if(c[i+1]!=null&&EMPH.has(c[i+1]))el('span','w','margin-right:12px','',g);i++}
         // trailing punctuation outside box
-        const lastW=W[ws[ws.length-1][0]].w;const pm=lastW.match(/[,.]$/);
-        if(pm){const pe=el('span','w','margin-left:-14px',pm[0],line);ws.push([ws[ws.length-1][0],pe])}
+        const lastW=W[ws[ws.length-1][0]].w;
         capEls.push({em:true,g,box,hs,ws,idx:ws[0][0]});
       }else{const s=el('span','w',null,W[wi].w,line);capEls.push({em:false,s,idx:wi});i++}
     }}}
@@ -153,7 +155,7 @@ function popIn(e,t,t0,o={}){const p=back(P(t,t0,o.d||.4),o.k||1.8);const out=o.o
 function typed(e,text,p,caret=true){const n=Math.floor(text.length*clamp(p));e.innerHTML=text.slice(0,n)+(caret&&p<1.05?'<span style="display:inline-block;width:3px;height:1em;background:currentColor;vertical-align:-3px;margin-left:2px;opacity:.8"></span>':'')}
 function shine(e){const s=el('div','abs','inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);background-size:250% 100%;mix-blend-mode:overlay',null,e);
   return p=>{s.style.backgroundPosition=`${lerp(160,-60,p)}% 0`;s.style.opacity=p>0&&p<1?1:0}}
-const GREEN='#1FCB6B',RED='#FF4D3D',CORAL='#FF6A3D',BLUE='#4C7DFF',GOLD='#FFB02E';
+const GREEN='#1FCB6B',RED='#FF4D3D',CORAL='#D89E37',BLUE='#4C7DFF',GOLD='#FFB02E';
 const FAV=(c,l)=>`<span style="width:30px;height:30px;border-radius:8px;background:${c};color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex:none">${l}</span>`;
 
 // ---------- SFX registry ----------
@@ -197,7 +199,7 @@ window.renderAt=function(t){
     const nx=SC[SC.indexOf(s)+1];if(nx&&nx.tr==='whip'&&pout>0){tx=-pout*700;sc=1;bl=pout*30}
     s.root.style.transform=`translateX(${tx}px) scale(${sc})`;
     s.root.style.filter=bl>0.3?`blur(${bl}px)`:'none';
-    const lp=P(t,s.t0,s.t1-s.t0);s.cam.style.transform=`scale(${1+(s.zoom==null?0.06:s.zoom)*eIO(lp)})`;
+    const lp=P(t,s.t0,s.t1-s.t0);s.cam.style.transform=`scale(${0.9*(1+(s.zoom==null?0.06:s.zoom)*eIO(lp))})`;
     s.update(s.st,t-s.t0,t,s);
   }
   const light=cs.bg==='cream';

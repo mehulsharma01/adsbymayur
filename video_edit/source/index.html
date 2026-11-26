@@ -13,19 +13,19 @@ body{font-family:"Inter Display","Inter",sans-serif;-webkit-font-smoothing:antia
  -webkit-mask-image:radial-gradient(70% 55% at 50% 50%,#000 30%,transparent 80%)}
 #bgCream .dots{background-image:radial-gradient(rgba(0,0,0,.07) 1.6px,transparent 1.7px)}
 .scene{position:absolute;inset:0;display:none}
-.cam{position:absolute;inset:0;perspective:1800px;perspective-origin:50% 45%}
+.cam{position:absolute;inset:0;perspective:1800px;perspective-origin:50% 45%;transform-origin:540px 1010px}
 .p3{transform-style:preserve-3d}
 .gl{position:absolute;border-radius:50%;pointer-events:none}
 .abs{position:absolute}
 /* captions */
-#cap{position:absolute;left:60px;right:60px;top:250px;height:200px;display:flex;align-items:center;justify-content:center;text-align:center;z-index:50}
-#cap .line{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:16px;row-gap:4px;max-width:960px}
-#cap .w{display:inline-block;font-weight:600;font-size:66px;letter-spacing:-1.6px;line-height:1.12;color:#fff;white-space:nowrap}
+#cap{position:absolute;left:90px;right:90px;top:240px;height:210px;display:flex;align-items:center;justify-content:center;text-align:center;z-index:50}
+#cap .line{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:18px;row-gap:10px;max-width:880px}
+#cap .w{display:inline-block;font-weight:600;font-size:62px;letter-spacing:-1.2px;line-height:1.15;color:#fff;white-space:nowrap}
 #cap.light .w{color:#141414}
 #cap .w.dim{color:rgba(255,255,255,.42)}
 #cap.light .w.dim{color:rgba(20,20,20,.38)}
-#cap .em{position:relative;display:inline-block;padding:0 12px 2px;margin:0 2px}
-#cap .em .w{font-family:"ISerif",serif;font-style:italic;font-weight:400;font-size:86px;letter-spacing:-.5px;color:#fff}
+#cap .em{position:relative;display:inline-block;padding:0 14px 4px;margin:0 10px}
+#cap .em .w{font-family:"ISerif",serif;font-style:italic;font-weight:400;font-size:80px;letter-spacing:-.3px;color:#fff;line-height:1.05}
 #cap.light .em .w{color:#141414}
 #cap .em .box{position:absolute;inset:6px 0 0 0;border:2.5px solid #4C7DFF;background:rgba(76,125,255,.20);transform-origin:left center}
 #cap .em .h{position:absolute;width:12px;height:12px;background:#fff;border:2.5px solid #4C7DFF}

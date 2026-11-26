@@ -205,8 +205,26 @@ for a, b in cuts["segs"]:
     seg = v[int(a * SR):int(b * SR)].copy()
     if len(seg) > 2 * X: seg[:X] *= np.linspace(0, 1, X); seg[-X:] *= np.linspace(1, 0, X)
     parts.append(seg)
-voice = np.concatenate(parts)[:N]; voice = np.pad(voice, (0, N - len(voice)))
-sf.write(f"{S}/build/voice_raw.wav", voice, SR)
+import subprocess
+sf.write(f"{S}/build/voice_cat.wav", np.concatenate(parts), SR)
+subprocess.run(["ffmpeg","-v","error","-y","-i",f"{S}/build/voice_cat.wav","-af",f"rubberband=tempo={cuts['tempo']}:pitchq=quality:transients=smooth:formant=preserved",f"{S}/build/voice_st.wav"],check=True)
+voice,_=sf.read(f"{S}/build/voice_st.wav"); voice=voice[:N]; voice = np.pad(voice, (0, N - len(voice)))
+# vocal rider: level each word toward the median word loudness (keeps the last line from fading)
+g = np.ones(N); rms = []
+for w in W:
+    a, b = int(w["s"] * SR), max(int(w["e"] * SR), int(w["s"] * SR) + 400)
+    rms.append(np.sqrt(np.mean(voice[a:b] ** 2)) + 1e-9)
+med = np.median(rms)
+for k, w in enumerate(W):
+    a = int((w["s"] - .03) * SR); b = int((w["e"] + .03) * SR)
+    gk = np.clip(med / rms[k], 0.7, 2.4) ** 0.8
+    if k >= len(W) - 6: gk = max(gk, np.clip(med / rms[k], 1, 2.8))  # final CTA line at full presence
+    g[max(0, a):b] = gk
+# hold gain through gaps, smooth 60ms
+gs = lp(g, 6)
+voice = voice * gs
+voice = voice / (np.sqrt(np.mean(voice[np.abs(voice) > 1e-3] ** 2)) + 1e-9) * 10 ** (-20 / 20)
+sf.write(f"{S}/build/voice_raw.wav", np.clip(voice, -1, 1), SR)
 
 # duck music under voice
 venv = np.abs(voice); w = int(.15 * SR); venv = np.convolve(venv, np.ones(w) / w, mode="same")
