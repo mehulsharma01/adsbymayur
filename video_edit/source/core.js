@@ -176,8 +176,9 @@ function ambient(t,cream){GH.style.color=cream?'#000':'#fff';
 const SC=[];const ROOT=document.getElementById('scenes');
 function scene(o){SC.push(o);if(o.sfx)o.sfx.forEach(c=>sfx(...c))}
 function finalize(){SC.sort((a,b)=>a.t0-b.t0);SC.forEach((s,i)=>{s.t1=s.t1||(SC[i+1]?SC[i+1].t0:window.DUR)});
-  SC.forEach((s,i)=>{if(i>0&&!s.nowhoosh)sfx(s.t0-0.12,s.tr==='whip'?'whip':'whoosh',.8)});
-  [...EMPH].forEach(i=>sfx(T(i)+.03,'tick',.5))}
+  SC.forEach((s,i)=>{if(i===0||s.nowhoosh)return;const pv=SC[i-1];const tt=s.t0-0.12;
+    const big=pv.bg!==s.bg||s.tr==='whip';const busy=window.SFX.some(c=>Math.abs(c.t-tt)<0.45);
+    if(big&&!busy)sfx(tt,s.tr==='whip'?'whip':'whoosh',.6)})}
 const bgD=document.getElementById('bgDark'),bgC=document.getElementById('bgCream'),FL=document.getElementById('flash'),HD=document.getElementById('handle');
 HD.innerHTML=IC.logo(34,'currentColor')+'<span>Answer Theory</span>';
 function sceneAt(t){let s=SC[0];for(const x of SC)if(x.t0<=t)s=x;return s}

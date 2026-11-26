@@ -16,9 +16,9 @@ build(r){const st={};glow(r,540,960,620,'rgba(216,158,55,.35)',.6);
   st.big=el('div','abs',`left:70px;top:470px;padding:22px 34px;border-radius:30px;background:rgba(20,20,24,.85);border:1.5px solid #3A3A42;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(216,158,55,.25);display:flex;align-items:baseline;gap:14px`,
     `<span class="bn" style="font-weight:900;font-size:110px;letter-spacing:-5px;color:${CORAL};line-height:1">0</span><span style="font-size:32px;font-weight:700;color:#ddd">posts<br><span style="color:#A8A8B2;font-size:24px;font-weight:500">published</span></span>`,w);
   st.trust=el('div','dcard',`left:600px;top:1210px;width:400px;padding:26px 28px;background:rgba(22,22,26,.95)`,
-    `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div><div style="font-weight:700;font-size:26px">Site trust</div><div style="color:#A8A8B2;font-size:20px">based on volume?</div></div></div>
+    `<div style="display:flex;align-items:center;gap:14px">${IC.G(52)}<div style="font-weight:700;font-size:28px">Trust</div></div>
      <div style="margin-top:20px;height:14px;border-radius:8px;background:#3A3A44;overflow:hidden"><div class="tb" style="height:100%;width:0;background:linear-gradient(90deg,${RED},${GOLD})"></div></div>
-     <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:20px;color:#A8A8B2"><span>Low</span><span class="tv" style="color:${GOLD};font-weight:700"></span></div>`,w);
+     <div style="display:flex;justify-content:flex-end;margin-top:10px;font-size:26px"><span class="tv" style="color:${RED};font-weight:800"></span></div>`,w);
   st.m=mascot(w,130);return st},
 update(s,lt,t){
   const N=Math.min(100,Math.floor(100*eOut(P(t,0.1,1.45))));
@@ -29,7 +29,7 @@ update(s,lt,t){
   s.B.el.style.transform=`translateY(${(1-ep)*300}px) rotateX(${16-6*lt/3}deg) rotateY(${-14+5*lt/3}deg) rotateZ(2deg)`;s.B.el.style.opacity=clamp(ep*2);
   popIn(s.big,t,.25,{post:`translateZ(140px) rotateY(-8deg)`});s.big.style.transform+=` scale(${1+.08*Math.sin(Math.PI*P(t,1.45,.3))})`;
   popIn(s.trust,t,T(6)-.1,{dx:120,post:'translateZ(200px) rotateY(-10deg)'});
-  const tb=eOut(P(t,T(6)+.15,.8));s.trust.querySelector('.tb').style.width=(30*tb)+'%';s.trust.querySelector('.tv').textContent=tb>0?'Not from volume':'';
+  const tw=t>T(6)+.15?11+5*Math.abs(Math.sin((t-T(6))*7))*Math.exp(-(t-T(6))*1.2):0;s.trust.querySelector('.tb').style.width=tw+'%';s.trust.querySelector('.tv').textContent=tw>0?Math.round(tw)+'%':'';
   const mp=P(t,1.6,.4);s.m.set(860,575,t,{op:mp>0?1:0,s:back(mp,2),look:-1,mood:'idle'});
 }});
 
@@ -94,7 +94,7 @@ build(r){const st={rows:[]};glow(r,540,1000,600,'rgba(140,190,255,.0)',0);
   st.frost=el('div','abs','inset:0;background:linear-gradient(160deg,rgba(225,238,255,.8),rgba(180,210,255,.45) 50%,rgba(235,245,255,.85));opacity:0',null,C);
   st.badge=el('div','abs',`left:700px;top:470px;width:220px;height:220px;border-radius:50%;background:${CORAL};color:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(216,158,55,.4);border:6px solid #FFF6E5`,
     `<div class="cn" style="font-weight:900;font-size:84px;letter-spacing:-4px;line-height:.9">0</div><div style="font-weight:700;font-size:26px">items</div>`,w);
-  st.thermo=toast(w,'left:120px;top:1380px;z-index:3',`<span style="font-size:30px">🌡</span><span style="color:#2F6BFF;font-weight:800">-18°C</span><span class="muted" style="font-size:21px">reheated daily</span>`,false);
+  st.thermo=toast(w,'left:120px;top:1380px;z-index:3',`<span style="font-size:30px">🌡</span><span style="color:#2F6BFF;font-weight:800">-18°C</span>`,false);
   st.stamp=el('div','abs',`left:230px;top:920px;width:620px;height:180px;border:9px solid #2F6BFF;border-radius:24px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;gap:22px;color:#2F6BFF;font-weight:900;font-size:100px;letter-spacing:6px;box-shadow:0 30px 70px rgba(47,107,255,.3)`,IC.snow('#2F6BFF',76)+'FROZEN',w);
   st.flakes=[...Array(26)].map((_,i)=>el('div','abs','',IC.snow(i%3?'#8DB8FF':'#4C86FF',18+rnd(i)*36),w));
   st.m=mascot(w,150);return st},
@@ -193,7 +193,7 @@ build(r){const st={};
   for(let i=0;i<70;i++){const d=DOMS[i%6];const x=(i%10)*156,y=Math.floor(i/10)*180;
     st.minis.push(el('div','abs',`left:${x}px;top:${y}px;width:140px;height:160px;border-radius:14px;background:#26262E;border:1.5px solid #44444E;padding:12px;overflow:hidden`,
       `<div style="display:flex;gap:4px;margin-bottom:10px"><i style="width:7px;height:7px;border-radius:50%;background:#FF5F57"></i><i style="width:7px;height:7px;border-radius:50%;background:#FEBC2E"></i><i style="width:7px;height:7px;border-radius:50%;background:#28C840"></i></div>${FAV(d[1],d[2])}<div style="font-size:12px;font-weight:700;color:#8AB4FF;margin-top:8px;line-height:1.25">10 Easy Ways to Improve Your SEO</div><div class="line-ph" style="height:5px;margin-top:8px"></div><div class="line-ph" style="height:5px;margin-top:5px;width:70%"></div>`,wall))}
-  st.cnt=el('div','abs',`left:50%;top:1330px;transform:translateX(-50%);padding:20px 34px;border-radius:26px;background:rgba(18,18,21,.95);border:1.5px solid #55555F;box-shadow:0 30px 80px rgba(0,0,0,.7);white-space:nowrap;font-size:32px;font-weight:700`,`<span class="c" style="color:${GOLD};font-weight:900;font-size:56px;letter-spacing:-2px">0</span> sites say the same thing`,r);
+  st.cnt=el('div','abs',`left:50%;top:1330px;transform:translateX(-50%);padding:20px 34px;border-radius:26px;background:rgba(18,18,21,.95);border:1.5px solid #55555F;box-shadow:0 30px 80px rgba(0,0,0,.7);white-space:nowrap;font-size:32px;font-weight:700`,`<span style="display:inline-flex;align-items:center;gap:16px"><svg width="46" height="46" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="16" rx="2" fill="none" stroke="#D89E37" stroke-width="2"/><rect x="3" y="6" width="13" height="16" rx="2" fill="#2A2A32" stroke="#D89E37" stroke-width="2"/></svg><span class="c" style="color:${GOLD};font-weight:900;font-size:64px;letter-spacing:-2px">0</span></span>`,r);
   return st},
 update(s,lt,t){const B=s.B.body;typed(B.querySelector('.q'),'how to improve seo',P(t,T(67)-.05,.9));
   s.res.forEach((e,i)=>{popIn(e,t,T(69)+i*.12,{dy:24,s0:.96});e.querySelector('.hl').style.backgroundSize=`${100*eOut(P(t,T(74)+i*.12,.3))}% 100%`});
@@ -216,7 +216,7 @@ build(r){const st={};glow(r,540,950,560,'rgba(76,125,255,.3)',.7);
    <div class="src" style="display:flex;gap:10px;margin-top:24px;align-items:center">${DOMS.filter(d=>d[0]!=='yourblog.com').map(d=>FAV(d[1],d[2])).join('')}<span class="pill" style="background:#30303A;color:#C8C8D0;font-size:20px">1,247 sources</span></div></div></div></div>`;
   st.icons=[IC.G(84),`<div style="width:84px;height:84px;border-radius:50%;background:#2C2C34;border:2px solid #4E4E58;display:flex;align-items:center;justify-content:center">${IC.spark(BLUE,46)}</div>`].map((h,i)=>{const e=el('div','abs',`left:${i?820:176}px;top:470px`,h+`<div class="xb" style="position:absolute;right:-8px;top:-8px;opacity:0">${IC.x(RED,36)}</div>`,r);return e});
   st.art=el('div','card',`left:240px;top:1330px;width:600px;padding:24px 28px;border:3px solid transparent`,`<div style="display:flex;align-items:center;gap:12px;font-size:20px;color:#777">${FAV(CORAL,'Y')} yourblog.com</div><div style="font-weight:800;font-size:30px;margin-top:10px;letter-spacing:-.5px;line-height:1.2">10 Easy Ways to Improve Your SEO (2026)</div><div class="pill" style="margin-top:12px;background:#F1F1EE;color:#555;font-size:19px">copy #4,813</div>`,r);
-  st.rej=toast(r,'left:150px;top:1200px;width:780px;z-index:6',`${IC.x(RED,34)}<span style="flex:1">Already covered by 1,247 sources</span><span style="color:${RED}">Skipped</span>`);
+  st.ghosts=[1,2,3,4].map(k=>{const g=st.art.cloneNode(true);g.style.zIndex=-1;g.style.opacity=0;r.insertBefore(g,st.art);return g});
   return st},
 update(s,lt,t){const B=s.B.body;typed(B.querySelector('.ub'),'How do I improve my SEO?',P(t,T(82),.9));
   popIn(B.querySelector('.ans'),t,T(84)+.1,{dy:20,s0:.97});popIn(B.querySelector('.src'),t,T(85),{dy:10,s0:.8});
@@ -225,7 +225,8 @@ update(s,lt,t){const B=s.B.body;typed(B.querySelector('.ub'),'How do I improve m
   const fly=eOut(P(t,T(89)-.15,.4)),hit=T(90)+.15,bounce=P(t,hit,.6);
   const y=t<hit?lerp(500,-60,fly):lerp(-60,40,eOut(bounce));s.art.style.opacity=P(t,T(89)-.15,.1);
   s.art.style.transform=`translateY(${y}px) rotate(${t>hit?6*eOut(bounce):0}deg) translateX(${t>hit?Math.sin((t-hit)*50)*12*(1-bounce):0}px)`;s.art.style.borderColor=t>hit?RED:'transparent';
-  popIn(s.rej,t,hit+.15,{dy:-30,s0:.9,post:'translateZ(100px)'});
+  const fan=eOut(P(t,hit+.05,.45)),fall=eIn(P(t,hit+1.0,.6));s.ghosts.forEach((g,k)=>{g.style.opacity=fan*(1-fall)*(.9-.15*k);g.style.transform=`translateY(${y-14*(k+1)*fan+fall*500}px) translateX(${-22*(k+1)*fan}px) rotate(${-3*(k+1)*fan}deg)`;g.style.filter='brightness(.75)'});
+  if(t>hit){s.art.style.filter=`grayscale(${P(t,hit+.3,.4)}) brightness(${1-.35*P(t,hit+.3,.4)})`;s.art.style.transform+=` translateY(${fall*500}px)`;s.art.style.opacity=1-fall}
 }});
 
 /* ===== S10 QUALITY: content generator + gauge ===== */
@@ -243,7 +244,7 @@ build(r){const st={};
    <svg width="800" height="540" style="position:absolute;left:0;top:0;overflow:visible"><defs><filter id="ng"><feGaussianBlur stdDeviation="8"/></filter></defs>${arc(180,238,RED)}${arc(242,298,GOLD)}${arc(302,360,GREEN)}${ticks}
    <g class="nd" style="transform-origin:${cx}px ${cy}px"><path d="M${cx-11} ${cy} L${cx} ${cy-205} L${cx+11} ${cy}Z" fill="#000" opacity=".5" filter="url(#ng)"/><path d="M${cx-11} ${cy} L${cx} ${cy-205} L${cx+11} ${cy}Z" fill="#fff"/><circle cx="${cx}" cy="${cy}" r="22" fill="#fff"/></g></svg>
    <div class="val" style="position:absolute;left:0;right:0;top:400px;text-align:center;font-weight:900;font-size:90px;letter-spacing:-4px;line-height:1">86</div>`;
-  st.gg=glow(C,400,370,300,'rgba(255,77,61,.5)',0);st.chip=el('div','pill abs','left:50%;top:1430px;font-size:28px;z-index:4','',r);
+  st.gg=glow(C,400,370,300,'rgba(255,77,61,.5)',0);
   st.cur=cursor(r);st.m=mascot(r,140);return st},
 update(s,lt,t){const click=T(95)+.1;const g=eOut(P(t,click+.15,T(104)-click));const n=Math.floor(100*g);
   cursorAt(s.cur,lerp(500,300,eIO(P(t,s.t0,.25))),lerp(800,580,eIO(P(t,s.t0,.25))),t>click&&t<click+.4?P(t,click,.4):null);s.cur.style.opacity=1-P(t,click+.6,.2);
@@ -254,10 +255,9 @@ update(s,lt,t){const click=T(95)+.1;const g=eOut(P(t,click+.15,T(104)-click));co
   const hurt=T(100)-.05;const gp=P(t,hurt,T(104)+.5-hurt);const v=lerp(86,23,clamp(elastic(gp)));
   s.card.querySelector('.nd').style.transform=`rotate(${-90+(v/100)*180}deg)`;const val=s.card.querySelector('.val');val.textContent=Math.round(v);val.style.color=v>66?GREEN:v>40?GOLD:RED;
   s.gg.style.opacity=.8*P(t,T(103),.4);
-  s.chip.innerHTML=v>66?`${IC.check(GREEN,30)} Healthy`:v>40?'⚠ Slipping':`${IC.x(RED,30)} Low quality`;
-  s.chip.style.background=v>66?'rgba(31,203,107,.15)':v>40?'rgba(255,176,46,.15)':'rgba(255,77,61,.16)';s.chip.style.color=v>66?GREEN:v>40?GOLD:RED;s.chip.style.transform='translateX(-50%)';
+  s.card.style.borderColor=v<40?'rgba(255,77,61,.6)':'';
   popIn(s.card,t,T(95)+.2,{dy:200,s0:.9,post:'rotateX(8deg)'});
-  const mp=P(t,hurt+.3,.4);s.m.set(925,975,t,{op:mp>0?1:0,s:back(mp,2),mood:t>hurt+.5?'shock':'idle',sweat:t>hurt+.8,look:-1});
+  const mp=P(t,hurt+.3,.4);s.m.set(905,1512,t,{op:mp>0?1:0,s:back(mp,2),mood:t>hurt+.5?'shock':'idle',sweat:t>hurt+.8,look:-1});
 }});
 
 /* ===== S11-12 10 AMAZING carousel → not the answer (cream) ===== */
