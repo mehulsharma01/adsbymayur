@@ -22,6 +22,7 @@ body{font-family:"Inter Display","Inter",sans-serif;-webkit-font-smoothing:antia
 #cap .line{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:18px;row-gap:10px;max-width:880px}
 #cap .w{display:inline-block;font-weight:600;font-size:62px;letter-spacing:-1.2px;line-height:1.15;color:#fff;white-space:nowrap}
 #cap.light .w{color:#141414}
+#cap:not(.light) .w{text-shadow:0 3px 18px rgba(0,0,0,.7)}
 #cap .w.dim{color:rgba(255,255,255,.42)}
 #cap.light .w.dim{color:rgba(20,20,20,.38)}
 #cap .em{position:relative;display:inline-block;padding:0 14px 4px;margin:0 10px}
@@ -49,7 +50,7 @@ body{font-family:"Inter Display","Inter",sans-serif;-webkit-font-smoothing:antia
   <div class="bg" id="bgDark"><div class="dots"></div></div>
   <div class="bg" id="bgCream"><div class="dots"></div></div>
   <div id="ghost" class="abs" style="inset:0"></div><div id="dust" class="abs" style="inset:0"></div><div id="scenes"></div>
-  <div id="cap"></div>
+  <div id="capbg" class="abs" style="left:0;right:0;top:0;height:620px;z-index:45;pointer-events:none;background:linear-gradient(rgba(12,12,15,.92) 0%,rgba(12,12,15,.78) 55%,rgba(12,12,15,0) 100%)"></div><div id="cap"></div>
   <div id="handle"></div>
   <div id="flash" class="abs" style="inset:0;background:#fff;opacity:0;z-index:60;pointer-events:none"></div>
 </div>
